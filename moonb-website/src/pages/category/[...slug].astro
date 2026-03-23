@@ -1,0 +1,55 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCategories, getCategoryPosts } from '../../lib/sanity';
+
+export async function getStaticPaths() {
+  let categories: any[] = [];
+  try {
+    categories = await getCategories();
+  } catch {
+    return [];
+  }
+  return categories.map((cat: any) => ({
+    params: { slug: cat.slug.current },
+    props: { categoryName: cat.name },
+  }));
+}
+
+const { slug } = Astro.params;
+const { categoryName } = Astro.props;
+
+let posts: any[] = [];
+try {
+  posts = await getCategoryPosts(slug as string);
+} catch {
+  // Empty category
+}
+---
+
+<BaseLayout
+  title={`${categoryName || slug} Articles`}
+  description={`Browse Moonb articles about ${categoryName || slug}.`}
+  breadcrumbs={[
+    { name: 'Blog', url: 'https://www.moonb.io/blog' },
+    { name: categoryName || String(slug), url: `https://www.moonb.io/category/${slug}` },
+  ]}
+>
+  <section class="section">
+    <div class="container">
+      <h1 style="margin-bottom: var(--space-10);">{categoryName || slug}</h1>
+
+      {posts.length > 0 ? (
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: var(--space-6);">
+          {posts.map((post: any) => (
+            <a href={`/blog/${post.slug.current}`} class="card" style="text-decoration: none;">
+              <h3 style="margin-bottom: var(--space-3);">{post.title}</h3>
+              <p style="font-size: var(--text-small);">{post.metaDescription}</p>
+            </a>
+          ))}
+        </div>
+      ) : (
+        <p style="color: var(--color-text-muted);">No posts in this category yet.</p>
+      )}
+    </div>
+  </section>
+</BaseLayout>

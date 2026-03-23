@@ -1,0 +1,71 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Breadcrumbs from '../components/layout/Breadcrumbs.astro';
+import { serviceSchema, faqPageSchema } from '../lib/schema';
+
+interface FAQ {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  title: string;
+  description?: string;
+  slug: string;
+  shortDescription?: string;
+  faqs?: FAQ[];
+  ogImage?: string;
+}
+
+const { title, description, slug, shortDescription, faqs = [], ogImage } = Astro.props;
+
+const schemas: Record<string, unknown>[] = [
+  serviceSchema({
+    title,
+    shortDescription,
+    metaDescription: description,
+    slug: { current: slug },
+  }),
+];
+
+if (faqs.length > 0) {
+  schemas.push(faqPageSchema(faqs));
+}
+
+const breadcrumbs = [
+  { name: 'Services', url: 'https://www.moonb.io/services' },
+  { name: title, url: `https://www.moonb.io/services/${slug}` },
+];
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  ogImage={ogImage}
+  schemas={schemas}
+  breadcrumbs={breadcrumbs}
+>
+  <div class="container">
+    <Breadcrumbs crumbs={[{ name: 'Home', url: '/' }, { name: 'Services', url: '/services' }, { name: title, url: `/services/${slug}` }]} />
+  </div>
+
+  <slot />
+
+  {faqs.length > 0 && (
+    <section class="section section--white">
+      <div class="container container--narrow">
+        <h2 style="margin-bottom: var(--space-10); text-align: center;">Frequently Asked Questions</h2>
+        <div style="display: flex; flex-direction: column; gap: var(--space-6);">
+          {faqs.map((faq) => (
+            <details class="card" style="cursor: pointer;">
+              <summary style="font-family: var(--font-heading); font-weight: var(--weight-semibold); font-size: var(--text-body-lg);">
+                {faq.question}
+              </summary>
+              <p style="margin-top: var(--space-4);">{faq.answer}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+</BaseLayout>

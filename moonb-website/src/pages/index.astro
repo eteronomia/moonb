@@ -1,0 +1,59 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Moonb | Dedicated Creative Team for Design & Video Production"
+  description="Moonb is a dedicated creative team providing enterprise-grade design, video production, motion graphics, and animation. Each client gets a dedicated Creative Director."
+>
+  <!-- Hero Section -->
+  <section class="section" style="min-height: 90vh; display: flex; align-items: center; position: relative; overflow: hidden;">
+    <div class="container" style="position: relative; z-index: 1;">
+      <div class="glass-hero" style="padding: var(--space-12); max-width: 640px;">
+        <h1 style="font-size: var(--text-display); margin-bottom: var(--space-6);">
+          Your dedicated creative team
+        </h1>
+        <p style="font-size: var(--text-body-lg); margin-bottom: var(--space-8); max-width: 480px;">
+          Enterprise-grade design, video production, and motion graphics. One dedicated Creative Director. Predictable monthly investment.
+        </p>
+        <div style="display: flex; gap: var(--space-4); flex-wrap: wrap;">
+          <a href="/book-a-demo" class="btn btn--primary">Book a Demo</a>
+          <a href="/work" class="btn btn--secondary">See Our Work</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Capabilities -->
+  <section class="section section--white section--rounded">
+    <div class="container">
+      <h2 style="text-align: center; margin-bottom: var(--space-12);">What we do</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: var(--space-6);">
+        {[
+          { title: 'Design', desc: 'Brand identity, graphic design, social media, presentations, and more.' },
+          { title: 'Video Production', desc: 'Corporate, explainer, commercial, and social media video production.' },
+          { title: 'Motion Graphics', desc: '2D and 3D animation, motion graphics, kinetic typography.' },
+          { title: 'Creative Strategy', desc: 'Creative direction, brand strategy, content creation, storyboarding.' },
+        ].map((cap) => (
+          <div class="card">
+            <h3 style="margin-bottom: var(--space-3);">{cap.title}</h3>
+            <p>{cap.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Social Proof -->
+  <section class="section section--purple section--rounded" style="margin-top: var(--space-8);">
+    <div class="container" style="text-align: center;">
+      <h2 style="margin-bottom: var(--space-6);">Trusted by enterprise brands</h2>
+      <p style="font-size: var(--text-body-lg); margin-bottom: var(--space-10);">
+        Dell, Intel, Toyota, Nestle, Microsoft, Opko Health, Shionogi, Refine Labs
+      </p>
+      <a href="/book-a-demo" class="btn" style="background: var(--color-white); color: var(--color-purple-600);">
+        Book a Demo
+      </a>
+    </div>
+  </section>
+</BaseLayout>

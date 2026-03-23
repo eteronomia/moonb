@@ -1,0 +1,24 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Work"
+  description="See Moonb's portfolio of enterprise-grade design, video production, and motion graphics work for brands like Dell, Intel, and Toyota."
+  breadcrumbs={[{ name: 'Work', url: 'https://www.moonb.io/work' }]}
+>
+  <section class="section">
+    <div class="container">
+      <h1 style="margin-bottom: var(--space-6);">Our Work</h1>
+      <p style="font-size: var(--text-body-lg); max-width: 600px; margin-bottom: var(--space-12);">
+        Enterprise-grade creative output for the world's most demanding brands.
+      </p>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: var(--space-6);">
+        <!-- Work items will be populated from Sanity -->
+        <div class="card" style="min-height: 300px; display: flex; align-items: center; justify-content: center;">
+          <p style="color: var(--color-text-muted);">Portfolio coming soon</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

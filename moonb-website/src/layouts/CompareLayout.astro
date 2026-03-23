@@ -1,0 +1,43 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Breadcrumbs from '../components/layout/Breadcrumbs.astro';
+import { faqPageSchema } from '../lib/schema';
+
+interface FAQ {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  title: string;
+  description?: string;
+  slug: string;
+  competitor?: string;
+  faqs?: FAQ[];
+}
+
+const { title, description, slug, competitor, faqs = [] } = Astro.props;
+
+const schemas: Record<string, unknown>[] = [];
+if (faqs.length > 0) {
+  schemas.push(faqPageSchema(faqs));
+}
+
+const breadcrumbs = [
+  { name: 'Compare', url: 'https://www.moonb.io/compare' },
+  { name: title, url: `https://www.moonb.io/compare/${slug}` },
+];
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  schemas={schemas}
+  breadcrumbs={breadcrumbs}
+>
+  <div class="container">
+    <Breadcrumbs crumbs={[{ name: 'Home', url: '/' }, { name: 'Compare', url: '#' }, { name: title, url: `/compare/${slug}` }]} />
+  </div>
+
+  <slot />
+</BaseLayout>

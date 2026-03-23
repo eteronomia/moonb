@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/services/training-video-production",
+      "destination": "/services/internal-training-video-production",
+      "statusCode": 301
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+---
+const currentYear = new Date().getFullYear();
+
+const footerLinks = [
+  {
+    title: 'Services',
+    links: [
+      { label: 'Video Production', href: '/services/corporate-video-production' },
+      { label: 'Motion Graphics', href: '/services/motion-graphics' },
+      { label: 'Graphic Design', href: '/services/graphic-design' },
+      { label: 'All Services', href: '/services' },
+    ],
+  },
+  {
+    title: 'Company',
+    links: [
+      { label: 'About', href: '/about' },
+      { label: 'Work', href: '/work' },
+      { label: 'Pricing', href: '/pricing' },
+      { label: 'Blog', href: '/blog' },
+    ],
+  },
+  {
+    title: 'Legal',
+    links: [
+      { label: 'Terms & Conditions', href: '/terms-and-conditions' },
+      { label: 'Privacy Policy', href: '/privacy-policy' },
+      { label: 'Cookie Policy', href: '/cookie-policy' },
+    ],
+  },
+];
+---
+
+<footer class="section section--cream" style="padding-block: var(--space-16) var(--space-8); border-top: 1px solid var(--color-border);">
+  <div class="container">
+    <div style="display: grid; grid-template-columns: 2fr repeat(3, 1fr); gap: var(--space-8); margin-bottom: var(--space-12);">
+      <div>
+        <a href="/" style="font-family: var(--font-heading); font-weight: 700; font-size: 1.5rem; color: var(--color-purple-600);">
+          Moonb
+        </a>
+        <p style="margin-top: var(--space-4); max-width: 280px; font-size: var(--text-small);">
+          Your dedicated creative team for enterprise-grade design and video production.
+        </p>
+      </div>
+
+      {footerLinks.map((group) => (
+        <div>
+          <h4 style="font-size: var(--text-small); font-weight: var(--weight-semibold); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: var(--space-4); color: var(--color-text-primary);">
+            {group.title}
+          </h4>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: var(--space-2);">
+            {group.links.map((link) => (
+              <li>
+                <a href={link.href} style="font-size: var(--text-small); color: var(--color-text-secondary); transition: color 150ms ease;">
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+
+    <div style="border-top: 1px solid var(--color-border); padding-top: var(--space-6); text-align: center;">
+      <p style="font-size: var(--text-caption); color: var(--color-text-muted);">
+        &copy; {currentYear} Moonb. All rights reserved.
+      </p>
+    </div>
+  </div>
+</footer>
