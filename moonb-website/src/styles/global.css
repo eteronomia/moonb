@@ -21,8 +21,8 @@
   --green-soft:  #D4EDDA;
   --teal-light:  #1A6B52;
 
-  /* Radius (Revnu) */
-  --r: 40px; --r-sm: 24px; --r-xs: 16px; --r-pill: 100px;
+  /* Radius (Wispr Flow — generous, accentuated) */
+  --r: 48px; --r-sm: 32px; --r-xs: 20px; --r-pill: 100px;
 
   /* Layout */
   --max: 1200px; --nav-h: 64px;
@@ -132,8 +132,8 @@ p { line-height:1.65; color:var(--muted); }
   right: -4px;
   bottom: 4px;
   height: 35%;
-  background: var(--lav);
-  opacity: 0.4;
+  background: var(--green-soft);
+  opacity: 0.65;
   z-index: -1;
   border-radius: 4px;
   transform: skewX(-1deg);
