@@ -1,0 +1,158 @@
+---
+const links = [
+  { label: 'How it works', href: '#how-it-works' },
+  { label: 'Pricing', href: '#pricing' },
+  { label: 'Recent work', href: '#recent-work' },
+  { label: 'FAQ', href: '#faq' },
+  { label: 'Blog', href: '/blog' },
+];
+---
+
+<nav class="nav" id="main-nav">
+  <div class="nav__bar">
+    <a href="/" class="nav__logo">
+      <span class="nav__logo-icon">🐝</span>
+      <span class="nav__logo-text">moonb<span class="nav__logo-ee">ee</span></span>
+    </a>
+
+    <div class="nav__center">
+      {links.map((link) => (
+        <a href={link.href} class="nav__link">{link.label}</a>
+      ))}
+    </div>
+
+    <a href="/book-a-demo" class="nav__cta">Book a Demo</a>
+
+    <button class="nav__toggle" aria-label="Menu" id="nav-toggle">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="nav__mobile" id="mobile-menu">
+  {links.map((link) => (
+    <a href={link.href} class="nav__mobile-link">{link.label}</a>
+  ))}
+  <a href="/book-a-demo" class="btn btn--lav" style="margin-top:var(--s-4);width:100%;justify-content:center;">Book a Demo</a>
+</div>
+
+<style>
+  .nav {
+    position: fixed;
+    top: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: var(--z-nav);
+    width: calc(100% - 40px);
+    max-width: 1060px;
+  }
+
+  .nav__bar {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    padding: 10px 10px 10px 24px;
+    background: var(--cream);
+    border-radius: 18px;
+    border: 1px solid rgba(26,26,26,0.05);
+    box-shadow: 0 4px 24px rgba(14,14,14,0.07), 0 1px 3px rgba(14,14,14,0.04);
+  }
+
+  .nav__logo {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .nav__logo-icon { font-size: 22px; }
+  .nav__logo-text {
+    font-family: var(--font-h);
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--text);
+    letter-spacing: -0.02em;
+  }
+  .nav__logo-ee { color: var(--lav); }
+
+  .nav__center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+  }
+
+  .nav__link {
+    font-family: var(--font-b);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text);
+    padding: 8px 16px;
+    border-radius: 12px;
+    transition: background 150ms ease;
+    white-space: nowrap;
+  }
+  .nav__link:hover { background: rgba(26,26,26,0.05); }
+
+  .nav__cta {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 24px;
+    border-radius: 12px;
+    background: var(--lav);
+    color: var(--text);
+    font-family: var(--font-b);
+    font-size: 14px;
+    font-weight: 600;
+    white-space: nowrap;
+    transition: all 200ms ease;
+  }
+  .nav__cta:hover { background: var(--lav-dark); transform: translateY(-1px); }
+
+  .nav__toggle {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    padding: 8px;
+    margin-left: auto;
+  }
+  .nav__toggle span {
+    display: block; width: 18px; height: 2px;
+    background: var(--text); border-radius: 1px;
+  }
+
+  .nav__mobile {
+    display: none;
+    position: fixed;
+    top: 82px; left: 16px; right: 16px;
+    z-index: calc(var(--z-nav) - 1);
+    background: var(--cream);
+    border-radius: var(--r-sm);
+    padding: var(--s-6);
+    flex-direction: column;
+    gap: 4px;
+    box-shadow: var(--sh-xl);
+    border: 1px solid rgba(26,26,26,0.06);
+  }
+  .nav__mobile.is-open { display: flex; }
+  .nav__mobile-link {
+    display: block; padding: 12px 16px;
+    font-size: 16px; font-weight: 500;
+    color: var(--text); border-radius: var(--r-xs);
+  }
+  .nav__mobile-link:hover { background: rgba(26,26,26,0.04); }
+
+  @media (max-width: 860px) {
+    .nav__center { display: none; }
+    .nav__cta { display: none; }
+    .nav__toggle { display: flex; }
+    .nav__bar { grid-template-columns: auto 1fr; }
+  }
+</style>
+
+<script>
+  document.getElementById('nav-toggle')?.addEventListener('click', () => {
+    document.getElementById('mobile-menu')?.classList.toggle('is-open');
+  });
+  document.getElementById('mobile-menu')?.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => document.getElementById('mobile-menu')?.classList.remove('is-open'));
+  });
+</script>

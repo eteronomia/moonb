@@ -1,47 +1,15 @@
 ---
-import MetaTags from '../components/seo/MetaTags.astro';
-import JsonLd from '../components/seo/JsonLd.astro';
-import LiquidGlassNav from '../components/layout/LiquidGlassNav.tsx';
-import Footer from '../components/layout/Footer.astro';
-import { organizationSchema, breadcrumbSchema } from '../lib/schema';
-
+import Nav from '../components/layout/Nav.astro';
+import { organizationSchema } from '../lib/schema';
 import '../styles/global.css';
-import '../styles/liquid-glass.css';
 
 interface Props {
   title: string;
   description?: string;
-  canonical?: string;
-  ogTitle?: string;
-  ogDescription?: string;
-  ogImage?: string;
-  noindex?: boolean;
-  schemas?: Record<string, unknown>[];
-  breadcrumbs?: { name: string; url: string }[];
 }
 
-const {
-  title,
-  description,
-  canonical,
-  ogTitle,
-  ogDescription,
-  ogImage,
-  noindex = false,
-  schemas = [],
-  breadcrumbs,
-} = Astro.props;
-
-const siteUrl = 'https://www.moonb.io';
-
-// Always include Organization schema
-const allSchemas: Record<string, unknown>[] = [organizationSchema(), ...schemas];
-
-// Add breadcrumbs if provided
-if (breadcrumbs && breadcrumbs.length > 0) {
-  const crumbs = [{ name: 'Home', url: siteUrl }, ...breadcrumbs];
-  allSchemas.push(breadcrumbSchema(crumbs));
-}
+const { title, description } = Astro.props;
+const orgSchema = organizationSchema();
 ---
 
 <!doctype html>
@@ -50,24 +18,14 @@ if (breadcrumbs && breadcrumbs.length > 0) {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <MetaTags
-      title={title}
-      description={description}
-      canonical={canonical}
-      ogTitle={ogTitle}
-      ogDescription={ogDescription}
-      ogImage={ogImage}
-      noindex={noindex}
-    />
-    <JsonLd schema={allSchemas} />
+    <title>{title}</title>
+    {description && <meta name="description" content={description} />}
+    <script type="application/ld+json" set:html={JSON.stringify(orgSchema)} />
   </head>
   <body>
-    <LiquidGlassNav client:load />
-
+    <Nav />
     <main>
       <slot />
     </main>
-
-    <Footer />
   </body>
 </html>

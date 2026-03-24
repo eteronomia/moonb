@@ -4,63 +4,74 @@ Generated from DESIGN_BRIEF.md. Source of truth for all visual implementation. E
 
 ---
 
-## 1. COLOR TOKENS
+## 1. COLOR TOKENS (Extracted from Wispr Flow)
 
-### Base
+### Base (Wispr "Lumen" palette)
 
 | Token | Hex | Usage |
 |---|---|---|
-| `--color-cream` | `#FAF7F2` | Default page background, warm off-white |
-| `--color-cream-dark` | `#F0EBE3` | Subtle background differentiation |
+| `--color-cream` | `#FFFFEB` | Default page background (Wispr "lumen") |
+| `--color-cream-dark` | `#E4E4D0` | Subtle background differentiation (Wispr "lumen-dark") |
 | `--color-white` | `#FFFFFF` | Cards, inputs, elevated surfaces |
+| `--color-dark` | `#1A1A1A` | Dark section backgrounds (Wispr "vast") |
+| `--color-dark-deep` | `#111111` | Deepest dark (Wispr "neutral-darkest") |
 
-### Purple (Primary Accent)
-
-| Token | Hex | Usage |
-|---|---|---|
-| `--color-purple-50` | `#F5F0FF` | Tinted backgrounds |
-| `--color-purple-100` | `#EDE5FF` | Light purple fills |
-| `--color-purple-200` | `#D4BFFF` | Text on dark purple sections |
-| `--color-purple-300` | `#B794F6` | Decorative accents |
-| `--color-purple-400` | `#9F67FF` | Hover states |
-| `--color-purple-500` | `#7C3AED` | Primary buttons, CTAs, active states |
-| `--color-purple-600` | `#6D28D9` | Button hover, strong emphasis |
-| `--color-purple-700` | `#5B21B6` | Section backgrounds |
-| `--color-purple-800` | `#4C1D95` | Deep section backgrounds |
-| `--color-purple-900` | `#3B0F7A` | Darkest purple |
-
-### Green (Secondary Accent)
+### Purple / Lavender (Primary Accent, Wispr "Dawn" range)
 
 | Token | Hex | Usage |
 |---|---|---|
-| `--color-green-50` | `#ECFDF5` | Tinted backgrounds |
-| `--color-green-100` | `#D1FAE5` | Light green fills |
-| `--color-green-200` | `#A7F3D0` | Text on dark green sections |
-| `--color-green-300` | `#6EE7B7` | Decorative accents |
-| `--color-green-400` | `#34D399` | Success states, highlights |
-| `--color-green-500` | `#10B981` | Secondary CTAs |
-| `--color-green-600` | `#059669` | Section backgrounds |
-| `--color-green-700` | `#047857` | Deep section backgrounds |
-| `--color-green-800` | `#065F46` | Dark green |
-| `--color-green-900` | `#064E3B` | Darkest green |
+| `--color-purple-50` | `#FBF0FF` | Lightest tinted backgrounds |
+| `--color-purple-100` | `#F0D7FF` | Primary buttons, CTAs (Wispr "dawn") |
+| `--color-purple-200` | `#E0B8FF` | Light purple fills, hover state |
+| `--color-purple-300` | `#C98FFF` | Decorative accents |
+| `--color-purple-400` | `#B366FF` | Strong accent |
+| `--color-purple-500` | `#9B3FED` | Deep purple accent |
+| `--color-purple-600` | `#7C2ED6` | Section accents |
+| `--color-purple-700` | `#5E1FB3` | Section backgrounds |
+| `--color-purple-800` | `#42148F` | Deep section backgrounds |
+| `--color-purple-900` | `#2D0B6B` | Darkest purple |
+
+### Green / Teal (Secondary Accent, Wispr "Fathom" range)
+
+| Token | Hex | Usage |
+|---|---|---|
+| `--color-green-50` | `#E6FAF7` | Lightest tinted backgrounds |
+| `--color-green-100` | `#B3F0E8` | Light green fills |
+| `--color-green-200` | `#66DBC9` | Text on dark green sections |
+| `--color-green-300` | `#33C4AD` | Decorative accents |
+| `--color-green-400` | `#0A9E86` | Success states, highlights |
+| `--color-green-500` | `#068070` | Secondary CTAs |
+| `--color-green-600` | `#046A5C` | Mid green |
+| `--color-green-700` | `#034F46` | Section backgrounds (Wispr "fathom") |
+| `--color-green-800` | `#023D36` | Deep section backgrounds |
+| `--color-green-900` | `#012B26` | Darkest green |
+
+### Warm Accent (Wispr "Glow")
+
+| Token | Hex | Usage |
+|---|---|---|
+| `--color-glow` | `#FFA946` | Warm orange accent, highlights |
 
 ### Text
 
 | Token | Hex | Usage |
 |---|---|---|
-| `--color-text-primary` | `#1A1A2E` | Headings, primary body text on light |
-| `--color-text-secondary` | `#4A4A68` | Body text, descriptions |
-| `--color-text-muted` | `#8888A0` | Captions, timestamps, placeholders |
-| `--color-text-on-dark` | `#F5F3EF` | Text on dark backgrounds |
-| `--color-text-on-purple` | `#F5F0FF` | Text on purple sections |
-| `--color-text-on-green` | `#ECFDF5` | Text on green sections |
+| `--color-text-primary` | `#1A1A1A` | Headings, primary body text on light (Wispr "vast") |
+| `--color-text-secondary` | `#1A1A1A99` | Body text, descriptions (60% opacity) |
+| `--color-text-muted` | `#1A1A1A4D` | Captions, timestamps, placeholders (30% opacity) |
+| `--color-text-on-dark` | `#FFFFEB` | Text on dark backgrounds (Wispr "lumen") |
+| `--color-text-on-purple` | `#F0D7FF` | Text on purple sections (Wispr "dawn") |
+| `--color-text-on-green` | `#FFFFEB` | Text on green sections |
 
-### Borders
+### Borders (Wispr alpha values)
 
 | Token | Value | Usage |
 |---|---|---|
-| `--color-border` | `rgba(26, 26, 46, 0.08)` | Default dividers |
-| `--color-border-strong` | `rgba(26, 26, 46, 0.15)` | Emphasized borders |
+| `--color-border` | `#1A1A1A1A` | Default dividers (Wispr alpha dark 10%) |
+| `--color-border-strong` | `#1A1A1A4D` | Emphasized borders (Wispr alpha dark 30%) |
+| `--alpha-light-50` | `#FFFFEB80` | 50% light overlay |
+| `--alpha-dark-30` | `#1A1A1A4D` | 30% dark overlay |
+| `--alpha-dark-70` | `#1A1A1AB3` | 70% dark overlay |
 
 ---
 

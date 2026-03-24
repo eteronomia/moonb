@@ -1,375 +1,277 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import '../styles/homepage.css';
 
-const clients = ['Dell', 'Intel', 'Toyota', 'Nestle', 'Microsoft', 'Shionogi', 'Politico', 'State Street', 'CyberArk', 'Opko Health', 'Refine Labs'];
-
-const valueProps = [
-  {
-    icon: '⚡',
-    iconBg: 'var(--color-purple-50)',
-    title: 'Better than hiring',
-    desc: 'A full creative department without the overhead of salaries, benefits, or equipment. Scale up or down as your needs change.',
-  },
-  {
-    icon: '🎯',
-    iconBg: 'var(--color-green-50)',
-    title: 'Beyond agencies',
-    desc: 'Your dedicated Creative Director learns your brand deeply. No account managers, no revolving door of freelancers.',
-  },
-  {
-    icon: '🚀',
-    iconBg: 'var(--color-purple-50)',
-    title: 'Super fast onboarding',
-    desc: 'Go from signed agreement to first deliverables in days, not months. Your team is ready when you are.',
-  },
-];
-
-const steps = [
-  { title: 'Share your vision', desc: 'Tell us about your brand, goals, and creative needs. We match you with a dedicated Creative Director who gets it.' },
-  { title: 'Get your team', desc: 'Your Creative Director assembles the perfect team: designers, animators, editors, strategists. All embedded in your workflow.' },
-  { title: 'Create at scale', desc: 'Submit requests through a simple dashboard. Your team delivers polished creative on a predictable timeline.' },
-  { title: 'Iterate and grow', desc: 'Your team learns your brand deeper each month. Quality compounds. Output accelerates.' },
-];
-
-const testimonials = [
-  { quote: 'Moonb transformed how we produce creative. Our dedicated team delivers enterprise-quality work faster than any agency we have used.', author: 'VP of Marketing', company: 'Enterprise SaaS Company' },
-  { quote: 'Having a dedicated Creative Director who understands our brand has been transformative. The quality is consistently exceptional.', author: 'Head of Brand', company: 'Global Tech Company' },
-  { quote: 'We replaced three agencies with one Moonb team. Better work, faster turnaround, predictable cost.', author: 'CMO', company: 'Fintech Leader' },
-];
-
-const faqs = [
-  { q: 'How does the dedicated creative team model work?', a: 'You get a dedicated Creative Director and a team of specialists (designers, animators, editors) who work exclusively on your brand. They learn your guidelines, tone, and preferences deeply, delivering increasingly better work over time.' },
-  { q: 'What types of creative work can Moonb handle?', a: 'Everything from video production and motion graphics to graphic design, brand identity, presentations, social media content, and creative strategy. Your team covers the full spectrum of visual creative.' },
-  { q: 'How quickly can we get started?', a: 'Most clients go from signed agreement to first deliverables within one to two weeks. Your Creative Director begins with a brand immersion to understand your needs before the team starts producing.' },
-  { q: 'How is this different from hiring in-house?', a: 'You get an entire creative department without the overhead of salaries, benefits, equipment, and management. Moonb teams are already trained, equipped, and ready to produce from day one.' },
-  { q: 'What if our needs change month to month?', a: 'Your team adapts to your workload. Need more video one month and more design the next? Your Creative Director reallocates resources to match your priorities.' },
-  { q: 'Who are Moonb\'s typical clients?', a: 'Enterprise and growth-stage companies across SaaS, fintech, healthcare, tech, and e-commerce who need consistent, high-quality creative output at scale. Clients include Dell, Intel, Toyota, and Microsoft.' },
-];
-
-const carouselItems = ['Brand Campaign', 'Social Media Series', 'Product Launch', 'Motion Graphics', 'Corporate Video', 'Presentation Design', 'Ad Creative', 'Brand Identity'];
-
-const heroPortfolio = [
-  { label: 'Grubhub', color: '#FF6B00' },
-  { label: 'Pernod Ricard', color: '#8B4513' },
-  { label: 'Roland', color: '#E63946' },
-  { label: 'Microsoft', color: '#A8D5A2' },
-  { label: 'Collabera', color: '#1A1A2E' },
-  { label: 'Otto', color: '#B8E0D2' },
-  { label: 'Dell', color: '#0076CE' },
-  { label: 'CyberArk', color: '#2D2D6B' },
-  { label: 'Nasdaq', color: '#0A2F51' },
-];
+const clients = ['Nottingham', 'Dell Technologies', 'PharmaForceIQ', 'Intel', 'V-nova', 'Unobravo', 'United Way', 'Toyota', 'Thrive Scholars', 'State Street', 'Shionogi', 'Politico', 'Northern Rail', 'Nestle', 'Microsoft', 'LiveLife', 'GlaxoSmithKline', 'Gnosis', 'GlobalX', 'CyberArk'];
 ---
 
 <BaseLayout
   title="Moonb | Dedicated Creative Team for Design & Video Production"
   description="Moonb is a dedicated creative team providing enterprise-grade design, video production, motion graphics, and animation. Each client gets a dedicated Creative Director."
 >
-  <!-- ==================== 1. HERO ==================== -->
-  <section class="hero-dark" id="hero">
-    <div class="hero-dark__inner">
+  <!-- ==================== HERO ==================== -->
+  <section class="hero paper-bg">
+    <div class="hero__inner">
       <!-- Left: Copy -->
-      <div class="hero-dark__copy">
-        <h1 class="hero-dark__headline">
-          Human creativity.<br/>
-          <em>Dedicated teams.</em><br/>
-          Your brand's creative advantage.
+      <div class="hero__copy">
+        <div class="hero__tag">
+          <span class="hero__tag-dot"></span>
+          Your embedded creative department
+        </div>
+
+        <h1 class="hero__h1 text-reveal">
+          Your <span class="highlight">Creative</span><br/>Services Team
         </h1>
-        <p class="hero-dark__sub">
-          Expand your creative output with a dedicated team of designers, animators, and video producers who fully integrate into how your brand thinks, creates, and delivers.
+
+        <p class="hero__sub text-reveal">
+          Human-made design and video, delivered weekly by a team that knows your brand inside out.
         </p>
-        <a href="/book-a-demo" class="hero-dark__cta">Book a demo</a>
-      </div>
 
-      <!-- Right: Portfolio Mosaic -->
-      <div class="hero-dark__mosaic">
-        {heroPortfolio.map((item, i) => (
-          <div
-            class="hero-dark__tile"
-            data-hero-tile
-            style={`background: ${item.color}; animation-delay: ${i * 0.08}s;`}
-          >
-            <span class="hero-dark__tile-label">{item.label}</span>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- ==================== 2. CLIENT LOGOS MARQUEE ==================== -->
-  <section class="marquee" id="clients">
-    <div class="marquee__track">
-      {[...clients, ...clients].map((name) => (
-        <span class="marquee__logo">{name}</span>
-      ))}
-    </div>
-  </section>
-
-  <!-- ==================== 3. DESIGN PORTFOLIO CAROUSEL ==================== -->
-  <section class="section section--white section--rounded" id="capabilities" style="margin-top: var(--space-4);">
-    <div class="container">
-      <p class="gsap-fade-up" style="font-size: var(--text-small); font-weight: var(--weight-semibold); text-transform: uppercase; letter-spacing: 0.08em; color: var(--color-purple-500); margin-bottom: var(--space-3);">What we create</p>
-      <h2 class="gsap-fade-up" style="margin-bottom: var(--space-10); max-width: 600px;">Design and Video That Performs</h2>
-    </div>
-    <div class="carousel">
-      {carouselItems.map((item) => (
-        <div class="carousel__card gsap-fade-up">{item}</div>
-      ))}
-    </div>
-  </section>
-
-  <!-- ==================== 4. VALUE PROPS ==================== -->
-  <section class="section section--cream" style="margin-top: var(--space-8);">
-    <div class="container" style="text-align: center; margin-bottom: var(--space-12);">
-      <p class="gsap-fade-up" style="font-size: var(--text-small); font-weight: var(--weight-semibold); text-transform: uppercase; letter-spacing: 0.08em; color: var(--color-purple-500); margin-bottom: var(--space-3);">Why Moonb</p>
-      <h2 class="gsap-fade-up" style="max-width: 600px; margin: 0 auto;">A Better Way To Get Creative Done</h2>
-    </div>
-    <div class="container">
-      <div class="value-cards">
-        {valueProps.map((prop) => (
-          <div class="card value-card gsap-fade-up">
-            <div class="value-card__icon" style={`background: ${prop.iconBg};`}>{prop.icon}</div>
-            <h3 style="margin-bottom: var(--space-3);">{prop.title}</h3>
-            <p>{prop.desc}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- ==================== 5. HOW IT WORKS ==================== -->
-  <section class="section section--purple section--rounded" id="how-it-works" style="margin-top: var(--space-8);">
-    <div class="container">
-      <div style="text-align: center;">
-        <p class="gsap-fade-up" style="font-size: var(--text-small); font-weight: var(--weight-semibold); text-transform: uppercase; letter-spacing: 0.08em; color: var(--color-purple-200); margin-bottom: var(--space-3);">How it works</p>
-        <h2 class="gsap-fade-up" style="margin-bottom: var(--space-4);">From Brief to Brilliance</h2>
-        <p class="gsap-fade-up" style="font-size: var(--text-body-lg); max-width: 560px; margin: 0 auto var(--space-10);">A streamlined process designed for speed, quality, and creative excellence.</p>
-      </div>
-
-      <!-- Process video placeholder -->
-      <div class="gsap-fade-up" style="max-width: 800px; margin: 0 auto var(--space-12); aspect-ratio: 16/9; border-radius: var(--radius-xl); background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; font-size: 3rem; color: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.15);">
-        ▶ Process Video
-      </div>
-
-      <div class="steps">
-        {steps.map((step) => (
-          <div class="card step-card gsap-fade-up" style="background: rgba(255,255,255,0.95);">
-            <h3 style="margin-bottom: var(--space-3); color: var(--color-text-primary);">{step.title}</h3>
-            <p style="color: var(--color-text-secondary);">{step.desc}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- ==================== 6. PRICING ==================== -->
-  <section class="section section--marble" id="pricing" style="margin-top: var(--space-8);">
-    <div class="container">
-      <div style="text-align: center; margin-bottom: var(--space-12);">
-        <p class="gsap-fade-up" style="font-size: var(--text-small); font-weight: var(--weight-semibold); text-transform: uppercase; letter-spacing: 0.08em; color: var(--color-purple-500); margin-bottom: var(--space-3);">Pricing</p>
-        <h2 class="gsap-fade-up" style="margin-bottom: var(--space-4);">Predictable Monthly Investment</h2>
-        <p class="gsap-fade-up" style="font-size: var(--text-body-lg); max-width: 560px; margin: 0 auto;">No surprises. No scope creep. Just consistent, high-quality creative output.</p>
-      </div>
-
-      <div class="pricing-grid">
-        <div class="glass-card pricing-card gsap-fade-up">
-          <div class="pricing-card__label">Growth</div>
-          <div class="pricing-card__price">Custom</div>
-          <p style="font-size: var(--text-small); margin-bottom: var(--space-4);">For teams starting to scale creative.</p>
-          <ul class="pricing-card__list">
-            <li>Dedicated Creative Director</li>
-            <li>Design and video production</li>
-            <li>Weekly deliverables</li>
-            <li>Brand guideline alignment</li>
-          </ul>
-          <a href="/book-a-demo" class="btn btn--secondary" style="width: 100%; justify-content: center;">Get Started</a>
+        <div class="hero__buttons text-reveal">
+          <a href="/book-a-demo" class="btn btn--lav">Get Started</a>
+          <a href="#recent-work" class="btn btn--outline">See Examples</a>
         </div>
 
-        <div class="glass-card pricing-card pricing-card--featured gsap-fade-up">
-          <div class="pricing-card__label">Enterprise</div>
-          <div class="pricing-card__price">Custom</div>
-          <p style="font-size: var(--text-small); margin-bottom: var(--space-4);">The full embedded creative department.</p>
-          <ul class="pricing-card__list">
-            <li>Everything in Growth</li>
-            <li>Full creative team (5+ specialists)</li>
-            <li>Motion graphics and animation</li>
-            <li>Creative strategy sessions</li>
-            <li>Priority turnaround</li>
-          </ul>
-          <a href="/book-a-demo" class="btn btn--primary" style="width: 100%; justify-content: center;">Book a Demo</a>
+        <!-- Decorative arrow -->
+        <svg class="hero__arrow" width="140" height="90" viewBox="0 0 140 90" fill="none">
+          <path d="M12 12 C 40 70, 90 70, 115 35" stroke="var(--text)" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-dasharray="4 6"/>
+          <path d="M107 27 L115 35 L105 38" stroke="var(--text)" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+
+      <!-- Right: Video + Badges -->
+      <div class="hero__media">
+        <div class="hero__video">
+          <div style="padding:56.25% 0 0 0;position:relative;">
+            <iframe
+              src="https://player.vimeo.com/video/1084258404?h=bf1bb4d67b&badge=0&autopause=0&player_id=0&app_id=58479"
+              frameborder="0"
+              allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              style="position:absolute;top:0;left:0;width:100%;height:100%;border-radius:var(--r-sm);"
+              title="Moonb Showreel"
+            ></iframe>
+          </div>
         </div>
 
-        <div class="glass-card pricing-card gsap-fade-up">
-          <div class="pricing-card__label">Custom</div>
-          <div class="pricing-card__price">Let's talk</div>
-          <p style="font-size: var(--text-small); margin-bottom: var(--space-4);">For unique requirements and large teams.</p>
-          <ul class="pricing-card__list">
-            <li>Everything in Enterprise</li>
-            <li>Multiple Creative Directors</li>
-            <li>Cross-brand coordination</li>
-            <li>Dedicated project management</li>
-          </ul>
-          <a href="/book-a-demo" class="btn btn--secondary" style="width: 100%; justify-content: center;">Contact Us</a>
+        <!-- Square badge placeholders -->
+        <div class="hero__badges">
+          <div class="hero__badge"></div>
+          <div class="hero__badge"></div>
+          <div class="hero__badge"></div>
+          <div class="hero__badge"></div>
         </div>
       </div>
     </div>
-  </section>
 
-  <!-- ==================== 7. RECENT WORK (Parallax Gallery) ==================== -->
-  <section class="section" id="recent-work" style="margin-top: var(--space-8);">
-    <div class="container">
-      <div style="text-align: center; margin-bottom: var(--space-12);">
-        <p class="gsap-fade-up" style="font-size: var(--text-small); font-weight: var(--weight-semibold); text-transform: uppercase; letter-spacing: 0.08em; color: var(--color-purple-500); margin-bottom: var(--space-3);">Recent work</p>
-        <h2 class="gsap-fade-up">Creative That Moves Brands Forward</h2>
-      </div>
-
-      <div class="parallax-gallery">
-        {['Brand Campaign', 'Product Launch', 'Social Series', 'Motion Reel', 'Explainer Video', 'Ad Creative'].map((item, i) => (
-          <div class="parallax-item" data-parallax-item data-parallax-direction={i % 2 === 0 ? 'up' : 'down'}>
-            <div class="parallax-item__placeholder">{item}</div>
-          </div>
+    <!-- Client logos marquee -->
+    <div class="hero__marquee">
+      <div class="hero__marquee-track">
+        {[...clients, ...clients].map((name) => (
+          <span class="hero__marquee-logo">{name}</span>
         ))}
       </div>
     </div>
-  </section>
 
-  <!-- ==================== 8. TESTIMONIALS ==================== -->
-  <section class="section section--green section--rounded" style="margin-top: var(--space-8);">
-    <div class="container">
-      <div style="text-align: center; margin-bottom: var(--space-12);">
-        <p class="gsap-fade-up" style="font-size: var(--text-small); font-weight: var(--weight-semibold); text-transform: uppercase; letter-spacing: 0.08em; color: var(--color-green-200); margin-bottom: var(--space-3);">Testimonials</p>
-        <h2 class="gsap-fade-up">What Our Clients Say</h2>
-      </div>
-      <div class="testimonials-grid">
-        {testimonials.map((t) => (
-          <div class="glass-testimonial testimonial-card gsap-fade-up">
-            <p class="testimonial-card__quote">"{t.quote}"</p>
-            <div>
-              <div class="testimonial-card__author">{t.author}</div>
-              <div class="testimonial-card__role">{t.company}</div>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- ==================== 9. FAQ ==================== -->
-  <section class="section" style="margin-top: var(--space-8);" id="faq">
-    <div class="container">
-      <div style="text-align: center; margin-bottom: var(--space-12);">
-        <p class="gsap-fade-up" style="font-size: var(--text-small); font-weight: var(--weight-semibold); text-transform: uppercase; letter-spacing: 0.08em; color: var(--color-purple-500); margin-bottom: var(--space-3);">FAQ</p>
-        <h2 class="gsap-fade-up">Common Questions</h2>
-      </div>
-      <div class="faq-list">
-        {faqs.map((faq) => (
-          <details class="faq-item gsap-fade-up">
-            <summary>{faq.q}</summary>
-            <div class="faq-item__answer">{faq.a}</div>
-          </details>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- ==================== 10. FINAL CTA ==================== -->
-  <section class="section section--purple section--rounded cta-final" style="margin-top: var(--space-8); margin-bottom: var(--space-8);">
-    <div class="container gsap-fade-up">
-      <h2 style="font-size: var(--text-display); margin-bottom: var(--space-6);">Ready to Scale Your Creative?</h2>
-      <p style="font-size: var(--text-body-lg); max-width: 560px; margin: 0 auto var(--space-10);">
-        Get a dedicated creative team that delivers enterprise-quality design, video, and animation. Book a demo to see how Moonb works.
-      </p>
-      <div style="display: flex; gap: var(--space-4); justify-content: center; flex-wrap: wrap;">
-        <a href="/book-a-demo" class="btn" style="background: var(--color-white); color: var(--color-purple-600); padding: 16px 40px; font-size: var(--text-body-lg);">Book a Demo</a>
-        <a href="/pricing" class="btn" style="background: transparent; color: var(--color-white); border: 1px solid rgba(255,255,255,0.4); padding: 16px 40px; font-size: var(--text-body-lg);">View Pricing</a>
+    <!-- Green accent strip at bottom -->
+    <div class="hero__green-strip">
+      <div class="container" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:var(--s-4);">
+        <p style="color:var(--cream);font-weight:500;font-size:15px;opacity:0.9;">Trusted by enterprise brands worldwide</p>
+        <a href="/book-a-demo" class="btn btn--outline-light" style="font-size:13px;padding:8px 20px;border-color:rgba(242,237,228,0.3);color:var(--cream);">Book a Demo →</a>
       </div>
     </div>
   </section>
 </BaseLayout>
 
-<!-- ==================== GSAP ScrollTrigger Animations ==================== -->
+<!-- Vimeo player script -->
+<script src="https://player.vimeo.com/api/player.js"></script>
+
+<!-- Text reveal animations -->
 <script>
-  import gsap from 'gsap';
-  import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-  gsap.registerPlugin(ScrollTrigger);
-
-  // Fade-up animations for all .gsap-fade-up elements
-  document.querySelectorAll('.gsap-fade-up').forEach((el) => {
-    gsap.from(el, {
-      y: 40,
-      opacity: 0,
-      duration: 0.8,
-      ease: 'power2.out',
-      scrollTrigger: {
-        trigger: el,
-        start: 'top 88%',
-        once: true,
-      },
+  // Simple IntersectionObserver for text reveals
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+      }
     });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.text-reveal').forEach(el => {
+    observer.observe(el);
   });
 
-  // Staggered card entrances
-  document.querySelectorAll('.value-cards, .pricing-grid, .testimonials-grid, .steps').forEach((container) => {
-    const cards = container.querySelectorAll('.card, .glass-card, .glass-testimonial, .step-card');
-    gsap.from(cards, {
-      y: 50,
-      opacity: 0,
-      scale: 0.96,
-      stagger: 0.08,
-      duration: 0.7,
-      ease: 'power2.out',
-      scrollTrigger: {
-        trigger: container,
-        start: 'top 82%',
-        once: true,
-      },
-    });
-  });
-
-  // Parallax gallery items
-  document.querySelectorAll('[data-parallax-item]').forEach((el) => {
-    const direction = (el as HTMLElement).dataset.parallaxDirection;
-    const yPercent = direction === 'up' ? -15 : 15;
-    gsap.to(el, {
-      yPercent,
-      ease: 'none',
-      scrollTrigger: {
-        trigger: el,
-        start: 'top bottom',
-        end: 'bottom top',
-        scrub: 1,
-      },
-    });
-  });
-
-  // Section overlap paper-stacking effect
-  document.querySelectorAll('.section--rounded').forEach((section) => {
-    gsap.from(section, {
-      y: 80,
-      duration: 0.8,
-      ease: 'power2.out',
-      scrollTrigger: {
-        trigger: section,
-        start: 'top 90%',
-        once: true,
-      },
-    });
-  });
-
-  // Carousel cards stagger
-  const carouselCards = document.querySelectorAll('.carousel__card');
-  gsap.from(carouselCards, {
-    x: 60,
-    opacity: 0,
-    stagger: 0.06,
-    duration: 0.6,
-    ease: 'power2.out',
-    scrollTrigger: {
-      trigger: '.carousel',
-      start: 'top 82%',
-      once: true,
-    },
+  // Stagger the reveals
+  document.querySelectorAll('.text-reveal').forEach((el, i) => {
+    (el as HTMLElement).style.transitionDelay = `${i * 0.12}s`;
   });
 </script>
+
+<style>
+  .hero {
+    background: var(--cream);
+    padding: calc(var(--nav-h) + var(--s-16)) 0 0;
+    border-radius: 0 0 var(--r) var(--r);
+    overflow: hidden;
+  }
+
+  .hero__inner {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 0 var(--s-6);
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: var(--s-12);
+    align-items: start;
+  }
+
+  /* --- Tag --- */
+  .hero__tag {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--s-2);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--muted);
+    margin-bottom: var(--s-6);
+    letter-spacing: 0.02em;
+  }
+
+  .hero__tag-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--teal);
+    display: inline-block;
+    animation: pulse 2s ease infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.85); }
+  }
+
+  /* --- Headline --- */
+  .hero__h1 {
+    font-size: clamp(2.75rem, 5.5vw, 4.2rem);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.035em;
+    margin-bottom: var(--s-6);
+    color: var(--text);
+  }
+
+  .hero__sub {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--muted);
+    max-width: 380px;
+    margin-bottom: var(--s-8);
+  }
+
+  .hero__buttons {
+    display: flex;
+    gap: var(--s-4);
+    flex-wrap: wrap;
+  }
+
+  .hero__arrow {
+    margin-top: var(--s-12);
+    opacity: 0.2;
+  }
+
+  /* --- Video --- */
+  .hero__media {
+    display: flex;
+    flex-direction: column;
+    gap: var(--s-6);
+  }
+
+  .hero__video {
+    border-radius: var(--r-sm);
+    overflow: hidden;
+    box-shadow: var(--sh-lg);
+    background: var(--cream-dark);
+  }
+
+  /* --- Square badges --- */
+  .hero__badges {
+    display: flex;
+    gap: var(--s-3);
+    justify-content: flex-end;
+  }
+
+  .hero__badge {
+    width: 72px;
+    height: 72px;
+    border-radius: 14px;
+    background: var(--cream-dark);
+    border: 1px solid rgba(26,26,26,0.06);
+    transition: transform 200ms ease;
+  }
+
+  .hero__badge:hover {
+    transform: translateY(-2px);
+  }
+
+  /* --- Marquee --- */
+  .hero__marquee {
+    overflow: hidden;
+    padding: var(--s-12) 0;
+    border-top: 1px solid rgba(26,26,26,0.06);
+    margin-top: var(--s-16);
+  }
+
+  .hero__marquee-track {
+    display: flex;
+    gap: var(--s-16);
+    animation: marquee 50s linear infinite;
+    width: max-content;
+  }
+
+  .hero__marquee-track:hover { animation-play-state: paused; }
+
+  .hero__marquee-logo {
+    font-family: var(--font-h);
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--text);
+    white-space: nowrap;
+    opacity: 0.18;
+    transition: opacity 300ms ease;
+  }
+
+  .hero__marquee-logo:hover { opacity: 0.45; }
+
+  @keyframes marquee {
+    to { transform: translateX(-50%); }
+  }
+
+  /* --- Green accent strip --- */
+  .hero__green-strip {
+    background: var(--green);
+    padding: var(--s-5) 0;
+    border-radius: var(--r-sm) var(--r-sm) 0 0;
+    margin-top: var(--s-4);
+  }
+
+  /* --- Button outline light --- */
+  .btn--outline-light {
+    background: transparent;
+    border: 1.5px solid rgba(242,237,228,0.3);
+    color: var(--cream);
+    border-radius: var(--r-pill);
+    font-size: 13px;
+  }
+  .btn--outline-light:hover { background: rgba(242,237,228,0.06); }
+
+  /* --- Mobile --- */
+  @media (max-width: 860px) {
+    .hero__inner {
+      grid-template-columns: 1fr;
+      gap: var(--s-8);
+    }
+    .hero__arrow { display: none; }
+    .hero__badges { justify-content: flex-start; }
+    .hero__h1 { font-size: 2.5rem; }
+  }
+</style>
