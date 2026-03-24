@@ -18,6 +18,7 @@
   --lav-light:  #F5E5FF;
   --lav-dark:   #E0B8FF;
   --green-light: #2A5C46;
+  --green-soft:  #D4EDDA;
   --teal-light:  #1A6B52;
 
   /* Radius (Revnu) */
@@ -116,7 +117,7 @@ p { line-height:1.65; color:var(--muted); }
 .btn--green { background:var(--green); color:var(--cream); border-color:var(--green); }
 .btn--green:hover { background:var(--green-light); transform:translateY(-1px); }
 .btn--green-outline { background:transparent; color:var(--green); border:1.5px solid var(--green); }
-.btn--green-outline:hover { background:rgba(26,60,46,0.05); transform:translateY(-1px); }
+.btn--green-outline:hover { background:var(--green-soft); transform:translateY(-1px); }
 
 /* ---------- Highlighter ---------- */
 .highlight {
