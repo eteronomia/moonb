@@ -13,7 +13,7 @@ const row1 = [
   { name: 'ThriftBooks', logo: '/assets/logos/thriftbooks.svg' },
   { name: 'CyberArk', logo: '/assets/logos/cyberark.svg' },
   { name: 'BAM Capital Group', logo: '/assets/logos/bamcapgroup.svg' },
-  { name: 'Jaguar', logo: '/assets/logos/jaguar.svg' },
+  { name: 'Jaguar Gene Therapy', logo: '/assets/logos/jaguar.svg' },
   { name: 'UC Berkeley', logo: '/assets/logos/berkeley.svg' },
 ];
 
@@ -252,17 +252,18 @@ const row2 = [
     background: var(--cream-dark);
   }
 
-  /* --- Badges: uniform squares, aligned under video --- */
+  /* --- Badges: aligned flush-left under video --- */
   .hero__badges {
     display: flex;
     gap: var(--s-4);
-    justify-content: flex-start;
     align-items: center;
+    padding-left: 0;
+    margin-top: var(--s-2);
   }
 
   .hero__badge {
-    width: 80px;
-    height: 80px;
+    width: 72px;
+    height: 72px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -277,12 +278,11 @@ const row2 = [
 
   /* --- Marquee: 2 rows, opposite directions --- */
   .hero__marquee-wrap {
-    border-top: 1px solid rgba(26,26,26,0.06);
     margin-top: var(--s-16);
-    padding: var(--s-8) 0 var(--s-8);
+    padding: var(--s-10) 0 var(--s-10);
     display: flex;
     flex-direction: column;
-    gap: var(--s-5);
+    gap: var(--s-8);
   }
 
   .hero__marquee {
@@ -291,14 +291,15 @@ const row2 = [
 
   .hero__marquee-track {
     display: flex;
-    gap: var(--s-12);
+    gap: 80px;
     width: max-content;
+    align-items: center;
   }
   .hero__marquee--left .hero__marquee-track {
-    animation: marqueeLeft 45s linear infinite;
+    animation: marqueeLeft 55s linear infinite;
   }
   .hero__marquee--right .hero__marquee-track--reverse {
-    animation: marqueeRight 50s linear infinite;
+    animation: marqueeRight 60s linear infinite;
   }
   .hero__marquee-track:hover { animation-play-state: paused; }
 
@@ -309,15 +310,15 @@ const row2 = [
     flex-shrink: 0;
   }
   .hero__marquee-logo img {
-    height: 18px;
+    height: 32px;
     width: auto;
     opacity: 0.22;
     filter: brightness(0) saturate(0);
     transition: opacity 0.3s;
   }
   /* Size modifiers for harmonizing */
-  .hero__marquee-logo--lg img { height: 22px; }
-  .hero__marquee-logo--sm img { height: 15px; }
+  .hero__marquee-logo--lg img { height: 38px; }
+  .hero__marquee-logo--sm img { height: 26px; }
 
   .hero__marquee-logo:hover img {
     opacity: 0.5;
