@@ -53,7 +53,7 @@ const row2 = [
         </p>
 
         <div class="hero__buttons text-reveal">
-          <a href="/book-a-demo" class="btn btn--lav" data-cal-link="team/moonb/book-a-demo" data-cal-namespace="book-a-demo" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>Get Started</a>
+          <a href="#" class="btn btn--lav" data-cal-link="team/moonb/book-a-demo" data-cal-namespace="book-a-demo" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>Get Started</a>
           <a href="#recent-work" class="btn btn--green-outline">See Examples</a>
         </div>
       </div>
@@ -252,28 +252,25 @@ const row2 = [
     background: var(--cream-dark);
   }
 
-  /* --- Badges: flush-left under video --- */
+  /* --- Badges: spread across full video width --- */
   .hero__badges {
     display: flex;
-    gap: var(--s-4);
     align-items: center;
-    justify-content: flex-start;
-    margin-top: var(--s-2);
-    margin-right: auto;
-    width: fit-content;
+    justify-content: space-between;
+    margin-top: var(--s-3);
+    width: 100%;
   }
 
   .hero__badge {
-    width: 64px;
-    height: 64px;
+    height: 68px;
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-shrink: 0;
+    flex: 1;
   }
   .hero__badge img {
-    max-width: 100%;
     max-height: 100%;
+    width: auto;
     object-fit: contain;
   }
 
@@ -292,7 +289,7 @@ const row2 = [
 
   .hero__marquee-track {
     display: flex;
-    gap: 72px;
+    gap: 100px;
     width: max-content;
     align-items: center;
   }
@@ -309,15 +306,14 @@ const row2 = [
     align-items: center;
     white-space: nowrap;
     flex-shrink: 0;
-    height: 22px;
-    overflow: hidden;
+    height: 32px;
   }
   .hero__marquee-logo img,
   .hero__marquee-logo svg {
-    height: 22px !important;
+    height: 32px !important;
     width: auto !important;
-    max-width: 140px;
-    opacity: 0.2;
+    max-width: 180px;
+    opacity: 0.18;
     filter: brightness(0) saturate(0);
     transition: opacity 0.3s;
     object-fit: contain;
