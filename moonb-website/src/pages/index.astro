@@ -8,15 +8,11 @@ const clients = ['Nottingham', 'Dell Technologies', 'PharmaForceIQ', 'Intel', 'V
   title="Moonb | Dedicated Creative Team for Design & Video Production"
   description="Moonb is a dedicated creative team providing enterprise-grade design, video production, motion graphics, and animation. Each client gets a dedicated Creative Director."
 >
-  <!-- ==================== HERO ==================== -->
   <section class="hero paper-bg">
     <div class="hero__inner">
       <!-- Left: Copy -->
       <div class="hero__copy">
-        <div class="hero__tag">
-          <span class="hero__tag-dot"></span>
-          Your embedded creative department
-        </div>
+        <span class="hero__pill">Your embedded creative department</span>
 
         <h1 class="hero__h1 text-reveal">
           Your <span class="highlight">Creative</span><br/>Services Team
@@ -30,12 +26,6 @@ const clients = ['Nottingham', 'Dell Technologies', 'PharmaForceIQ', 'Intel', 'V
           <a href="/book-a-demo" class="btn btn--lav">Get Started</a>
           <a href="#recent-work" class="btn btn--outline">See Examples</a>
         </div>
-
-        <!-- Decorative arrow -->
-        <svg class="hero__arrow" width="140" height="90" viewBox="0 0 140 90" fill="none">
-          <path d="M12 12 C 40 70, 90 70, 115 35" stroke="var(--text)" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-dasharray="4 6"/>
-          <path d="M107 27 L115 35 L105 38" stroke="var(--text)" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
       </div>
 
       <!-- Right: Video + Badges -->
@@ -53,7 +43,6 @@ const clients = ['Nottingham', 'Dell Technologies', 'PharmaForceIQ', 'Intel', 'V
           </div>
         </div>
 
-        <!-- Square badge placeholders -->
         <div class="hero__badges">
           <div class="hero__badge"></div>
           <div class="hero__badge"></div>
@@ -71,38 +60,20 @@ const clients = ['Nottingham', 'Dell Technologies', 'PharmaForceIQ', 'Intel', 'V
         ))}
       </div>
     </div>
-
-    <!-- Green accent strip at bottom -->
-    <div class="hero__green-strip">
-      <div class="container" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:var(--s-4);">
-        <p style="color:var(--cream);font-weight:500;font-size:15px;opacity:0.9;">Trusted by enterprise brands worldwide</p>
-        <a href="/book-a-demo" class="btn btn--outline-light" style="font-size:13px;padding:8px 20px;border-color:rgba(242,237,228,0.3);color:var(--cream);">Book a Demo →</a>
-      </div>
-    </div>
   </section>
 </BaseLayout>
 
-<!-- Vimeo player script -->
 <script src="https://player.vimeo.com/api/player.js"></script>
 
-<!-- Text reveal animations -->
 <script>
-  // Simple IntersectionObserver for text reveals
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('is-visible');
-      }
+      if (entry.isIntersecting) entry.target.classList.add('is-visible');
     });
   }, { threshold: 0.1 });
-
-  document.querySelectorAll('.text-reveal').forEach(el => {
-    observer.observe(el);
-  });
-
-  // Stagger the reveals
   document.querySelectorAll('.text-reveal').forEach((el, i) => {
     (el as HTMLElement).style.transitionDelay = `${i * 0.12}s`;
+    observer.observe(el);
   });
 </script>
 
@@ -124,30 +95,19 @@ const clients = ['Nottingham', 'Dell Technologies', 'PharmaForceIQ', 'Intel', 'V
     align-items: start;
   }
 
-  /* --- Tag --- */
-  .hero__tag {
+  /* --- Pill tag --- */
+  .hero__pill {
     display: inline-flex;
     align-items: center;
     gap: var(--s-2);
     font-size: 13px;
-    font-weight: 500;
+    font-weight: 400;
     color: var(--muted);
     margin-bottom: var(--s-6);
-    letter-spacing: 0.02em;
-  }
-
-  .hero__tag-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: var(--teal);
-    display: inline-block;
-    animation: pulse 2s ease infinite;
-  }
-
-  @keyframes pulse {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.5; transform: scale(0.85); }
+    padding: 6px 16px;
+    border-radius: var(--r-pill);
+    background: rgba(26,26,26,0.04);
+    border: 1px solid rgba(26,26,26,0.06);
   }
 
   /* --- Headline --- */
@@ -166,25 +126,13 @@ const clients = ['Nottingham', 'Dell Technologies', 'PharmaForceIQ', 'Intel', 'V
     color: var(--muted);
     max-width: 380px;
     margin-bottom: var(--s-8);
+    font-weight: 400;
   }
 
-  .hero__buttons {
-    display: flex;
-    gap: var(--s-4);
-    flex-wrap: wrap;
-  }
-
-  .hero__arrow {
-    margin-top: var(--s-12);
-    opacity: 0.2;
-  }
+  .hero__buttons { display: flex; gap: var(--s-4); flex-wrap: wrap; }
 
   /* --- Video --- */
-  .hero__media {
-    display: flex;
-    flex-direction: column;
-    gap: var(--s-6);
-  }
+  .hero__media { display: flex; flex-direction: column; gap: var(--s-6); }
 
   .hero__video {
     border-radius: var(--r-sm);
@@ -194,11 +142,7 @@ const clients = ['Nottingham', 'Dell Technologies', 'PharmaForceIQ', 'Intel', 'V
   }
 
   /* --- Square badges --- */
-  .hero__badges {
-    display: flex;
-    gap: var(--s-3);
-    justify-content: flex-end;
-  }
+  .hero__badges { display: flex; gap: var(--s-3); justify-content: flex-end; }
 
   .hero__badge {
     width: 72px;
@@ -206,17 +150,12 @@ const clients = ['Nottingham', 'Dell Technologies', 'PharmaForceIQ', 'Intel', 'V
     border-radius: 14px;
     background: var(--cream-dark);
     border: 1px solid rgba(26,26,26,0.06);
-    transition: transform 200ms ease;
-  }
-
-  .hero__badge:hover {
-    transform: translateY(-2px);
   }
 
   /* --- Marquee --- */
   .hero__marquee {
     overflow: hidden;
-    padding: var(--s-12) 0;
+    padding: var(--s-12) 0 var(--s-10);
     border-top: 1px solid rgba(26,26,26,0.06);
     margin-top: var(--s-16);
   }
@@ -227,50 +166,23 @@ const clients = ['Nottingham', 'Dell Technologies', 'PharmaForceIQ', 'Intel', 'V
     animation: marquee 50s linear infinite;
     width: max-content;
   }
-
   .hero__marquee-track:hover { animation-play-state: paused; }
 
   .hero__marquee-logo {
     font-family: var(--font-h);
-    font-weight: 600;
+    font-weight: 500;
     font-size: 14px;
     color: var(--text);
     white-space: nowrap;
     opacity: 0.18;
     transition: opacity 300ms ease;
   }
-
   .hero__marquee-logo:hover { opacity: 0.45; }
 
-  @keyframes marquee {
-    to { transform: translateX(-50%); }
-  }
+  @keyframes marquee { to { transform: translateX(-50%); } }
 
-  /* --- Green accent strip --- */
-  .hero__green-strip {
-    background: var(--green);
-    padding: var(--s-5) 0;
-    border-radius: var(--r-sm) var(--r-sm) 0 0;
-    margin-top: var(--s-4);
-  }
-
-  /* --- Button outline light --- */
-  .btn--outline-light {
-    background: transparent;
-    border: 1.5px solid rgba(242,237,228,0.3);
-    color: var(--cream);
-    border-radius: var(--r-pill);
-    font-size: 13px;
-  }
-  .btn--outline-light:hover { background: rgba(242,237,228,0.06); }
-
-  /* --- Mobile --- */
   @media (max-width: 860px) {
-    .hero__inner {
-      grid-template-columns: 1fr;
-      gap: var(--s-8);
-    }
-    .hero__arrow { display: none; }
+    .hero__inner { grid-template-columns: 1fr; gap: var(--s-8); }
     .hero__badges { justify-content: flex-start; }
     .hero__h1 { font-size: 2.5rem; }
   }
