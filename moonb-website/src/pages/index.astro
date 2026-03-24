@@ -6,7 +6,7 @@ const row1 = [
   { name: 'Dell Technologies logo', logo: '/assets/logos/dell.svg' },
   { name: 'Toyota logo', logo: '/assets/logos/toyota.svg' },
   { name: 'Microsoft logo', logo: '/assets/logos/microsoft.svg' },
-  { name: 'Politico logo', logo: '/assets/logos/politico.svg' },
+  { name: 'Politico logo', logo: '/assets/logos/politico.svg', cls: 'hero__marquee-logo--boost' },
   { name: 'OPKO Health logo', logo: '/assets/logos/opko.svg' },
   { name: 'Nestle logo', logo: '/assets/logos/nestle.svg' },
   { name: 'State Street Corporation logo', logo: '/assets/logos/state-street.svg' },
@@ -87,7 +87,7 @@ const row2 = [
       <div class="hero__marquee hero__marquee--left">
         <div class="hero__marquee-track">
           {[...row1, ...row1].map((c) => (
-            <span class="hero__marquee-logo">
+            <span class={`hero__marquee-logo ${c.cls || ''}`}>
               <img src={c.logo} alt={c.name} loading="lazy" />
             </span>
           ))}
@@ -96,12 +96,50 @@ const row2 = [
       <div class="hero__marquee hero__marquee--right">
         <div class="hero__marquee-track hero__marquee-track--reverse">
           {[...row2, ...row2].map((c) => (
-            <span class="hero__marquee-logo">
+            <span class={`hero__marquee-logo ${c.cls || ''}`}>
               <img src={c.logo} alt={c.name} loading="lazy" />
             </span>
           ))}
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- Recent Work Section -->
+  <section class="work" id="recent-work">
+    <div class="work__header">
+      <h2 class="work__h2">Design and Video That Performs</h2>
+      <p class="work__sub">From concept to execution, we deliver high impact design and video content for brands at every stage, from startups and scaleups to enterprise teams.</p>
+    </div>
+
+    <div class="work__grid">
+      <!-- Row 1: H-video, V-video, Design-H, H-video -->
+      <div class="work__item work__item--h" data-anim="1"><div class="work__video-wrap work__video-wrap--h"><iframe src="https://player.vimeo.com/video/1084258404?h=bf1bb4d67b&badge=0&autopause=0&player_id=0&app_id=58479&background=1" frameborder="0" allow="autoplay" loading="lazy" title="Moonb horizontal showreel 1"></iframe></div></div>
+      <div class="work__item work__item--v" data-anim="2"><div class="work__video-wrap work__video-wrap--v"><iframe src="https://player.vimeo.com/video/1176622548?h=db1c34091d&badge=0&autopause=0&player_id=0&app_id=58479&background=1" frameborder="0" allow="autoplay" loading="lazy" title="Moonb vertical video 1"></iframe></div></div>
+      <div class="work__item work__item--h" data-anim="3"><div class="work__design work__design--h"><span class="work__design-label">Brand Identity</span></div></div>
+      <div class="work__item work__item--v" data-anim="4"><div class="work__video-wrap work__video-wrap--v"><iframe src="https://player.vimeo.com/video/1176622548?h=db1c34091d&badge=0&autopause=0&player_id=0&app_id=58479&background=1" frameborder="0" allow="autoplay" loading="lazy" title="Moonb vertical video 2"></iframe></div></div>
+
+      <!-- Row 2: V-video, Design-V, H-video, H-video -->
+      <div class="work__item work__item--v" data-anim="5"><div class="work__video-wrap work__video-wrap--v"><iframe src="https://player.vimeo.com/video/1176622548?h=db1c34091d&badge=0&autopause=0&player_id=0&app_id=58479&background=1" frameborder="0" allow="autoplay" loading="lazy" title="Moonb vertical video 3"></iframe></div></div>
+      <div class="work__item work__item--h" data-anim="6"><div class="work__video-wrap work__video-wrap--h"><iframe src="https://player.vimeo.com/video/1084258404?h=bf1bb4d67b&badge=0&autopause=0&player_id=0&app_id=58479&background=1" frameborder="0" allow="autoplay" loading="lazy" title="Moonb horizontal showreel 2"></iframe></div></div>
+      <div class="work__item work__item--v" data-anim="7"><div class="work__design work__design--v"><span class="work__design-label">Packaging</span></div></div>
+      <div class="work__item work__item--h" data-anim="8"><div class="work__video-wrap work__video-wrap--h"><iframe src="https://player.vimeo.com/video/1084258404?h=bf1bb4d67b&badge=0&autopause=0&player_id=0&app_id=58479&background=1" frameborder="0" allow="autoplay" loading="lazy" title="Moonb horizontal showreel 3"></iframe></div></div>
+
+      <!-- Row 3: Design-H, H-video, V-video, Design-V -->
+      <div class="work__item work__item--h" data-anim="9"><div class="work__design work__design--h"><span class="work__design-label">Social Media</span></div></div>
+      <div class="work__item work__item--v" data-anim="10"><div class="work__video-wrap work__video-wrap--v"><iframe src="https://player.vimeo.com/video/1176622548?h=db1c34091d&badge=0&autopause=0&player_id=0&app_id=58479&background=1" frameborder="0" allow="autoplay" loading="lazy" title="Moonb vertical video 4"></iframe></div></div>
+      <div class="work__item work__item--h" data-anim="11"><div class="work__video-wrap work__video-wrap--h"><iframe src="https://player.vimeo.com/video/1084258404?h=bf1bb4d67b&badge=0&autopause=0&player_id=0&app_id=58479&background=1" frameborder="0" allow="autoplay" loading="lazy" title="Moonb horizontal showreel 4"></iframe></div></div>
+      <div class="work__item work__item--v" data-anim="12"><div class="work__video-wrap work__video-wrap--v"><iframe src="https://player.vimeo.com/video/1176622548?h=db1c34091d&badge=0&autopause=0&player_id=0&app_id=58479&background=1" frameborder="0" allow="autoplay" loading="lazy" title="Moonb vertical video 5"></iframe></div></div>
+
+      <!-- Row 4: H-video, Design-H, V-video, H-video -->
+      <div class="work__item work__item--h" data-anim="13"><div class="work__video-wrap work__video-wrap--h"><iframe src="https://player.vimeo.com/video/1084258404?h=bf1bb4d67b&badge=0&autopause=0&player_id=0&app_id=58479&background=1" frameborder="0" allow="autoplay" loading="lazy" title="Moonb horizontal showreel 5"></iframe></div></div>
+      <div class="work__item work__item--v" data-anim="14"><div class="work__design work__design--v"><span class="work__design-label">Illustration</span></div></div>
+      <div class="work__item work__item--h" data-anim="15"><div class="work__video-wrap work__video-wrap--h"><iframe src="https://player.vimeo.com/video/1084258404?h=bf1bb4d67b&badge=0&autopause=0&player_id=0&app_id=58479&background=1" frameborder="0" allow="autoplay" loading="lazy" title="Moonb horizontal showreel 6"></iframe></div></div>
+      <div class="work__item work__item--v" data-anim="16"><div class="work__video-wrap work__video-wrap--v"><iframe src="https://player.vimeo.com/video/1176622548?h=db1c34091d&badge=0&autopause=0&player_id=0&app_id=58479&background=1" frameborder="0" allow="autoplay" loading="lazy" title="Moonb vertical video 6"></iframe></div></div>
+
+      <!-- Remaining designs -->
+      <div class="work__item work__item--h" data-anim="17"><div class="work__design work__design--h"><span class="work__design-label">Infographic</span></div></div>
+      <div class="work__item work__item--v" data-anim="18"><div class="work__design work__design--v"><span class="work__design-label">Presentation</span></div></div>
     </div>
   </section>
 </BaseLayout>
@@ -319,6 +357,9 @@ const row2 = [
     object-fit: contain;
   }
 
+  .hero__marquee-logo--boost { height: 52px; }
+  .hero__marquee-logo--boost img { height: 52px !important; }
+
   .hero__marquee-logo:hover img {
     opacity: 0.45;
   }
@@ -333,5 +374,166 @@ const row2 = [
     .hero__inner { grid-template-columns: 1fr; gap: var(--s-8); }
     .hero__badges { justify-content: flex-start; }
     .hero__h1 { font-size: 2.5rem; }
+  }
+
+  /* ============================
+     RECENT WORK SECTION
+     ============================ */
+  .work {
+    background: var(--black);
+    padding: var(--s-24) 0 var(--s-20);
+    color: var(--cream);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Black marble with gold veins (Nero Portoro style) */
+  .work::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      /* Gold veins: warm streaks flowing diagonally */
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='800'%3E%3Cfilter id='gold'%3E%3CfeTurbulence type='turbulence' baseFrequency='0.002 0.006' numOctaves='3' seed='8' stitchTiles='stitch'/%3E%3CfeGaussianBlur stdDeviation='2'/%3E%3CfeColorMatrix type='matrix' values='0.6 0 0 0 0.12 0.4 0 0 0 0.08 0 0 0 0 0.02 0 0 0 1 0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='linear' slope='0.12' intercept='0'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23gold)'/%3E%3C/svg%3E"),
+      /* White veins: thin cool streaks */
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600'%3E%3Cfilter id='wv'%3E%3CfeTurbulence type='turbulence' baseFrequency='0.004 0.01' numOctaves='4' seed='22' stitchTiles='stitch'/%3E%3CfeGaussianBlur stdDeviation='1.5'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncR type='linear' slope='1' intercept='0.7'/%3E%3CfeFuncG type='linear' slope='1' intercept='0.7'/%3E%3CfeFuncB type='linear' slope='1' intercept='0.75'/%3E%3CfeFuncA type='linear' slope='0.06' intercept='0'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23wv)'/%3E%3C/svg%3E"),
+      /* Surface depth: subtle tonal variation */
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='sd'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.5' numOctaves='5' seed='3' stitchTiles='stitch'/%3E%3CfeDiffuseLighting in='result' lighting-color='%23222' surfaceScale='0.8'%3E%3CfeDistantLight azimuth='200' elevation='50'/%3E%3C/feDiffuseLighting%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='linear' slope='0.08' intercept='0'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23sd)'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+  }
+  .work > * { position: relative; z-index: 1; }
+
+  .work__header {
+    max-width: var(--max);
+    margin: 0 auto var(--s-16);
+    padding: 0 var(--s-6);
+    text-align: center;
+  }
+
+  .work__h2 {
+    font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    color: var(--cream);
+    margin-bottom: var(--s-5);
+  }
+
+  .work__sub {
+    font-size: 17px;
+    line-height: 1.65;
+    color: rgba(242,237,228,0.55);
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  /* Tetris masonry grid using CSS columns */
+  .work__grid {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 var(--s-6);
+    columns: 4;
+    column-gap: 12px;
+  }
+
+  .work__item {
+    break-inside: avoid;
+    margin-bottom: 12px;
+    border-radius: var(--r-xs);
+    overflow: hidden;
+    position: relative;
+    opacity: 0;
+    transform: translateY(40px);
+    animation: workItemIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  /* Stagger animations */
+  .work__item[data-anim="1"] { animation-delay: 0.05s; }
+  .work__item[data-anim="2"] { animation-delay: 0.1s; }
+  .work__item[data-anim="3"] { animation-delay: 0.15s; }
+  .work__item[data-anim="4"] { animation-delay: 0.2s; }
+  .work__item[data-anim="5"] { animation-delay: 0.25s; }
+  .work__item[data-anim="6"] { animation-delay: 0.3s; }
+  .work__item[data-anim="7"] { animation-delay: 0.35s; }
+  .work__item[data-anim="8"] { animation-delay: 0.4s; }
+  .work__item[data-anim="9"] { animation-delay: 0.45s; }
+  .work__item[data-anim="10"] { animation-delay: 0.5s; }
+  .work__item[data-anim="11"] { animation-delay: 0.55s; }
+  .work__item[data-anim="12"] { animation-delay: 0.6s; }
+  .work__item[data-anim="13"] { animation-delay: 0.65s; }
+  .work__item[data-anim="14"] { animation-delay: 0.7s; }
+  .work__item[data-anim="15"] { animation-delay: 0.75s; }
+  .work__item[data-anim="16"] { animation-delay: 0.8s; }
+  .work__item[data-anim="17"] { animation-delay: 0.85s; }
+  .work__item[data-anim="18"] { animation-delay: 0.9s; }
+
+  @keyframes workItemIn {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .work__item:hover {
+    transform: translateY(-4px) scale(1.01);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 2;
+  }
+
+  /* Video containers */
+  .work__video-wrap {
+    position: relative;
+    overflow: hidden;
+    background: #252525;
+  }
+  .work__video-wrap--h {
+    padding-top: 56.25%; /* 16:9 */
+  }
+  .work__video-wrap--v {
+    padding-top: 177.78%; /* 9:16 */
+  }
+  .work__video-wrap iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    border: none;
+  }
+
+  /* Design placeholders */
+  .work__design {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    padding: var(--s-5);
+  }
+  .work__design--h {
+    padding-top: 56.25%;
+    position: relative;
+    background: linear-gradient(135deg, #2A2A2A 0%, #1A1A1A 50%, #252530 100%);
+  }
+  .work__design--v {
+    padding-top: 140%;
+    position: relative;
+    background: linear-gradient(135deg, #252530 0%, #1A1A1A 50%, #2A2A2A 100%);
+  }
+  .work__design-label {
+    position: absolute;
+    bottom: var(--s-4);
+    left: var(--s-4);
+    font-family: var(--font-h);
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(242,237,228,0.35);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 1024px) {
+    .work__grid { columns: 3; }
+  }
+  @media (max-width: 768px) {
+    .work__grid { columns: 2; column-gap: 8px; }
+    .work__item { margin-bottom: 8px; }
+  }
+  @media (max-width: 480px) {
+    .work__grid { columns: 1; }
   }
 </style>
