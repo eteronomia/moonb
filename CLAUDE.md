@@ -1,6 +1,97 @@
 # CLAUDE.md -- moonb-website
 
+Always invoke the frontend-design skill before writing any frontend code. Every session. No exceptions.
+
 Read this file silently at the start of every session. Do not summarize it. Do not explain it. Just use it.
+
+---
+
+## FRONTEND DESIGN SKILL
+
+Before writing any frontend code, follow this protocol:
+
+### 1. Reference Analysis
+- Open and study reference screenshots in `references/` before writing CSS or HTML
+- Identify exact spacing, typography, color usage, and layout patterns
+- Note what makes each reference look premium: micro-interactions, shadows, whitespace, alignment
+
+### 2. Design Token Adherence
+- Always use CSS custom properties from `global.css` (never hardcode colors, spacing, or fonts)
+- Match the exact Wispr Flow color palette extracted in DESIGN.md
+- Use the liquid glass recipes from `liquid-glass.css` for all glass elements
+- Follow the type scale exactly (display, h1, h2, h3, h4, body, small, caption)
+
+### 3. Build Process
+- Build section by section, not all at once
+- After each section, take a screenshot and compare to the closest reference
+- Fix spacing, alignment, and color issues immediately before moving on
+
+### 4. Quality Checklist (run before considering done)
+- [ ] No generic template feel: every section has intentional whitespace, rhythm, and personality
+- [ ] Typography hierarchy is clear: massive headlines, comfortable body, visible contrast
+- [ ] Colors shift between sections (cream, dark, purple, green) per DESIGN_BRIEF.md
+- [ ] Rounded corners on everything: cards, sections, buttons, images, video containers
+- [ ] Shadows create depth: cards lift on hover, overlapping sections have shadow separation
+- [ ] Liquid glass effects on nav, hero panel, pricing cards, testimonials
+- [ ] Animations are smooth and purposeful: GSAP ScrollTrigger, no janky transitions
+- [ ] Mobile responsive: stacks gracefully, readable typography, no horizontal scroll
+- [ ] No orphaned text, no awkward line breaks, no cramped spacing
+
+### 5. Screenshot Self-Correction (minimum 2 rounds)
+- Use Puppeteer to capture full-page screenshots at 1440px width
+- Compare section-by-section against reference screenshots
+- Fix every mismatch in layout, spacing, typography, color, and polish
+- Repeat until the result matches reference site quality
+
+---
+
+## SCREENSHOT SELF-CORRECTION WORKFLOW
+
+After building or modifying any visible page, run at minimum 2 rounds of screenshot comparison before considering the work done.
+
+### Setup
+- Puppeteer is installed as a dev dependency in `moonb-website/`
+- Reference screenshots of target sites are saved in `references/`
+- Working screenshots are saved in `temporary_screenshots/`
+
+### Process
+
+**Round N (repeat at least twice):**
+
+1. Start the dev server (`npx astro dev --port 4322`)
+2. Use Puppeteer to take full-page screenshots of your work at 1440px width:
+   ```
+   node -e "
+   const puppeteer = require('puppeteer');
+   (async () => {
+     const browser = await puppeteer.launch();
+     const page = await browser.newPage();
+     await page.setViewport({ width: 1440, height: 900 });
+     await page.goto('http://localhost:4322', { waitUntil: 'networkidle0' });
+     await page.screenshot({ path: 'temporary_screenshots/homepage-roundN.png', fullPage: true });
+     await browser.close();
+   })();
+   "
+   ```
+3. Open the screenshot and compare section-by-section against `references/`
+4. For each mismatch, identify:
+   - Layout/spacing issues (padding, gaps, alignment)
+   - Typography issues (size, weight, line-height, letter-spacing)
+   - Color issues (backgrounds, text contrast, accent usage)
+   - Polish issues (shadows, borders, radius, glass effects)
+   - Animation/interaction gaps (hover states, scroll triggers)
+5. Fix every issue found
+6. Take new screenshots and repeat
+
+### Quality bar
+The final result must match the visual quality of wisprflow.ai, superside.com, and framer.com. If it looks like a generic template, keep iterating.
+
+### Files
+- `references/` - screenshots of reference sites (do not modify)
+- `temporary_screenshots/` - working screenshots (overwrite freely)
+- Both directories are gitignored
+
+---
 
 ## WHAT MOONB IS
 
@@ -385,3 +476,57 @@ Traffic alert: GSC cliff Jan 22-28 2026, 74% drop. Under investigation. Not manu
 ## COMPETITORS
 
 Superside (enterprise, $7,500+/mo). DesignJoy (solo). Penji (budget). Design Pickle (budget). ManyPixels. Kimp. Moonb positions above budget tier, alongside Superside. Differentiate on taste, originality, dedicated Creative Director, human-made quality. Never attack competitors in copy.
+
+---
+
+## FRONTEND DESIGN SKILL
+
+Always invoke this skill before writing any frontend code. Every session. No exceptions.
+
+This skill guides creation of distinctive, production-grade frontend interfaces that avoid generic "AI slop" aesthetics. Implement real working code with exceptional attention to aesthetic details and creative choices.
+
+### Design Thinking
+
+Before coding, understand the context and commit to a BOLD aesthetic direction:
+
+- Purpose: What problem does this interface solve? Who uses it?
+- Tone: Pick an extreme: brutally minimal, maximalist chaos, retro-futuristic, organic/natural, luxury/refined, playful/toy-like, editorial/magazine, brutalist/raw, art deco/geometric, soft/pastel, industrial/utilitarian
+- Constraints: Technical requirements (framework, performance, accessibility)
+- Differentiation: What makes this UNFORGETTABLE? What's the one thing someone will remember?
+
+CRITICAL: Choose a clear conceptual direction and execute it with precision. Bold maximalism and refined minimalism both work. The key is intentionality, not intensity.
+
+### Frontend Aesthetics Rules
+
+- Typography: Choose fonts that are beautiful, unique, and interesting. NEVER use generic fonts like Arial, Inter, Roboto, or system fonts. Use distinctive choices like Satoshi, General Sans, Clash Display, Neue Montreal, Cabinet Grotesk, or similar. Pair a distinctive display font with a refined body font.
+- Color and Theme: Commit to a cohesive aesthetic. Use CSS variables for consistency. Dominant colors with sharp accents outperform timid, evenly-distributed palettes.
+- Motion: Use animations for effects and micro-interactions. Focus on high-impact moments: one well-orchestrated page load with staggered reveals creates more delight than scattered micro-interactions. Use scroll-triggering and hover states that surprise.
+- Spatial Composition: Unexpected layouts. Asymmetry. Overlap. Diagonal flow. Grid-breaking elements. Generous negative space OR controlled density.
+- Backgrounds and Visual Details: Create atmosphere and depth rather than defaulting to solid colors. Add contextual effects and textures: gradient meshes, noise textures, geometric patterns, layered transparencies, dramatic shadows, decorative borders, and grain overlays.
+
+### NEVER Do This
+
+- NEVER use generic AI-generated aesthetics
+- NEVER use overused font families (Inter, Roboto, Arial, system fonts)
+- NEVER use cliched purple gradients on white backgrounds
+- NEVER use predictable layouts and component patterns
+- NEVER create cookie-cutter design that lacks context-specific character
+- NEVER converge on the same safe choices across different sections
+- NEVER make anything that looks like every other AI-generated website
+
+### Screenshot Workflow
+
+Use Puppeteer to take screenshots of what you build. Install Puppeteer if not already installed. Save screenshots to a temporary_screenshots folder.
+
+After building any section or page:
+
+1. Start the dev server
+2. Take screenshots of each section at desktop and mobile widths
+3. Compare to any reference screenshots provided
+4. Fix mismatches in layout, spacing, typography, color, animation, and polish
+5. Take new screenshots and compare again
+6. Do at minimum 2 rounds of screenshot review and polish before presenting
+
+Always test on localhost first. Never push to GitHub until explicitly told to.
+
+Interpret creatively and make unexpected choices that feel genuinely designed for the context. No two sections should feel the same. Every design must feel custom-built, never template-like. Claude is capable of extraordinary creative work. Do not hold back.
