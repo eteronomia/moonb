@@ -306,6 +306,11 @@ p {
   transform: translateY(-4px);
 }
 
+/* ---------- Page top spacing (for pages without dark hero) ---------- */
+.page-content {
+  padding-top: calc(var(--nav-height) + var(--space-8));
+}
+
 /* ---------- Screen Reader Only ---------- */
 .sr-only {
   position: absolute;

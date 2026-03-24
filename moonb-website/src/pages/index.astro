@@ -48,6 +48,18 @@ const faqs = [
 ];
 
 const carouselItems = ['Brand Campaign', 'Social Media Series', 'Product Launch', 'Motion Graphics', 'Corporate Video', 'Presentation Design', 'Ad Creative', 'Brand Identity'];
+
+const heroPortfolio = [
+  { label: 'Grubhub', color: '#FF6B00' },
+  { label: 'Pernod Ricard', color: '#8B4513' },
+  { label: 'Roland', color: '#E63946' },
+  { label: 'Microsoft', color: '#A8D5A2' },
+  { label: 'Collabera', color: '#1A1A2E' },
+  { label: 'Otto', color: '#B8E0D2' },
+  { label: 'Dell', color: '#0076CE' },
+  { label: 'CyberArk', color: '#2D2D6B' },
+  { label: 'Nasdaq', color: '#0A2F51' },
+];
 ---
 
 <BaseLayout
@@ -55,27 +67,32 @@ const carouselItems = ['Brand Campaign', 'Social Media Series', 'Product Launch'
   description="Moonb is a dedicated creative team providing enterprise-grade design, video production, motion graphics, and animation. Each client gets a dedicated Creative Director."
 >
   <!-- ==================== 1. HERO ==================== -->
-  <section class="hero" id="hero">
-    <div class="container">
-      <div class="hero__video-wrap">
-        <div class="hero__video-placeholder">▶ SHOWREEL</div>
-        <div class="hero__glass-overlay glass-hero">
-          <h1 style="font-size: var(--text-display); margin-bottom: var(--space-4); line-height: var(--leading-tight);">
-            Your Creative<br/>Services Team
-          </h1>
-          <p style="font-size: var(--text-body-lg); margin-bottom: var(--space-8); max-width: 480px; color: var(--color-text-secondary);">
-            Enterprise-grade design, video, and motion graphics. One dedicated Creative Director. Predictable monthly investment.
-          </p>
-          <div style="display: flex; gap: var(--space-4); flex-wrap: wrap;">
-            <a href="/book-a-demo" class="btn btn--primary" style="padding: 14px 32px; font-size: var(--text-body);">Get Started</a>
-            <a href="#recent-work" class="btn btn--secondary" style="padding: 14px 32px; font-size: var(--text-body);">See Examples</a>
-          </div>
-        </div>
+  <section class="hero-dark" id="hero">
+    <div class="hero-dark__inner">
+      <!-- Left: Copy -->
+      <div class="hero-dark__copy">
+        <h1 class="hero-dark__headline">
+          Human creativity.<br/>
+          <em>Dedicated teams.</em><br/>
+          Your brand's creative advantage.
+        </h1>
+        <p class="hero-dark__sub">
+          Expand your creative output with a dedicated team of designers, animators, and video producers who fully integrate into how your brand thinks, creates, and delivers.
+        </p>
+        <a href="/book-a-demo" class="hero-dark__cta">Book a demo</a>
       </div>
-      <div class="hero__badges">
-        <span class="hero__badge">★ 4.9 on Clutch</span>
-        <span class="hero__badge">🏆 Top Creative Team 2025</span>
-        <span class="hero__badge">🌍 Serving Global Enterprise</span>
+
+      <!-- Right: Portfolio Mosaic -->
+      <div class="hero-dark__mosaic">
+        {heroPortfolio.map((item, i) => (
+          <div
+            class="hero-dark__tile"
+            data-hero-tile
+            style={`background: ${item.color}; animation-delay: ${i * 0.08}s;`}
+          >
+            <span class="hero-dark__tile-label">{item.label}</span>
+          </div>
+        ))}
       </div>
     </div>
   </section>

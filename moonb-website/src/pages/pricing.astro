@@ -7,25 +7,27 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   description="Moonb pricing for dedicated creative teams. Enterprise-grade design and video production with a predictable monthly investment."
   breadcrumbs={[{ name: 'Pricing', url: 'https://www.moonb.io/pricing' }]}
 >
-  <section class="section">
-    <div class="container" style="text-align: center;">
-      <h1 style="margin-bottom: var(--space-6);">Predictable creative investment</h1>
-      <p style="font-size: var(--text-body-lg); max-width: 600px; margin-inline: auto; margin-bottom: var(--space-12);">
-        Each engagement includes a dedicated Creative Director, a full creative team, and enterprise-grade output.
-      </p>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--space-8); max-width: 960px; margin-inline: auto;">
-        <div class="glass-card" style="padding: var(--space-10);">
-          <h3 style="margin-bottom: var(--space-4);">Growth</h3>
-          <p>For teams that need ongoing creative support across design and video.</p>
+  <div class="page-content">
+    <section class="section">
+      <div class="container" style="text-align: center;">
+        <h1 style="margin-bottom: var(--space-6);">Predictable creative investment</h1>
+        <p style="font-size: var(--text-body-lg); max-width: 600px; margin-inline: auto; margin-bottom: var(--space-12);">
+          Each engagement includes a dedicated Creative Director, a full creative team, and enterprise-grade output.
+        </p>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--space-8); max-width: 960px; margin-inline: auto;">
+          <div class="glass-card" style="padding: var(--space-10);">
+            <h3 style="margin-bottom: var(--space-4);">Growth</h3>
+            <p>For teams that need ongoing creative support across design and video.</p>
+          </div>
+          <div class="glass-card" style="padding: var(--space-10); border-color: var(--color-purple-300);">
+            <h3 style="margin-bottom: var(--space-4);">Enterprise</h3>
+            <p>For organizations requiring a fully embedded creative department.</p>
+          </div>
         </div>
-        <div class="glass-card" style="padding: var(--space-10); border-color: var(--color-purple-300);">
-          <h3 style="margin-bottom: var(--space-4);">Enterprise</h3>
-          <p>For organizations requiring a fully embedded creative department.</p>
+        <div style="margin-top: var(--space-12);">
+          <a href="/book-a-demo" class="btn btn--primary">Book a Demo</a>
         </div>
       </div>
-      <div style="margin-top: var(--space-12);">
-        <a href="/book-a-demo" class="btn btn--primary">Book a Demo</a>
-      </div>
-    </div>
-  </section>
+    </section>
+  </div>
 </BaseLayout>
