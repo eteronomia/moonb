@@ -10,9 +10,9 @@ const links = [
 
 <nav class="nav">
   <div class="nav__bar">
-    <a href="/" class="nav__logo">
-      <span style="font-size:24px;line-height:1;">🐝</span>
-      <span class="nav__logo-text">moonb<span style="color:var(--lav-dark)">ee</span></span>
+    <a href="/" class="nav__logo" aria-label="Moonbee homepage">
+      <img src="/assets/logos/moonbee-icon.svg" alt="Moonbee logo" class="nav__logo-icon" width="32" height="32" />
+      <span class="nav__logo-text">moonb<span style="color:var(--lav)">ee</span></span>
     </a>
 
     <div class="nav__center">
@@ -21,7 +21,7 @@ const links = [
       ))}
     </div>
 
-    <a href="/book-a-demo" class="nav__cta">Book a Demo</a>
+    <a href="/book-a-demo" class="nav__cta" data-cal-link="team/moonb/book-a-demo" data-cal-namespace="book-a-demo" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>Book a Demo</a>
 
     <button class="nav__toggle" aria-label="Menu" id="nav-toggle">
       <span></span><span></span><span></span>
@@ -33,7 +33,7 @@ const links = [
   {links.map((link) => (
     <a href={link.href} class="nav__mobile-link">{link.label}</a>
   ))}
-  <a href="/book-a-demo" class="nav__cta" style="margin-top:8px;width:100%;justify-content:center;">Book a Demo</a>
+  <a href="/book-a-demo" class="nav__cta" style="margin-top:8px;width:100%;justify-content:center;" data-cal-link="team/moonb/book-a-demo" data-cal-namespace="book-a-demo" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>Book a Demo</a>
 </div>
 
 <style>
@@ -57,7 +57,8 @@ const links = [
     box-shadow: 0 4px 20px rgba(14,14,14,0.06), 0 1px 3px rgba(14,14,14,0.04);
   }
 
-  .nav__logo { display:flex; align-items:center; gap:5px; margin-right:12px; }
+  .nav__logo { display:flex; align-items:center; gap:6px; margin-right:12px; }
+  .nav__logo-icon { width:28px; height:28px; object-fit:contain; }
   .nav__logo-text {
     font-family: var(--font-h);
     font-weight: 600;

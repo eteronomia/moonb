@@ -530,3 +530,42 @@ After building any section or page:
 Always test on localhost first. Never push to GitHub until explicitly told to.
 
 Interpret creatively and make unexpected choices that feel genuinely designed for the context. No two sections should feel the same. Every design must feel custom-built, never template-like. Claude is capable of extraordinary creative work. Do not hold back.
+
+---
+
+## QUALITY CONTROL: SCREENSHOT REVIEW LOOP
+
+Before presenting ANY frontend work to me, you MUST complete this process. No exceptions.
+
+### Setup
+- Use Puppeteer to take screenshots of your own work
+- Save all screenshots to a temporary_screenshots folder
+- Keep reference screenshots in a references folder
+
+### After Building Any Section or Page
+1. Start the dev server
+2. Take full-page and per-section screenshots at both desktop (1440px) and mobile (390px) widths
+3. If reference screenshots exist in the references folder, compare your screenshots side by side to the references
+4. Evaluate honestly: does this match the reference quality? Is the spacing right? Are the colors right? Is the typography distinctive? Are the animations working? Does it look like a premium site or generic AI output?
+5. Fix every issue you find
+6. Take new screenshots after fixes
+7. Compare again
+8. Fix again if needed
+9. Minimum 2 full rounds of screenshot, compare, fix before showing me anything
+
+### What to Check Each Round
+- Typography: is it distinctive and editorial, not generic?
+- Colors: do they match the reference palette exactly?
+- Spacing: generous, intentional, not cramped?
+- Rounded corners: consistent on every element?
+- Shadows: soft, multi-layered, creating real depth?
+- Animations: are they actually working and visible in the screenshots?
+- Overlapping cards: do sections stack like paper with visible depth?
+- Liquid glass: is backdrop-filter blur actually rendering?
+- Overall: would this win an award on awwwards.com or does it look like every other AI site?
+
+### Rules
+- Never show me a first draft. Always show me the version after at least 2 rounds of self-review.
+- Never push to GitHub without completing this process.
+- If you cannot honestly say "this looks premium and distinctive" after your review, keep iterating.
+- Delete old screenshots from temporary_screenshots before each new build to keep things clean.

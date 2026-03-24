@@ -3,34 +3,34 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 // Row 1: scrolls LEFT
 const row1 = [
-  { name: 'Dell Technologies', logo: '/assets/logos/dell.svg' },
-  { name: 'Toyota', logo: '/assets/logos/toyota.svg' },
-  { name: 'Microsoft', logo: '/assets/logos/microsoft.svg' },
-  { name: 'Politico', logo: '/assets/logos/politico.svg', size: 'lg' },
-  { name: 'OPKO', logo: '/assets/logos/opko.svg' },
-  { name: 'Nestle', logo: '/assets/logos/nestle.svg' },
-  { name: 'State Street', logo: '/assets/logos/state-street.svg' },
-  { name: 'ThriftBooks', logo: '/assets/logos/thriftbooks.svg' },
-  { name: 'CyberArk', logo: '/assets/logos/cyberark.svg' },
-  { name: 'BAM Capital Group', logo: '/assets/logos/bamcapgroup.svg' },
-  { name: 'Jaguar Gene Therapy', logo: '/assets/logos/jaguar.svg' },
-  { name: 'UC Berkeley', logo: '/assets/logos/berkeley.svg' },
+  { name: 'Dell Technologies logo', logo: '/assets/logos/dell.svg' },
+  { name: 'Toyota logo', logo: '/assets/logos/toyota.svg' },
+  { name: 'Microsoft logo', logo: '/assets/logos/microsoft.svg' },
+  { name: 'Politico logo', logo: '/assets/logos/politico.svg' },
+  { name: 'OPKO Health logo', logo: '/assets/logos/opko.svg' },
+  { name: 'Nestle logo', logo: '/assets/logos/nestle.svg' },
+  { name: 'State Street Corporation logo', logo: '/assets/logos/state-street.svg' },
+  { name: 'ThriftBooks logo', logo: '/assets/logos/thriftbooks.svg' },
+  { name: 'CyberArk logo', logo: '/assets/logos/cyberark.svg' },
+  { name: 'BAM Capital Group logo', logo: '/assets/logos/bamcapgroup.svg' },
+  { name: 'Jaguar Gene Therapy logo', logo: '/assets/logos/jaguar.svg' },
+  { name: 'UC Berkeley logo', logo: '/assets/logos/berkeley.svg' },
 ];
 
 // Row 2: scrolls RIGHT
 const row2 = [
-  { name: 'Shionogi', logo: '/assets/logos/shionogi.svg' },
-  { name: 'GlaxoSmithKline', logo: '/assets/logos/gsk.svg', size: 'sm' },
-  { name: 'Jumo Health', logo: '/assets/logos/jumohealth.svg' },
-  { name: 'V-nova', logo: '/assets/logos/v-nova.svg' },
-  { name: 'Unobravo', logo: '/assets/logos/unobravo.svg' },
-  { name: 'PharmaForceIQ', logo: '/assets/logos/pharmaforce.svg' },
-  { name: 'Gene Therapy', logo: '/assets/logos/genetherapy.svg' },
-  { name: 'Northern Rail', logo: '/assets/logos/northern-rail.svg' },
-  { name: 'Brainfuse', logo: '/assets/logos/brainfuse.svg' },
-  { name: 'LHAC', logo: '/assets/logos/lhac.svg' },
-  { name: 'AcademyOne', logo: '/assets/logos/academyone.svg' },
-  { name: 'Nottingham', logo: '/assets/logos/nottingham.svg' },
+  { name: 'Shionogi logo', logo: '/assets/logos/shionogi.svg' },
+  { name: 'GlaxoSmithKline logo', logo: '/assets/logos/gsk.svg' },
+  { name: 'Jumo Health logo', logo: '/assets/logos/jumohealth.svg' },
+  { name: 'V-nova logo', logo: '/assets/logos/v-nova.svg' },
+  { name: 'Unobravo logo', logo: '/assets/logos/unobravo.svg' },
+  { name: 'PharmaForceIQ logo', logo: '/assets/logos/pharmaforce.svg' },
+  { name: 'Gene Therapy Inc logo', logo: '/assets/logos/genetherapy.svg' },
+  { name: 'Northern Rail logo', logo: '/assets/logos/northern-rail.svg' },
+  { name: 'Brainfuse logo', logo: '/assets/logos/brainfuse.svg' },
+  { name: 'LHAC logo', logo: '/assets/logos/lhac.svg' },
+  { name: 'AcademyOne logo', logo: '/assets/logos/academyone.svg' },
+  { name: 'Nottingham logo', logo: '/assets/logos/nottingham.svg' },
 ];
 ---
 
@@ -38,7 +38,7 @@ const row2 = [
   title="Moonb | Dedicated Creative Team for Design & Video Production"
   description="Moonb is a dedicated creative team providing enterprise-grade design, video production, motion graphics, and animation. Each client gets a dedicated Creative Director."
 >
-  <section class="hero paper-bg">
+  <section class="hero paper-bg" aria-label="Moonb dedicated creative team for enterprise design and video production">
     <div class="hero__inner">
       <!-- Left: Copy -->
       <div class="hero__copy">
@@ -53,7 +53,7 @@ const row2 = [
         </p>
 
         <div class="hero__buttons text-reveal">
-          <a href="/book-a-demo" class="btn btn--lav">Get Started</a>
+          <a href="/book-a-demo" class="btn btn--lav" data-cal-link="team/moonb/book-a-demo" data-cal-namespace="book-a-demo" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>Get Started</a>
           <a href="#recent-work" class="btn btn--green-outline">See Examples</a>
         </div>
       </div>
@@ -68,26 +68,26 @@ const row2 = [
               allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
               referrerpolicy="strict-origin-when-cross-origin"
               style="position:absolute;top:0;left:0;width:100%;height:100%;border-radius:var(--r-sm);"
-              title="Moonb Showreel"
+              title="Moonb creative production showreel featuring design and video work for enterprise clients"
             ></iframe>
           </div>
         </div>
 
-        <div class="hero__badges">
-          <div class="hero__badge"><img src="/assets/badges/global-award-spring-2024.svg" alt="Clutch Global Award Spring 2024" /></div>
-          <div class="hero__badge"><img src="/assets/badges/badge-image.svg" alt="Top Video Production Company" /></div>
-          <div class="hero__badge"><img src="/assets/badges/clutch-2025.svg" alt="Clutch 2025 Award" /></div>
-          <div class="hero__badge"><img src="/assets/badges/2026-badge.svg" alt="2026 Award Badge" /></div>
+        <div class="hero__badges" role="list" aria-label="Awards and certifications">
+          <div class="hero__badge" role="listitem"><img src="/assets/badges/global-award-spring-2024.svg" alt="Clutch Global Award Winner Spring 2024 for video production services" /></div>
+          <div class="hero__badge" role="listitem"><img src="/assets/badges/badge-image.svg" alt="Top 100 Stellar video production companies worldwide" /></div>
+          <div class="hero__badge" role="listitem"><img src="/assets/badges/clutch-2025.svg" alt="Clutch Top Video Production Company 2025 in arts entertainment and media" /></div>
+          <div class="hero__badge" role="listitem"><img src="/assets/badges/2026-badge.svg" alt="Global Leader Top 10 creative production company 2026 by 50Pros" /></div>
         </div>
       </div>
     </div>
 
     <!-- Client logos marquee: 2 rows, opposite directions -->
-    <div class="hero__marquee-wrap">
+    <div class="hero__marquee-wrap" role="region" aria-label="Trusted by enterprise brands worldwide">
       <div class="hero__marquee hero__marquee--left">
         <div class="hero__marquee-track">
           {[...row1, ...row1].map((c) => (
-            <span class={`hero__marquee-logo ${c.size === 'lg' ? 'hero__marquee-logo--lg' : c.size === 'sm' ? 'hero__marquee-logo--sm' : ''}`}>
+            <span class="hero__marquee-logo">
               <img src={c.logo} alt={c.name} loading="lazy" />
             </span>
           ))}
@@ -96,7 +96,7 @@ const row2 = [
       <div class="hero__marquee hero__marquee--right">
         <div class="hero__marquee-track hero__marquee-track--reverse">
           {[...row2, ...row2].map((c) => (
-            <span class={`hero__marquee-logo ${c.size === 'lg' ? 'hero__marquee-logo--lg' : c.size === 'sm' ? 'hero__marquee-logo--sm' : ''}`}>
+            <span class="hero__marquee-logo">
               <img src={c.logo} alt={c.name} loading="lazy" />
             </span>
           ))}
@@ -252,27 +252,27 @@ const row2 = [
     background: var(--cream-dark);
   }
 
-  /* --- Badges: aligned flush-left under video --- */
+  /* --- Badges: flush-left under video --- */
   .hero__badges {
     display: flex;
     gap: var(--s-4);
     align-items: center;
-    padding-left: 0;
+    justify-content: flex-start;
     margin-top: var(--s-2);
+    margin-right: auto;
+    width: fit-content;
   }
 
   .hero__badge {
-    width: 72px;
-    height: 72px;
+    height: 64px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    overflow: hidden;
   }
   .hero__badge img {
-    width: 100%;
     height: 100%;
+    width: auto;
     object-fit: contain;
   }
 
@@ -310,15 +310,13 @@ const row2 = [
     flex-shrink: 0;
   }
   .hero__marquee-logo img {
-    height: 32px;
+    height: 28px;
     width: auto;
+    max-width: 160px;
     opacity: 0.22;
     filter: brightness(0) saturate(0);
     transition: opacity 0.3s;
   }
-  /* Size modifiers for harmonizing */
-  .hero__marquee-logo--lg img { height: 38px; }
-  .hero__marquee-logo--sm img { height: 26px; }
 
   .hero__marquee-logo:hover img {
     opacity: 0.5;
