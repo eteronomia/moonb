@@ -8,7 +8,7 @@
   /* Revnu Partners palette */
   --cream:    #F2EDE4;
   --green:    #1A3C2E;
-  --black:    #0E0E0E;
+  --black:    #1A1A1A;
   --teal:     #14523F;
   --lav:      #F0D7FF;
   --text:     #1A1A1A;
@@ -22,7 +22,7 @@
   --teal-light:  #1A6B52;
 
   /* Radius (Wispr Flow — generous, accentuated) */
-  --r: 48px; --r-sm: 32px; --r-xs: 20px; --r-pill: 100px;
+  --r: 56px; --r-sm: 32px; --r-xs: 20px; --r-pill: 100px;
 
   /* Layout */
   --max: 1200px; --nav-h: 64px;
@@ -75,17 +75,9 @@ p { line-height:1.65; color:var(--muted); }
 
 /* ---------- Paper texture ---------- */
 /*
-  Real paper = two things:
-  1. Micro-fibers: extremely high frequency fractalNoise, almost invisible,
-     gives that subtle tooth/grain you feel more than see
-  2. Surface undulation: very gentle, slow variation in lightness across
-     the sheet — like how real paper catches light unevenly
-
-  Both must be VERY low opacity. If you can "see" the texture as a pattern,
-  it's too strong. It should just make the background feel warm and alive
-  vs a flat CSS color.
-
-  The texture is FIXED — content scrolls over it like writing on paper.
+  Real paper texture: ultra-fine fiber grain you feel more than see.
+  Just enough to make the cream surface feel alive and tactile.
+  Fixed position — content scrolls over the paper like ink on a sheet.
 */
 .paper-bg {
   position: relative;
@@ -95,10 +87,10 @@ p { line-height:1.65; color:var(--muted); }
   position: fixed;
   inset: 0;
   background-image:
-    /* Micro-fiber grain: very high freq, barely visible */
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.8' numOctaves='4' seed='1' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='linear' slope='0.03' intercept='0'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)'/%3E%3C/svg%3E"),
-    /* Surface undulation: very slow, soft light variation */
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='1200'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='turbulence' baseFrequency='0.004' numOctaves='2' seed='7' stitchTiles='stitch'/%3E%3CfeGaussianBlur stdDeviation='2'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='linear' slope='0.08' intercept='0'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+    /* Micro-fiber grain: incredibly fine, barely perceptible */
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='4' seed='7' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='linear' slope='0.035' intercept='0'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)'/%3E%3C/svg%3E"),
+    /* Gentle warmth variation: very soft, large-scale light shifts */
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='800'%3E%3Cfilter id='w'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.004' numOctaves='2' seed='3' stitchTiles='stitch'/%3E%3CfeGaussianBlur stdDeviation='8'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='linear' slope='0.06' intercept='0'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23w)'/%3E%3C/svg%3E");
   pointer-events: none;
   z-index: 0;
   mix-blend-mode: multiply;
