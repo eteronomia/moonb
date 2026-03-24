@@ -21,8 +21,8 @@
   --green-soft:  #D4EDDA;
   --teal-light:  #1A6B52;
 
-  /* Radius (Wispr Flow — generous, accentuated) */
-  --r: 56px; --r-sm: 32px; --r-xs: 20px; --r-pill: 100px;
+  /* Radius (Wispr Flow — very prominent, like the reference) */
+  --r: 90px; --r-sm: 32px; --r-xs: 20px; --r-pill: 100px;
 
   /* Layout */
   --max: 1200px; --nav-h: 64px;
