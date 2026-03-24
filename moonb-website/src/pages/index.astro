@@ -1,7 +1,28 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const clients = ['Nottingham', 'Dell Technologies', 'PharmaForceIQ', 'Intel', 'V-nova', 'Unobravo', 'United Way', 'Toyota', 'Thrive Scholars', 'State Street', 'Shionogi', 'Politico', 'Northern Rail', 'Nestle', 'Microsoft', 'LiveLife', 'GlaxoSmithKline', 'Gnosis', 'GlobalX', 'CyberArk'];
+const clients = [
+  { name: 'Nottingham', logo: '/assets/logos/nottingham.svg' },
+  { name: 'Dell Technologies', logo: '/assets/logos/dell.svg' },
+  { name: 'PharmaForceIQ', logo: '/assets/logos/pharmaforce.svg' },
+  { name: 'Intel', logo: '/assets/logos/intel.svg' },
+  { name: 'V-nova', logo: '/assets/logos/v-nova.svg' },
+  { name: 'Unobravo', logo: '/assets/logos/unobravo.svg' },
+  { name: 'United Way', logo: '/assets/logos/united-way.svg' },
+  { name: 'Toyota', logo: '/assets/logos/toyota.svg' },
+  { name: 'Thrive Scholars', logo: '/assets/logos/thrive-scholars.svg' },
+  { name: 'State Street', logo: '/assets/logos/state-street.svg' },
+  { name: 'Shionogi', logo: '/assets/logos/shionogi.svg' },
+  { name: 'Politico', logo: '/assets/logos/politico.svg' },
+  { name: 'Northern Rail', logo: '/assets/logos/northern-rail.svg' },
+  { name: 'Nestle', logo: '/assets/logos/nestle.svg' },
+  { name: 'Microsoft', logo: '/assets/logos/microsoft.svg' },
+  { name: 'LiveLife', logo: '/assets/logos/livelife.svg' },
+  { name: 'GlaxoSmithKline', logo: '/assets/logos/gsk.svg' },
+  { name: 'Gnosis', logo: '/assets/logos/gnosis.svg' },
+  { name: 'GlobalX', logo: '/assets/logos/globalx.svg' },
+  { name: 'CyberArk', logo: '/assets/logos/cyberark.svg' },
+];
 ---
 
 <BaseLayout
@@ -44,10 +65,10 @@ const clients = ['Nottingham', 'Dell Technologies', 'PharmaForceIQ', 'Intel', 'V
         </div>
 
         <div class="hero__badges">
-          <div class="hero__badge"></div>
-          <div class="hero__badge"></div>
-          <div class="hero__badge"></div>
-          <div class="hero__badge"></div>
+          <div class="hero__badge"><img src="/assets/badges/global-award-spring-2024.svg" alt="Clutch Global Award Spring 2024" /></div>
+          <div class="hero__badge"><img src="/assets/badges/badge-image.svg" alt="Top Video Production Company" /></div>
+          <div class="hero__badge"><img src="/assets/badges/clutch-2025.svg" alt="Clutch 2025 Award" /></div>
+          <div class="hero__badge"><img src="/assets/badges/2026-badge.svg" alt="2026 Award Badge" /></div>
         </div>
       </div>
     </div>
@@ -55,8 +76,10 @@ const clients = ['Nottingham', 'Dell Technologies', 'PharmaForceIQ', 'Intel', 'V
     <!-- Client logos marquee -->
     <div class="hero__marquee">
       <div class="hero__marquee-track">
-        {[...clients, ...clients].map((name) => (
-          <span class="hero__marquee-logo">{name}</span>
+        {[...clients, ...clients].map((c) => (
+          <span class="hero__marquee-logo">
+            <img src={c.logo} alt={c.name} loading="lazy" />
+          </span>
         ))}
       </div>
     </div>
@@ -209,15 +232,28 @@ const clients = ['Nottingham', 'Dell Technologies', 'PharmaForceIQ', 'Intel', 'V
     background: var(--cream-dark);
   }
 
-  /* --- Square badges --- */
-  .hero__badges { display: flex; gap: var(--s-3); justify-content: flex-end; }
+  /* --- Badges: aligned under video, equal size, no container box --- */
+  .hero__badges {
+    display: flex;
+    gap: var(--s-4);
+    justify-content: flex-start;
+    align-items: center;
+  }
 
   .hero__badge {
-    width: 72px;
-    height: 72px;
-    border-radius: var(--r-xs);
-    background: var(--cream-dark);
-    border: 1px solid rgba(26,26,26,0.06);
+    width: auto;
+    height: auto;
+    background: none;
+    border: none;
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .hero__badge img {
+    height: 56px;
+    width: auto;
+    object-fit: contain;
   }
 
   /* --- Marquee --- */
@@ -237,11 +273,26 @@ const clients = ['Nottingham', 'Dell Technologies', 'PharmaForceIQ', 'Intel', 'V
   .hero__marquee-track:hover { animation-play-state: paused; }
 
   .hero__marquee-logo {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .hero__marquee-logo img {
+    height: 20px;
+    width: auto;
+    opacity: 0.55;
+    filter: brightness(0) saturate(100%) invert(19%) sepia(15%) saturate(1200%) hue-rotate(100deg) brightness(95%);
+    transition: opacity 0.3s;
+  }
+  .hero__marquee-logo img:hover {
+    opacity: 0.85;
+  }
+  .hero__marquee-logo-text {
     font-family: var(--font-h);
     font-weight: 500;
     font-size: 14px;
     color: var(--text);
-    white-space: nowrap;
     opacity: 0.18;
     transition: opacity 300ms ease;
   }
