@@ -1,27 +1,36 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const clients = [
-  { name: 'Nottingham', logo: '/assets/logos/nottingham.svg' },
+// Row 1: scrolls LEFT
+const row1 = [
   { name: 'Dell Technologies', logo: '/assets/logos/dell.svg' },
-  { name: 'PharmaForceIQ', logo: '/assets/logos/pharmaforce.svg' },
-  { name: 'Intel', logo: '/assets/logos/intel.svg' },
+  { name: 'Toyota', logo: '/assets/logos/toyota.svg' },
+  { name: 'Microsoft', logo: '/assets/logos/microsoft.svg' },
+  { name: 'Politico', logo: '/assets/logos/politico.svg', size: 'lg' },
+  { name: 'OPKO', logo: '/assets/logos/opko.svg' },
+  { name: 'Nestle', logo: '/assets/logos/nestle.svg' },
+  { name: 'State Street', logo: '/assets/logos/state-street.svg' },
+  { name: 'ThriftBooks', logo: '/assets/logos/thriftbooks.svg' },
+  { name: 'CyberArk', logo: '/assets/logos/cyberark.svg' },
+  { name: 'BAM Capital Group', logo: '/assets/logos/bamcapgroup.svg' },
+  { name: 'Jaguar', logo: '/assets/logos/jaguar.svg' },
+  { name: 'UC Berkeley', logo: '/assets/logos/berkeley.svg' },
+];
+
+// Row 2: scrolls RIGHT
+const row2 = [
+  { name: 'Shionogi', logo: '/assets/logos/shionogi.svg' },
+  { name: 'GlaxoSmithKline', logo: '/assets/logos/gsk.svg', size: 'sm' },
+  { name: 'Jumo Health', logo: '/assets/logos/jumohealth.svg' },
   { name: 'V-nova', logo: '/assets/logos/v-nova.svg' },
   { name: 'Unobravo', logo: '/assets/logos/unobravo.svg' },
-  { name: 'United Way', logo: '/assets/logos/united-way.svg' },
-  { name: 'Toyota', logo: '/assets/logos/toyota.svg' },
-  { name: 'Thrive Scholars', logo: '/assets/logos/thrive-scholars.svg' },
-  { name: 'State Street', logo: '/assets/logos/state-street.svg' },
-  { name: 'Shionogi', logo: '/assets/logos/shionogi.svg' },
-  { name: 'Politico', logo: '/assets/logos/politico.svg' },
+  { name: 'PharmaForceIQ', logo: '/assets/logos/pharmaforce.svg' },
+  { name: 'Gene Therapy', logo: '/assets/logos/genetherapy.svg' },
   { name: 'Northern Rail', logo: '/assets/logos/northern-rail.svg' },
-  { name: 'Nestle', logo: '/assets/logos/nestle.svg' },
-  { name: 'Microsoft', logo: '/assets/logos/microsoft.svg' },
-  { name: 'LiveLife', logo: '/assets/logos/livelife.svg' },
-  { name: 'GlaxoSmithKline', logo: '/assets/logos/gsk.svg' },
-  { name: 'Gnosis', logo: '/assets/logos/gnosis.svg' },
-  { name: 'GlobalX', logo: '/assets/logos/globalx.svg' },
-  { name: 'CyberArk', logo: '/assets/logos/cyberark.svg' },
+  { name: 'Brainfuse', logo: '/assets/logos/brainfuse.svg' },
+  { name: 'LHAC', logo: '/assets/logos/lhac.svg' },
+  { name: 'AcademyOne', logo: '/assets/logos/academyone.svg' },
+  { name: 'Nottingham', logo: '/assets/logos/nottingham.svg' },
 ];
 ---
 
@@ -73,14 +82,25 @@ const clients = [
       </div>
     </div>
 
-    <!-- Client logos marquee -->
-    <div class="hero__marquee">
-      <div class="hero__marquee-track">
-        {[...clients, ...clients].map((c) => (
-          <span class="hero__marquee-logo">
-            <img src={c.logo} alt={c.name} loading="lazy" />
-          </span>
-        ))}
+    <!-- Client logos marquee: 2 rows, opposite directions -->
+    <div class="hero__marquee-wrap">
+      <div class="hero__marquee hero__marquee--left">
+        <div class="hero__marquee-track">
+          {[...row1, ...row1].map((c) => (
+            <span class={`hero__marquee-logo ${c.size === 'lg' ? 'hero__marquee-logo--lg' : c.size === 'sm' ? 'hero__marquee-logo--sm' : ''}`}>
+              <img src={c.logo} alt={c.name} loading="lazy" />
+            </span>
+          ))}
+        </div>
+      </div>
+      <div class="hero__marquee hero__marquee--right">
+        <div class="hero__marquee-track hero__marquee-track--reverse">
+          {[...row2, ...row2].map((c) => (
+            <span class={`hero__marquee-logo ${c.size === 'lg' ? 'hero__marquee-logo--lg' : c.size === 'sm' ? 'hero__marquee-logo--sm' : ''}`}>
+              <img src={c.logo} alt={c.name} loading="lazy" />
+            </span>
+          ))}
+        </div>
       </div>
     </div>
   </section>
@@ -90,14 +110,14 @@ const clients = [
 
 <style is:global>
   /* CSS entrance animations - guaranteed to work without JS */
-  .hero__pill, .hero__sub, .hero__buttons, .hero__video, .hero__marquee {
+  .hero__pill, .hero__sub, .hero__buttons, .hero__video, .hero__marquee-wrap {
     animation: fadeSlideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
   }
-  .hero__pill    { animation-delay: 0.1s; }
-  .hero__sub     { animation-delay: 0.55s; }
-  .hero__buttons { animation-delay: 0.65s; }
-  .hero__video   { animation-delay: 0.15s; }
-  .hero__marquee { animation-delay: 0.8s; }
+  .hero__pill       { animation-delay: 0.1s; }
+  .hero__sub        { animation-delay: 0.55s; }
+  .hero__buttons    { animation-delay: 0.65s; }
+  .hero__video      { animation-delay: 0.15s; }
+  .hero__marquee-wrap { animation-delay: 0.8s; }
 
   /* Word-by-word H1 reveal */
   .hero__word {
@@ -255,19 +275,30 @@ const clients = [
     object-fit: contain;
   }
 
-  /* --- Marquee --- */
-  .hero__marquee {
-    overflow: hidden;
-    padding: var(--s-12) 0 var(--s-10);
+  /* --- Marquee: 2 rows, opposite directions --- */
+  .hero__marquee-wrap {
     border-top: 1px solid rgba(26,26,26,0.06);
     margin-top: var(--s-16);
+    padding: var(--s-8) 0 var(--s-8);
+    display: flex;
+    flex-direction: column;
+    gap: var(--s-5);
+  }
+
+  .hero__marquee {
+    overflow: hidden;
   }
 
   .hero__marquee-track {
     display: flex;
-    gap: var(--s-16);
-    animation: marquee 50s linear infinite;
+    gap: var(--s-12);
     width: max-content;
+  }
+  .hero__marquee--left .hero__marquee-track {
+    animation: marqueeLeft 45s linear infinite;
+  }
+  .hero__marquee--right .hero__marquee-track--reverse {
+    animation: marqueeRight 50s linear infinite;
   }
   .hero__marquee-track:hover { animation-play-state: paused; }
 
@@ -278,26 +309,25 @@ const clients = [
     flex-shrink: 0;
   }
   .hero__marquee-logo img {
-    height: 20px;
+    height: 18px;
     width: auto;
-    opacity: 0.25;
+    opacity: 0.22;
     filter: brightness(0) saturate(0);
     transition: opacity 0.3s;
   }
-  .hero__marquee-logo img:hover {
+  /* Size modifiers for harmonizing */
+  .hero__marquee-logo--lg img { height: 22px; }
+  .hero__marquee-logo--sm img { height: 15px; }
+
+  .hero__marquee-logo:hover img {
     opacity: 0.5;
   }
-  .hero__marquee-logo-text {
-    font-family: var(--font-h);
-    font-weight: 500;
-    font-size: 14px;
-    color: var(--text);
-    opacity: 0.18;
-    transition: opacity 300ms ease;
-  }
-  .hero__marquee-logo:hover { opacity: 0.45; }
 
-  @keyframes marquee { to { transform: translateX(-50%); } }
+  @keyframes marqueeLeft { to { transform: translateX(-50%); } }
+  @keyframes marqueeRight {
+    from { transform: translateX(-50%); }
+    to { transform: translateX(0); }
+  }
 
   @media (max-width: 860px) {
     .hero__inner { grid-template-columns: 1fr; gap: var(--s-8); }
