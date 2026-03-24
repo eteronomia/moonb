@@ -24,7 +24,7 @@ const clients = ['Nottingham', 'Dell Technologies', 'PharmaForceIQ', 'Intel', 'V
 
         <div class="hero__buttons text-reveal">
           <a href="/book-a-demo" class="btn btn--lav">Get Started</a>
-          <a href="#recent-work" class="btn btn--lav" style="background:transparent;border:1.5px solid rgba(26,26,26,0.15);">See Examples</a>
+          <a href="#recent-work" class="btn btn--green-outline">See Examples</a>
         </div>
       </div>
 
@@ -65,31 +65,44 @@ const clients = ['Nottingham', 'Dell Technologies', 'PharmaForceIQ', 'Intel', 'V
 
 <script src="https://player.vimeo.com/api/player.js"></script>
 
-<script>
-  import gsap from 'gsap';
+<style is:global>
+  /* CSS entrance animations - guaranteed to work without JS */
+  .hero__pill, .hero__h1, .hero__sub, .hero__buttons, .hero__video, .hero__marquee {
+    animation: fadeSlideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+  .hero__pill    { animation-delay: 0.1s; }
+  .hero__h1      { animation-delay: 0.2s; }
+  .hero__sub     { animation-delay: 0.35s; }
+  .hero__buttons { animation-delay: 0.45s; }
+  .hero__video   { animation-delay: 0.15s; }
+  .hero__marquee { animation-delay: 0.6s; }
 
-  // Hero entrance animations
-  const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+  .hero__badge {
+    animation: fadeScaleUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+  .hero__badge:nth-child(1) { animation-delay: 0.5s; }
+  .hero__badge:nth-child(2) { animation-delay: 0.56s; }
+  .hero__badge:nth-child(3) { animation-delay: 0.62s; }
+  .hero__badge:nth-child(4) { animation-delay: 0.68s; }
 
-  tl.from('.hero__pill', { y: 20, opacity: 0, duration: 0.6 }, 0.2)
-    .from('.hero__h1', { y: 40, opacity: 0, duration: 0.8 }, 0.35)
-    .from('.hero__sub', { y: 30, opacity: 0, duration: 0.7 }, 0.55)
-    .from('.hero__buttons', { y: 25, opacity: 0, duration: 0.6 }, 0.7)
-    .from('.hero__video', { y: 50, opacity: 0, scale: 0.97, duration: 0.9 }, 0.3)
-    .from('.hero__badge', { y: 20, opacity: 0, scale: 0.9, stagger: 0.06, duration: 0.5 }, 0.8)
-    .from('.hero__marquee', { y: 20, opacity: 0, duration: 0.6 }, 1.0);
+  .nav__bar {
+    animation: fadeSlideDown 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-delay: 0.05s;
+  }
 
-  // Nav entrance
-  gsap.from('.nav__bar', { y: -20, opacity: 0, duration: 0.6, ease: 'power3.out', delay: 0.1 });
-
-  // Marquee logos subtle float
-  gsap.to('.hero__marquee-track', {
-    x: '-50%',
-    duration: 50,
-    ease: 'none',
-    repeat: -1,
-  });
-</script>
+  @keyframes fadeSlideUp {
+    from { opacity: 0; transform: translateY(28px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeSlideDown {
+    from { opacity: 0; transform: translateY(-14px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeScaleUp {
+    from { opacity: 0; transform: translateY(12px) scale(0.92); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+</style>
 
 <style>
   .hero {
@@ -120,8 +133,9 @@ const clients = ['Nottingham', 'Dell Technologies', 'PharmaForceIQ', 'Intel', 'V
     margin-bottom: var(--s-6);
     padding: 6px 16px;
     border-radius: var(--r-pill);
-    background: rgba(26,60,46,0.06);
-    border: 1px solid rgba(26,60,46,0.1);
+    background: rgba(26,60,46,0.07);
+    border: 1px solid rgba(26,60,46,0.12);
+    color: var(--green);
   }
 
   .hero__pill-dot {

@@ -80,10 +80,11 @@ p { line-height:1.65; color:var(--muted); }
   content: '';
   position: absolute;
   inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='5' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
   pointer-events: none;
   z-index: 0;
   border-radius: inherit;
+  mix-blend-mode: multiply;
 }
 .paper-bg > * { position: relative; z-index: 1; }
 
@@ -114,6 +115,8 @@ p { line-height:1.65; color:var(--muted); }
 .btn--outline:hover { background:rgba(26,26,26,0.03); transform:translateY(-1px); }
 .btn--green { background:var(--green); color:var(--cream); border-color:var(--green); }
 .btn--green:hover { background:var(--green-light); transform:translateY(-1px); }
+.btn--green-outline { background:transparent; color:var(--green); border:1.5px solid var(--green); }
+.btn--green-outline:hover { background:rgba(26,60,46,0.05); transform:translateY(-1px); }
 
 /* ---------- Highlighter ---------- */
 .highlight {
