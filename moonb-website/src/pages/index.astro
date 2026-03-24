@@ -12,7 +12,7 @@ const clients = ['Nottingham', 'Dell Technologies', 'PharmaForceIQ', 'Intel', 'V
     <div class="hero__inner">
       <!-- Left: Copy -->
       <div class="hero__copy">
-        <span class="hero__pill">Your embedded creative department</span>
+        <span class="hero__pill"><span class="hero__pill-dot"></span>Your embedded creative department</span>
 
         <h1 class="hero__h1 text-reveal">
           Your <span class="highlight">Creative</span><br/>Services Team
@@ -24,7 +24,7 @@ const clients = ['Nottingham', 'Dell Technologies', 'PharmaForceIQ', 'Intel', 'V
 
         <div class="hero__buttons text-reveal">
           <a href="/book-a-demo" class="btn btn--lav">Get Started</a>
-          <a href="#recent-work" class="btn btn--outline">See Examples</a>
+          <a href="#recent-work" class="btn btn--lav" style="background:transparent;border:1.5px solid rgba(26,26,26,0.15);">See Examples</a>
         </div>
       </div>
 
@@ -66,21 +66,35 @@ const clients = ['Nottingham', 'Dell Technologies', 'PharmaForceIQ', 'Intel', 'V
 <script src="https://player.vimeo.com/api/player.js"></script>
 
 <script>
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) entry.target.classList.add('is-visible');
-    });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.text-reveal').forEach((el, i) => {
-    (el as HTMLElement).style.transitionDelay = `${i * 0.12}s`;
-    observer.observe(el);
+  import gsap from 'gsap';
+
+  // Hero entrance animations
+  const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+
+  tl.from('.hero__pill', { y: 20, opacity: 0, duration: 0.6 }, 0.2)
+    .from('.hero__h1', { y: 40, opacity: 0, duration: 0.8 }, 0.35)
+    .from('.hero__sub', { y: 30, opacity: 0, duration: 0.7 }, 0.55)
+    .from('.hero__buttons', { y: 25, opacity: 0, duration: 0.6 }, 0.7)
+    .from('.hero__video', { y: 50, opacity: 0, scale: 0.97, duration: 0.9 }, 0.3)
+    .from('.hero__badge', { y: 20, opacity: 0, scale: 0.9, stagger: 0.06, duration: 0.5 }, 0.8)
+    .from('.hero__marquee', { y: 20, opacity: 0, duration: 0.6 }, 1.0);
+
+  // Nav entrance
+  gsap.from('.nav__bar', { y: -20, opacity: 0, duration: 0.6, ease: 'power3.out', delay: 0.1 });
+
+  // Marquee logos subtle float
+  gsap.to('.hero__marquee-track', {
+    x: '-50%',
+    duration: 50,
+    ease: 'none',
+    repeat: -1,
   });
 </script>
 
 <style>
   .hero {
     background: var(--cream);
-    padding: calc(var(--nav-h) + var(--s-16)) 0 0;
+    padding: calc(56px + var(--s-16)) 0 0;
     border-radius: 0 0 var(--r) var(--r);
     overflow: hidden;
   }
@@ -106,8 +120,22 @@ const clients = ['Nottingham', 'Dell Technologies', 'PharmaForceIQ', 'Intel', 'V
     margin-bottom: var(--s-6);
     padding: 6px 16px;
     border-radius: var(--r-pill);
-    background: rgba(26,26,26,0.04);
-    border: 1px solid rgba(26,26,26,0.06);
+    background: rgba(26,60,46,0.06);
+    border: 1px solid rgba(26,60,46,0.1);
+  }
+
+  .hero__pill-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--teal);
+    display: inline-block;
+    animation: pulse 2s ease infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.8); }
   }
 
   /* --- Headline --- */

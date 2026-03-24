@@ -8,29 +8,24 @@ const links = [
 ];
 ---
 
-<nav class="nav" id="main-nav">
+<nav class="nav">
   <div class="nav__bar">
     <a href="/" class="nav__logo">
-      <!-- Bee icon: simple, clearly a bee in front of a moon circle -->
-      <svg class="nav__logo-icon" width="30" height="30" viewBox="0 0 30 30" fill="none">
-        <!-- Moon circle -->
-        <circle cx="15" cy="15" r="12" fill="#FFA946" opacity="0.2"/>
-        <!-- Bee body -->
-        <ellipse cx="15" cy="16" rx="5" ry="4" fill="#FFA946"/>
-        <!-- Stripes -->
-        <rect x="13" y="13" width="4" height="1.5" rx="0.5" fill="var(--text)" opacity="0.7"/>
-        <rect x="13" y="16" width="4" height="1.5" rx="0.5" fill="var(--text)" opacity="0.7"/>
-        <!-- Wings -->
-        <ellipse cx="12" cy="12" rx="3.5" ry="2.5" fill="var(--lav)" opacity="0.5" transform="rotate(-20 12 12)"/>
-        <ellipse cx="18" cy="12" rx="3.5" ry="2.5" fill="var(--lav)" opacity="0.5" transform="rotate(20 18 12)"/>
-        <!-- Antennae -->
-        <path d="M13 13 Q11 9, 9 8" stroke="var(--text)" stroke-width="1" stroke-linecap="round" fill="none" opacity="0.5"/>
-        <path d="M17 13 Q19 9, 21 8" stroke="var(--text)" stroke-width="1" stroke-linecap="round" fill="none" opacity="0.5"/>
-        <!-- Antenna dots -->
-        <circle cx="9" cy="8" r="1" fill="var(--text)" opacity="0.4"/>
-        <circle cx="21" cy="8" r="1" fill="var(--text)" opacity="0.4"/>
+      <svg width="24" height="24" viewBox="0 0 26 26" fill="none">
+        <ellipse cx="13" cy="16" rx="5" ry="4.5" fill="#FFC845"/>
+        <path d="M9.5 14.5h7" stroke="#1A1A1A" stroke-width="1.3" stroke-linecap="round" opacity="0.5"/>
+        <path d="M9.5 17h7" stroke="#1A1A1A" stroke-width="1.3" stroke-linecap="round" opacity="0.5"/>
+        <ellipse cx="9.5" cy="11" rx="3.5" ry="2.5" fill="#C4AAEF" opacity="0.5" transform="rotate(-12 9.5 11)"/>
+        <ellipse cx="16.5" cy="11" rx="3.5" ry="2.5" fill="#C4AAEF" opacity="0.5" transform="rotate(12 16.5 11)"/>
+        <circle cx="13" cy="10.5" r="2.2" fill="#FFC845"/>
+        <circle cx="12.2" cy="10" r="0.65" fill="#1A1A1A" opacity="0.55"/>
+        <circle cx="13.8" cy="10" r="0.65" fill="#1A1A1A" opacity="0.55"/>
+        <path d="M12 8.5Q10 5.5 8.5 4.5" stroke="#1A1A1A" stroke-width="1" stroke-linecap="round" fill="none" opacity="0.35"/>
+        <path d="M14 8.5Q16 5.5 17.5 4.5" stroke="#1A1A1A" stroke-width="1" stroke-linecap="round" fill="none" opacity="0.35"/>
+        <circle cx="8.5" cy="4.5" r="1" fill="#C4AAEF" opacity="0.45"/>
+        <circle cx="17.5" cy="4.5" r="1" fill="#C4AAEF" opacity="0.45"/>
       </svg>
-      <span class="nav__logo-text">moonb<span class="nav__logo-accent">ee</span></span>
+      <span class="nav__logo-text">moonb<span style="color:var(--lav-dark)">ee</span></span>
     </a>
 
     <div class="nav__center">
@@ -51,60 +46,52 @@ const links = [
   {links.map((link) => (
     <a href={link.href} class="nav__mobile-link">{link.label}</a>
   ))}
-  <a href="/book-a-demo" class="btn btn--lav" style="margin-top:var(--s-4);width:100%;justify-content:center;">Book a Demo</a>
+  <a href="/book-a-demo" class="nav__cta" style="margin-top:8px;width:100%;justify-content:center;">Book a Demo</a>
 </div>
 
 <style>
   .nav {
     position: fixed;
-    top: 16px;
+    top: 14px;
     left: 50%;
     transform: translateX(-50%);
     z-index: var(--z-nav);
-    width: calc(100% - 40px);
-    max-width: 1060px;
+    width: calc(100% - 32px);
+    max-width: 1040px;
   }
 
   .nav__bar {
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    align-items: center;
-    padding: 10px 10px 10px 20px;
-    background: var(--cream);
-    border-radius: 18px;
-    border: 1px solid rgba(26,26,26,0.05);
-    box-shadow: 0 4px 24px rgba(14,14,14,0.07), 0 1px 3px rgba(14,14,14,0.04);
-  }
-
-  .nav__logo {
     display: flex;
     align-items: center;
-    gap: 4px;
+    padding: 10px 12px 10px 20px;
+    background: var(--cream);
+    border-radius: 16px;
+    border: 1px solid rgba(26,26,26,0.06);
+    box-shadow: 0 4px 20px rgba(14,14,14,0.06), 0 1px 3px rgba(14,14,14,0.04);
   }
-  .nav__logo-icon { flex-shrink: 0; }
+
+  .nav__logo { display:flex; align-items:center; gap:5px; margin-right:12px; }
   .nav__logo-text {
     font-family: var(--font-h);
     font-weight: 600;
-    font-size: 18px;
+    font-size: 17px;
     color: var(--text);
     letter-spacing: -0.02em;
   }
-  .nav__logo-accent { color: var(--lav); }
 
   .nav__center {
     display: flex;
     align-items: center;
-    justify-content: center;
     gap: 2px;
+    margin: 0 auto;
   }
 
   .nav__link {
-    font-family: var(--font-b);
     font-size: 14px;
     font-weight: 400;
     color: var(--text);
-    padding: 8px 16px;
-    border-radius: 12px;
+    padding: 7px 14px;
+    border-radius: 10px;
     transition: background 150ms ease;
     white-space: nowrap;
   }
@@ -113,56 +100,45 @@ const links = [
   .nav__cta {
     display: inline-flex;
     align-items: center;
-    padding: 10px 24px;
-    border-radius: 12px;
+    padding: 9px 22px;
+    border-radius: 10px;
     background: var(--lav);
     color: var(--text);
-    font-family: var(--font-b);
     font-size: 14px;
     font-weight: 500;
     white-space: nowrap;
     transition: all 200ms ease;
+    border: 1.5px solid rgba(26,26,26,0.06);
   }
-  .nav__cta:hover { background: var(--lav-dark); transform: translateY(-1px); }
+  .nav__cta:hover { background: var(--lav-dark); }
 
-  .nav__toggle {
-    display: none;
-    flex-direction: column;
-    gap: 4px;
-    padding: 8px;
-    margin-left: auto;
-  }
-  .nav__toggle span {
-    display: block; width: 18px; height: 2px;
-    background: var(--text); border-radius: 1px;
-  }
+  .nav__toggle { display:none; flex-direction:column; gap:4px; padding:8px; margin-left:auto; }
+  .nav__toggle span { display:block; width:18px; height:2px; background:var(--text); border-radius:1px; }
 
   .nav__mobile {
     display: none;
     position: fixed;
-    top: 82px; left: 16px; right: 16px;
+    top: 72px; left: 16px; right: 16px;
     z-index: calc(var(--z-nav) - 1);
     background: var(--cream);
-    border-radius: var(--r-sm);
-    padding: var(--s-6);
+    border-radius: 16px;
+    padding: 16px;
     flex-direction: column;
-    gap: 4px;
-    box-shadow: var(--sh-xl);
+    gap: 2px;
+    box-shadow: 0 24px 48px rgba(14,14,14,0.12);
     border: 1px solid rgba(26,26,26,0.06);
   }
   .nav__mobile.is-open { display: flex; }
   .nav__mobile-link {
-    display: block; padding: 12px 16px;
-    font-size: 16px; font-weight: 400;
-    color: var(--text); border-radius: var(--r-xs);
+    display:block; padding:12px 16px; font-size:15px; font-weight:400;
+    color:var(--text); border-radius:10px;
   }
-  .nav__mobile-link:hover { background: rgba(26,26,26,0.04); }
+  .nav__mobile-link:hover { background:rgba(26,26,26,0.04); }
 
-  @media (max-width: 860px) {
-    .nav__center { display: none; }
-    .nav__cta { display: none; }
-    .nav__toggle { display: flex; }
-    .nav__bar { grid-template-columns: auto 1fr; }
+  @media (max-width:860px) {
+    .nav__center { display:none; }
+    .nav__cta { display:none; }
+    .nav__toggle { display:flex; }
   }
 </style>
 
