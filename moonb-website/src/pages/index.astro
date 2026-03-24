@@ -428,21 +428,21 @@ const row2 = [
     margin: 0 auto;
   }
 
-  /* Tetris masonry grid using CSS columns */
+  /* Uniform grid — all blocks same size */
   .work__grid {
     max-width: 1300px;
     margin: 0 auto;
     padding: 0 var(--s-6);
-    columns: 4;
-    column-gap: 12px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
   }
 
   .work__item {
-    break-inside: avoid;
-    margin-bottom: 12px;
     border-radius: var(--r-xs);
     overflow: hidden;
     position: relative;
+    aspect-ratio: 4 / 3;
     opacity: 0;
     transform: translateY(40px);
     animation: workItemIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
@@ -472,47 +472,37 @@ const row2 = [
     to { opacity: 1; transform: translateY(0); }
   }
 
-  .work__item:hover {
-    transform: translateY(-4px) scale(1.01);
-    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    z-index: 2;
-  }
+  /* (hover defined below with float animations) */
 
-  /* Video containers */
+  /* Video containers — fill entire item, crop to fit */
   .work__video-wrap {
-    position: relative;
+    position: absolute;
+    inset: 0;
     overflow: hidden;
     background: #252525;
   }
-  .work__video-wrap--h {
-    padding-top: 56.25%; /* 16:9 */
-  }
-  .work__video-wrap--v {
-    padding-top: 177.78%; /* 9:16 */
-  }
   .work__video-wrap iframe {
     position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
+    top: 50%; left: 50%;
+    min-width: 100%; min-height: 100%;
+    width: auto; height: auto;
+    transform: translate(-50%, -50%);
     border: none;
   }
+  /* Vertical videos need to be wider to fill the horizontal container */
+  .work__video-wrap--v iframe {
+    min-width: 180%;
+  }
 
-  /* Design placeholders */
+  /* Design placeholders — fill entire item */
   .work__design {
+    position: absolute;
+    inset: 0;
     display: flex;
     align-items: flex-end;
     justify-content: flex-start;
     padding: var(--s-5);
-  }
-  .work__design--h {
-    padding-top: 56.25%;
-    position: relative;
     background: linear-gradient(135deg, #2A2A2A 0%, #1A1A1A 50%, #252530 100%);
-  }
-  .work__design--v {
-    padding-top: 140%;
-    position: relative;
-    background: linear-gradient(135deg, #252530 0%, #1A1A1A 50%, #2A2A2A 100%);
   }
   .work__design-label {
     position: absolute;
@@ -526,14 +516,40 @@ const row2 = [
     text-transform: uppercase;
   }
 
+  /* Hover lift + glow */
+  .work__item:hover {
+    transform: translateY(-6px) scale(1.02) !important;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 20px rgba(240,215,255,0.08);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+    z-index: 3;
+  }
+
+  /* Subtle continuous float animation on alternating items */
+  .work__item:nth-child(odd) {
+    animation: workItemIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards,
+               floatUp 6s ease-in-out infinite 1.5s;
+  }
+  .work__item:nth-child(even) {
+    animation: workItemIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards,
+               floatDown 7s ease-in-out infinite 2s;
+  }
+
+  @keyframes floatUp {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+  }
+  @keyframes floatDown {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(6px); }
+  }
+
   @media (max-width: 1024px) {
-    .work__grid { columns: 3; }
+    .work__grid { grid-template-columns: repeat(3, 1fr); }
   }
   @media (max-width: 768px) {
-    .work__grid { columns: 2; column-gap: 8px; }
-    .work__item { margin-bottom: 8px; }
+    .work__grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
   }
   @media (max-width: 480px) {
-    .work__grid { columns: 1; }
+    .work__grid { grid-template-columns: 1fr; }
   }
 </style>
