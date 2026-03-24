@@ -42,6 +42,36 @@ export default defineType({
     defineField({ name: 'relatedServices', type: 'array', of: [{ type: 'reference', to: [{ type: 'servicePage' }] }] }),
     defineField({ name: 'relatedIndustries', type: 'array', of: [{ type: 'reference', to: [{ type: 'industryPage' }] }] }),
     defineField({ name: 'relatedCaseStudies', type: 'array', of: [{ type: 'reference', to: [{ type: 'caseStudy' }] }] }),
+    defineField({
+      name: 'portfolioVideos',
+      title: 'Portfolio Videos',
+      type: 'array',
+      of: [{
+        type: 'object',
+        fields: [
+          defineField({ name: 'title', type: 'string', validation: (Rule) => Rule.required() }),
+          defineField({ name: 'vimeoUrl', title: 'Vimeo URL', type: 'url', validation: (Rule) => Rule.required() }),
+          defineField({ name: 'thumbnail', type: 'image', options: { hotspot: true } }),
+        ],
+        preview: {
+          select: { title: 'title', media: 'thumbnail' },
+        },
+      }],
+    }),
+    defineField({
+      name: 'portfolioImages',
+      title: 'Portfolio Images',
+      type: 'array',
+      of: [{
+        type: 'image',
+        options: { hotspot: true },
+        fields: [
+          defineField({ name: 'caption', type: 'string' }),
+          defineField({ name: 'alt', title: 'Alt Text', type: 'string', validation: (Rule) => Rule.required() }),
+        ],
+      }],
+    }),
+    defineField({ name: 'relatedBlogPosts', title: 'Related Blog Posts', type: 'array', of: [{ type: 'reference', to: [{ type: 'blogPost' }] }] }),
     defineField({ name: 'metaTitle', type: 'string', validation: (Rule) => Rule.max(60) }),
     defineField({ name: 'metaDescription', type: 'text', rows: 2, validation: (Rule) => Rule.max(155) }),
     defineField({ name: 'canonicalUrl', type: 'url' }),
