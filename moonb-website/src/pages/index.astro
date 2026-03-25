@@ -167,6 +167,15 @@ const row2 = [
 
 <script src="https://player.vimeo.com/api/player.js"></script>
 
+<!-- Auto-classify vertical video cells -->
+<script is:inline>
+  document.querySelectorAll('.wc').forEach(el => {
+    if (el.style.gridRow && el.style.gridRow.includes('span 2') && el.querySelector('iframe')) {
+      el.classList.add('wc--v');
+    }
+  });
+</script>
+
 <style is:global>
   /* CSS entrance animations - guaranteed to work without JS */
   .hero__pill, .hero__sub, .hero__buttons, .hero__video, .hero__marquee-wrap {
@@ -458,7 +467,7 @@ const row2 = [
   }
   .wc:hover { z-index: 3; box-shadow: 0 8px 30px rgba(0,0,0,0.6); }
 
-  /* Video iframes — scale 140% and center, overflow:hidden on .wc crops excess = zero black bars */
+  /* Horizontal video iframes — scale to fill wide cells */
   .wc iframe {
     position: absolute;
     top: 50%; left: 50%;
@@ -467,6 +476,13 @@ const row2 = [
     transform: translate(-50%, -50%);
     border: none;
     display: block;
+  }
+  /* Vertical video cells — normal size so play button is visible */
+  .wc--v iframe {
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    transform: none;
   }
 
   .wc img {
