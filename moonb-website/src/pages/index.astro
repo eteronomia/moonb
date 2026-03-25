@@ -444,21 +444,7 @@ const row2 = [
     overflow: hidden;
   }
 
-  /* Dark cotton paper texture — same as cream section but for dark bg */
-  .work::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image:
-      /* 3D bumpy paper surface — light catching dark folds */
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600'%3E%3Cfilter id='paper'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='6' seed='2' stitchTiles='stitch' result='noise'/%3E%3CfeDiffuseLighting in='noise' lighting-color='%23fff' surfaceScale='1.8' result='lit'%3E%3CfeDistantLight azimuth='225' elevation='55'/%3E%3C/feDiffuseLighting%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncR type='linear' slope='0.9' intercept='0.05'/%3E%3CfeFuncG type='linear' slope='0.9' intercept='0.05'/%3E%3CfeFuncB type='linear' slope='0.9' intercept='0.05'/%3E%3CfeFuncA type='linear' slope='0.12' intercept='0'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23paper)'/%3E%3C/svg%3E"),
-      /* Fine fiber grain */
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='4' seed='7' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='linear' slope='0.04' intercept='0'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)'/%3E%3C/svg%3E");
-    pointer-events: none;
-    z-index: 0;
-    mix-blend-mode: soft-light;
-    opacity: 0.7;
-  }
+  /* Texture handled by body::after globally */
   .work > * { position: relative; z-index: 1; }
 
   .work__header {
@@ -518,20 +504,28 @@ const row2 = [
 
   /* Landscape: exact 16:9 to match horizontal video */
   .work__card--landscape { aspect-ratio: 16 / 9; }
-  /* Portrait: exact 9:16 to match vertical video */
-  .work__card--portrait { aspect-ratio: 9 / 16; }
+  /* Portrait: cropped shorter — video fills and overflows */
+  .work__card--portrait { aspect-ratio: 4 / 5; }
 
   /* Video fills card edge-to-edge — no padding, no bars */
   .work__card--video {
     background: #000;
   }
-  .work__card--video iframe {
+  /* Landscape: iframe matches card exactly */
+  .work__card--video.work__card--landscape iframe {
     position: absolute;
     top: 0; left: 0;
+    width: 100%; height: 100%;
+    border: none; display: block;
+  }
+  /* Portrait: video is 9:16, card is 4:5 — scale to fill width, crop height */
+  .work__card--video.work__card--portrait iframe {
+    position: absolute;
+    top: 50%; left: 0;
     width: 100%;
-    height: 100%;
-    border: none;
-    display: block;
+    height: 160%;
+    transform: translateY(-50%);
+    border: none; display: block;
   }
 
   /* Design cards with placeholder images */
@@ -542,7 +536,7 @@ const row2 = [
     padding: var(--s-4);
   }
   .work__card--design.work__card--landscape { aspect-ratio: 16 / 9; }
-  .work__card--design.work__card--portrait { aspect-ratio: 9 / 16; }
+  .work__card--design.work__card--portrait { aspect-ratio: 4 / 5; }
 
   /* Framer-style fade-out at bottom */
   .work__fade {

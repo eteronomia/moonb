@@ -53,12 +53,29 @@ html {
   font-size: 100%;
   line-height: 1.6;
   color: var(--text);
-  background: var(--black);
+  background: #111111;
   -webkit-font-smoothing: antialiased;
   scroll-behavior: smooth;
 }
 
-body { min-height:100vh; overflow-x:hidden; }
+body {
+  min-height:100vh;
+  overflow-x:hidden;
+  position: relative;
+}
+/* Dark paper texture on body (visible behind hero rounded corners + work section) */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600'%3E%3Cfilter id='paper'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='6' seed='2' stitchTiles='stitch' result='noise'/%3E%3CfeDiffuseLighting in='noise' lighting-color='%23fff' surfaceScale='1.8' result='lit'%3E%3CfeDistantLight azimuth='225' elevation='55'/%3E%3C/feDiffuseLighting%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='linear' slope='0.1' intercept='0'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23paper)'/%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='4' seed='7' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='linear' slope='0.03' intercept='0'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+  mix-blend-mode: soft-light;
+  opacity: 0.6;
+}
 img,video,svg { display:block; max-width:100%; height:auto; }
 a { color:inherit; text-decoration:none; }
 button { font:inherit; cursor:pointer; border:none; background:none; }
