@@ -185,20 +185,22 @@ const row2 = [
       <p class="next-section__sub">No long hiring process and no unreliable freelancers. Your own dedicated team delivering world class design and video every week.</p>
     </div>
   </section>
+
+  <script src="https://player.vimeo.com/api/player.js" is:inline></script>
+
+  <!-- Add play buttons to all video grid cells -->
+  <script is:inline>
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.wc').forEach(el => {
+        if (el.querySelector('iframe')) {
+          const btn = document.createElement('div');
+          btn.className = 'wc-play';
+          el.appendChild(btn);
+        }
+      });
+    });
+  </script>
 </BaseLayout>
-
-<script src="https://player.vimeo.com/api/player.js"></script>
-
-<!-- Add play buttons to all video grid cells -->
-<script is:inline>
-  document.querySelectorAll('.wc').forEach(el => {
-    if (el.querySelector('iframe')) {
-      const btn = document.createElement('div');
-      btn.className = 'wc-play';
-      el.appendChild(btn);
-    }
-  });
-</script>
 
 
 <style is:global>
