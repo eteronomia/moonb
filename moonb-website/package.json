@@ -19,6 +19,7 @@
     "astro": "^5.5.0",
     "framer-motion": "^11.18.0",
     "gsap": "^3.12.7",
+    "masonry-layout": "^4.2.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "sanity": "^3.75.0"

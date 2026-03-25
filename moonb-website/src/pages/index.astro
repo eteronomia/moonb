@@ -113,6 +113,7 @@ const row2 = [
     </div>
 
     <div class="work__grid">
+      <div class="work__gutter-sizer"></div>
       <div class="work__card work__card--video work__card--h"><iframe src="https://player.vimeo.com/video/1084258404?h=bf1bb4d67b&badge=0&autopause=0&player_id=0&app_id=58479&background=1" frameborder="0" allow="autoplay" loading="lazy"></iframe></div>
       <div class="work__card work__card--video work__card--v"><iframe src="https://player.vimeo.com/video/1176622548?h=db1c34091d&badge=0&autopause=0&player_id=0&app_id=58479&background=1" frameborder="0" allow="autoplay" loading="lazy"></iframe></div>
       <div class="work__card work__card--design work__card--sq"><img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=500&h=500&fit=crop" alt="Social media" loading="lazy" /><span class="work__label">Social Media</span></div>
@@ -137,26 +138,19 @@ const row2 = [
     <div class="work__fade"></div>
   </section>
 
-  <!-- Parallax on cards -->
+  <!-- Masonry.js layout -->
+  <script is:inline src="/masonry.min.js"></script>
   <script is:inline>
-    document.addEventListener('DOMContentLoaded', () => {
-      const section = document.querySelector('.work');
-      const cards = document.querySelectorAll('.work__card');
-      if (!cards.length || !section) return;
-      const speeds = [];
-      cards.forEach(() => speeds.push((Math.random() - 0.5) * 0.06));
-      let ticking = false;
-      function onScroll() {
-        if (ticking) return;
-        ticking = true;
-        requestAnimationFrame(() => {
-          const rect = section.getBoundingClientRect();
-          const p = -rect.top;
-          cards.forEach((c, i) => { c.style.transform = 'translateY(' + (p * speeds[i]) + 'px)'; });
-          ticking = false;
-        });
-      }
-      window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('load', function() {
+      var grid = document.querySelector('.work__grid');
+      if (!grid || typeof Masonry === 'undefined') return;
+      new Masonry(grid, {
+        itemSelector: '.work__card',
+        columnWidth: '.work__card--v',
+        gutter: '.work__gutter-sizer',
+        percentPosition: true,
+        transitionDuration: 0
+      });
     });
   </script>
 </BaseLayout>
@@ -431,21 +425,19 @@ const row2 = [
     margin: 0 auto;
   }
 
-  /* CSS columns masonry — 3 cols, zero gaps, bigger cards */
+  /* Masonry.js — mixed widths, zero gaps */
   .work__grid {
     width: 100%;
     padding: 0 var(--s-3);
-    column-count: 3;
-    column-gap: 12px;
+    position: relative;
   }
 
   .work__card {
-    break-inside: avoid;
-    margin-bottom: 12px;
     border-radius: var(--r-xs);
     overflow: hidden;
     position: relative;
     cursor: pointer;
+    margin-bottom: 12px;
     transition: box-shadow 0.4s ease;
   }
   .work__card:hover {
@@ -453,10 +445,15 @@ const row2 = [
     z-index: 3;
   }
 
-  .work__card--h  { aspect-ratio: 16 / 9; }
-  .work__card--v  { aspect-ratio: 9 / 14; }
-  .work__card--sq { aspect-ratio: 1 / 1; }
-  .work__card--ld { aspect-ratio: 4 / 3; }
+  .work__gutter-sizer { width: 1%; }
+  /* Horizontal video: 49.5% width, 16:9 */
+  .work__card--h  { width: 49.5%; aspect-ratio: 16 / 9; }
+  /* Vertical video: 24% width, 9:14 */
+  .work__card--v  { width: 24%; aspect-ratio: 9 / 14; }
+  /* Square: 24% width */
+  .work__card--sq { width: 24%; aspect-ratio: 1 / 1; }
+  /* Landscape design: 24% width, 4:3 */
+  .work__card--ld { width: 24%; aspect-ratio: 4 / 3; }
 
   /* Video — full bleed */
   .work__card--video { background: #000; }
@@ -500,10 +497,16 @@ const row2 = [
   }
 
   @media (max-width: 768px) {
-    .work__grid { column-count: 2; column-gap: 8px; }
+    .work__card--h  { width: calc(100% - 0px); }
+    .work__card--v  { width: calc(50% - 4px); }
+    .work__card--sq { width: calc(50% - 4px); }
+    .work__card--ld { width: calc(50% - 4px); }
     .work__card { margin-bottom: 8px; }
   }
   @media (max-width: 480px) {
-    .work__grid { column-count: 1; }
+    .work__card--h,
+    .work__card--v,
+    .work__card--sq,
+    .work__card--ld { width: 100%; }
   }
 </style>
