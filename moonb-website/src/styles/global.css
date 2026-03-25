@@ -62,6 +62,7 @@ body {
   min-height:100vh;
   overflow-x:hidden;
   position: relative;
+  background-color: #1A1A1A;
 }
 /* Dark paper texture on body (visible behind hero rounded corners + work section) */
 body::after {
