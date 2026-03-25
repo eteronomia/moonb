@@ -167,41 +167,6 @@ const row2 = [
 
 <script src="https://player.vimeo.com/api/player.js"></script>
 
-<!-- Subtle grid parallax — rows shift gently on scroll -->
-<script is:inline>
-  document.addEventListener('DOMContentLoaded', () => {
-    const grid = document.querySelector('.work__grid');
-    if (!grid) return;
-    const section = document.querySelector('.work');
-    let ticking = false;
-
-    // Assign alternating subtle speeds to each grid cell
-    const cells = grid.querySelectorAll('.wc');
-    const speeds = [];
-    cells.forEach((cell, i) => {
-      // Alternate between slight up and slight down, very modest
-      speeds.push((i % 3 === 0) ? -0.03 : (i % 3 === 1) ? 0.02 : -0.015);
-      cell.style.willChange = 'transform';
-    });
-
-    function onScroll() {
-      if (ticking) return;
-      ticking = true;
-      requestAnimationFrame(() => {
-        const rect = section.getBoundingClientRect();
-        const scrollProgress = -rect.top;
-        cells.forEach((cell, i) => {
-          const offset = scrollProgress * speeds[i];
-          cell.style.transform = `translateY(${offset}px)`;
-        });
-        ticking = false;
-      });
-    }
-
-    window.addEventListener('scroll', onScroll, { passive: true });
-  });
-</script>
-
 <style is:global>
   /* CSS entrance animations - guaranteed to work without JS */
   .hero__pill, .hero__sub, .hero__buttons, .hero__video, .hero__marquee-wrap {
