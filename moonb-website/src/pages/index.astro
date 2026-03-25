@@ -192,31 +192,44 @@ const row2 = [
       </div>
     </div>
 
-    <!-- 4 overlapping value cards — horizontal scroll stack with scroll-triggered fan-out -->
-    <div class="better__cards-wrap">
-      <div class="better__cards" id="value-cards">
-        <div class="better__card better__card--1">
-          <div class="better__card-icon">01</div>
-          <h3>Better than hiring in house</h3>
-          <p>Enjoy all the advantages of hiring in-house without the downsides. No training, no overhead, no hiring costs or long-term commitments. We become an extension of your team.</p>
-        </div>
-        <div class="better__card better__card--2">
-          <div class="better__card-icon">02</div>
-          <h3>Beyond agencies & freelancers</h3>
-          <p>Say goodbye to delays, scope creep, and endless back-and-forth. Moonb delivers reliable, professional creative, on time, every time.</p>
-        </div>
-        <div class="better__card better__card--3">
-          <div class="better__card-icon">03</div>
-          <h3>Super fast onboarding</h3>
-          <p>Sign up and get onboarded to our production platform in minutes. Meet your team on a call and get started the same week.</p>
-        </div>
-        <div class="better__card better__card--4">
-          <div class="better__card-icon">04</div>
-          <h3>Quality content creation</h3>
-          <p>We identify the core elements of your brand and voice, then translate them into designs and videos. Review, approve, and share.</p>
-        </div>
+  </section>
+
+  <!-- Green section with value cards -->
+  <section class="green-section">
+    <div class="green-section__cards" id="value-cards">
+      <div class="better__card better__card--1">
+        <div class="better__card-accent"></div>
+        <div class="better__card-num">01</div>
+        <h3>Better than hiring in house</h3>
+        <p>Enjoy all the advantages of hiring in-house without the downsides. No training, no overhead, no hiring costs or long-term commitments. We become an extension of your team.</p>
+        <svg class="better__card-deco" viewBox="0 0 80 80"><circle cx="60" cy="20" r="16" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2"/><path d="M10 60 Q40 30 70 65" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="2"/></svg>
+      </div>
+      <div class="better__card better__card--2">
+        <div class="better__card-accent"></div>
+        <div class="better__card-num">02</div>
+        <h3>Beyond agencies & freelancers</h3>
+        <p>Say goodbye to delays, scope creep, and endless back-and-forth. Moonb delivers reliable, professional creative, on time, every time.</p>
+        <svg class="better__card-deco" viewBox="0 0 80 80"><rect x="10" y="10" width="25" height="25" rx="4" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2" transform="rotate(15 22 22)"/><circle cx="55" cy="55" r="12" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="2"/></svg>
+      </div>
+      <div class="better__card better__card--3">
+        <div class="better__card-accent"></div>
+        <div class="better__card-num">03</div>
+        <h3>Super fast onboarding</h3>
+        <p>Sign up and get onboarded to our production platform in minutes. Meet your team on a call and get started the same week.</p>
+        <svg class="better__card-deco" viewBox="0 0 80 80"><polygon points="40,5 75,65 5,65" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="2"/></svg>
+      </div>
+      <div class="better__card better__card--4">
+        <div class="better__card-accent"></div>
+        <div class="better__card-num">04</div>
+        <h3>Quality content creation</h3>
+        <p>We identify the core elements of your brand and voice, then translate them into designs and videos. Review, approve, and share.</p>
+        <svg class="better__card-deco" viewBox="0 0 80 80"><path d="M10 40 Q25 10 40 40 Q55 70 70 40" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2"/><circle cx="15" cy="60" r="8" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="2"/></svg>
       </div>
     </div>
+  </section>
+
+  <!-- Resume cream section -->
+  <section class="better-cont paper-bg">
 
     <!-- "A full-time creative team" CTA -->
     <div class="better__cta-section">
@@ -226,12 +239,16 @@ const row2 = [
       <div class="better__cta-right">
         <p>A dedicated team of designers, motion artists, and directors who plug right into your workflow.</p>
         <div class="better__cta-proof">
-          <img src="/assets/badges/clutch-2025.svg" alt="Clutch" class="better__clutch" />
+          <img src="/assets/badges/clutch-pricing.svg" alt="Clutch" class="better__clutch" />
           <div class="better__cta-avatars">
-            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=60&h=60&fit=crop&crop=face" alt="" />
-            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=60&h=60&fit=crop&crop=face" alt="" />
-            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=60&h=60&fit=crop&crop=face" alt="" />
-            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=60&h=60&fit=crop&crop=face" alt="" />
+            <img src="/assets/headshots/young.png" alt="" />
+            <img src="/assets/headshots/closeup.png" alt="" />
+            <img src="/assets/headshots/smiling.png" alt="" />
+            <img src="/assets/headshots/portrait.png" alt="" />
+            <img src="/assets/headshots/rene.jpg" alt="" />
+            <img src="/assets/headshots/marius.jpg" alt="" />
+            <img src="/assets/headshots/diane.jpg" alt="" />
+            <img src="/assets/headshots/josh.jpg" alt="" />
           </div>
         </div>
       </div>
@@ -784,51 +801,99 @@ const row2 = [
     margin: 0 auto;
   }
 
-  /* Value cards — overlapping stack with scroll-triggered fan-out */
-  .better__cards-wrap {
-    max-width: 1100px;
-    margin: 0 auto var(--s-20);
+  /* Green section with value cards */
+  .green-section {
+    background: var(--teal);
+    padding: var(--s-20) var(--s-6);
+    border-radius: var(--r) var(--r) 0 0;
+    margin-top: -48px;
     position: relative;
-    min-height: 320px;
+    z-index: 7;
   }
-  .better__cards {
+  .green-section__cards {
+    max-width: 1100px;
+    margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: var(--s-5);
-    position: relative;
   }
+
+  /* Resume cream after green */
+  .better-cont {
+    background: var(--cream);
+    padding: var(--s-20) var(--s-6);
+    border-radius: var(--r) var(--r) 0 0;
+    margin-top: -48px;
+    position: relative;
+    z-index: 8;
+  }
+
+  /* Cards — start stacked in center, unfold outward on scroll */
   .better__card {
-    background: #fff;
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(8px);
     border-radius: var(--r-sm);
     padding: var(--s-8) var(--s-6);
-    box-shadow: 0 4px 24px rgba(0,0,0,0.06), 0 1px 3px rgba(0,0,0,0.04);
-    border: 1px solid rgba(0,0,0,0.04);
-    transform: translateY(40px) rotate(0deg);
+    border: 1px solid rgba(255,255,255,0.15);
+    position: relative;
+    overflow: hidden;
+    /* Start: all stacked in center */
     opacity: 0;
-    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: translateY(60px) scale(0.9);
+    transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
   }
-  .better__card.is-visible { opacity: 1; transform: translateY(0); }
+  .better__card-accent {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+  }
+  .better__card--1 .better__card-accent { background: var(--lav); }
+  .better__card--2 .better__card-accent { background: #D4EDDA; }
+  .better__card--3 .better__card-accent { background: #FFA946; }
+  .better__card--4 .better__card-accent { background: #F0D7FF; }
+
+  .better__card.is-visible { opacity: 1; transform: translateY(0) scale(1); }
   .better__card--1.is-visible { transition-delay: 0s; transform: translateY(0) rotate(-1.5deg); }
-  .better__card--2.is-visible { transition-delay: 0.1s; transform: translateY(-8px) rotate(0.8deg); }
-  .better__card--3.is-visible { transition-delay: 0.2s; transform: translateY(4px) rotate(-0.5deg); }
-  .better__card--4.is-visible { transition-delay: 0.15s; transform: translateY(-4px) rotate(1.2deg); }
+  .better__card--2.is-visible { transition-delay: 0.12s; transform: translateY(-10px) rotate(0.8deg); }
+  .better__card--3.is-visible { transition-delay: 0.24s; transform: translateY(5px) rotate(-0.5deg); }
+  .better__card--4.is-visible { transition-delay: 0.36s; transform: translateY(-5px) rotate(1deg); }
   .better__card:hover {
-    transform: translateY(-8px) rotate(0deg) scale(1.02) !important;
-    box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+    transform: translateY(-8px) rotate(0deg) scale(1.03) !important;
+    background: rgba(255,255,255,0.2);
+    border-color: rgba(255,255,255,0.3);
     z-index: 2;
   }
-  .better__card-icon { font-size: 28px; margin-bottom: var(--s-4); }
+  .better__card-num {
+    font-size: 32px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.2);
+    margin-bottom: var(--s-4);
+    font-family: var(--font-h);
+  }
   .better__card h3 {
     font-size: 18px;
     font-weight: 600;
-    color: var(--text);
+    color: #fff;
     margin-bottom: var(--s-3);
     line-height: 1.2;
   }
   .better__card p {
     font-size: 14px;
     line-height: 1.6;
-    color: var(--muted);
+    color: rgba(255,255,255,0.7);
+  }
+  .better__card-deco {
+    position: absolute;
+    bottom: 8px; right: 8px;
+    width: 60px; height: 60px;
+    opacity: 0.4;
+  }
+
+  @media (max-width: 860px) {
+    .green-section__cards { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 480px) {
+    .green-section__cards { grid-template-columns: 1fr; }
   }
 
   /* CTA section */
