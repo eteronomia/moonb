@@ -108,7 +108,7 @@ const row2 = [
   <!-- Recent Work: 9×8 Tetris Grid — full viewport, crops on resize -->
   <section class="work" id="recent-work">
     <div class="work__header">
-      <h2 class="work__h2">Design and Video That Performs</h2>
+      <h2 class="work__h2">Design and Video That <span class="highlight-green">Perform</span></h2>
       <p class="work__sub">From concept to execution, we deliver high impact design and video content for brands at every stage, from startups and scaleups to enterprise teams.</p>
     </div>
 
@@ -429,6 +429,29 @@ const row2 = [
     letter-spacing: -0.03em;
     color: var(--cream);
     margin-bottom: var(--s-5);
+  }
+
+  .highlight-green {
+    position: relative;
+    display: inline;
+    z-index: 1;
+  }
+  .highlight-green::after {
+    content: '';
+    position: absolute;
+    left: -4px; right: -4px;
+    bottom: 2px;
+    height: 40%;
+    background: var(--green-soft, #D4EDDA);
+    opacity: 0.55;
+    z-index: -1;
+    border-radius: 4px;
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: highlightSweep 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards;
+  }
+  @keyframes highlightSweep {
+    to { transform: scaleX(1); }
   }
 
   .work__sub {
