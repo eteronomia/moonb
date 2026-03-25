@@ -105,7 +105,7 @@ const row2 = [
     </div>
   </section>
 
-  <!-- Recent Work: CSS Grid masonry with irregular layout -->
+  <!-- Recent Work: 7×8 Tetris Grid — exact placement, zero gaps -->
   <section class="work" id="recent-work">
     <div class="work__header">
       <h2 class="work__h2">Design and Video That Performs</h2>
@@ -113,46 +113,45 @@ const row2 = [
     </div>
 
     <div class="work__grid">
-      <div class="work__gutter-sizer"></div>
-      <div class="work__card work__card--video work__card--h"><iframe src="https://player.vimeo.com/video/1084258404?h=bf1bb4d67b&badge=0&autopause=0&player_id=0&app_id=58479&background=1" frameborder="0" allow="autoplay" loading="lazy"></iframe></div>
-      <div class="work__card work__card--video work__card--v"><iframe src="https://player.vimeo.com/video/1176622548?h=db1c34091d&badge=0&autopause=0&player_id=0&app_id=58479&background=1" frameborder="0" allow="autoplay" loading="lazy"></iframe></div>
-      <div class="work__card work__card--design work__card--sq"><img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=500&h=500&fit=crop" alt="Social media" loading="lazy" /><span class="work__label">Social Media</span></div>
-      <div class="work__card work__card--video work__card--h"><iframe src="https://player.vimeo.com/video/1084258404?h=bf1bb4d67b&badge=0&autopause=0&player_id=0&app_id=58479&background=1" frameborder="0" allow="autoplay" loading="lazy"></iframe></div>
-      <div class="work__card work__card--design work__card--v"><img src="https://images.unsplash.com/photo-1634942537034-2531766767d1?w=400&h=620&fit=crop" alt="Brand identity" loading="lazy" /><span class="work__label">Brand Identity</span></div>
-      <div class="work__card work__card--design work__card--ld"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&h=375&fit=crop" alt="Dashboard" loading="lazy" /><span class="work__label">Dashboard</span></div>
-      <div class="work__card work__card--video work__card--v"><iframe src="https://player.vimeo.com/video/1176622548?h=db1c34091d&badge=0&autopause=0&player_id=0&app_id=58479&background=1" frameborder="0" allow="autoplay" loading="lazy"></iframe></div>
-      <div class="work__card work__card--design work__card--sq"><img src="https://images.unsplash.com/photo-1586075010923-2dd4570fb338?w=500&h=500&fit=crop" alt="Packaging" loading="lazy" /><span class="work__label">Packaging</span></div>
-      <div class="work__card work__card--video work__card--h"><iframe src="https://player.vimeo.com/video/1084258404?h=bf1bb4d67b&badge=0&autopause=0&player_id=0&app_id=58479&background=1" frameborder="0" allow="autoplay" loading="lazy"></iframe></div>
-      <div class="work__card work__card--design work__card--sq"><img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?w=500&h=500&fit=crop" alt="Ad creative" loading="lazy" /><span class="work__label">Ad Creative</span></div>
-      <div class="work__card work__card--video work__card--v"><iframe src="https://player.vimeo.com/video/1176622548?h=db1c34091d&badge=0&autopause=0&player_id=0&app_id=58479&background=1" frameborder="0" allow="autoplay" loading="lazy"></iframe></div>
-      <div class="work__card work__card--design work__card--ld"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500&h=375&fit=crop" alt="Infographic" loading="lazy" /><span class="work__label">Infographic</span></div>
-      <div class="work__card work__card--video work__card--h"><iframe src="https://player.vimeo.com/video/1084258404?h=bf1bb4d67b&badge=0&autopause=0&player_id=0&app_id=58479&background=1" frameborder="0" allow="autoplay" loading="lazy"></iframe></div>
-      <div class="work__card work__card--design work__card--v"><img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400&h=620&fit=crop" alt="Illustration" loading="lazy" /><span class="work__label">Illustration</span></div>
-      <div class="work__card work__card--design work__card--sq"><img src="https://images.unsplash.com/photo-1572044162444-ad60f128bdea?w=500&h=500&fit=crop" alt="Logo" loading="lazy" /><span class="work__label">Logo</span></div>
-      <div class="work__card work__card--video work__card--h"><iframe src="https://player.vimeo.com/video/1084258404?h=bf1bb4d67b&badge=0&autopause=0&player_id=0&app_id=58479&background=1" frameborder="0" allow="autoplay" loading="lazy"></iframe></div>
-      <div class="work__card work__card--design work__card--sq"><img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=500&h=500&fit=crop" alt="Web design" loading="lazy" /><span class="work__label">Web Design</span></div>
-      <div class="work__card work__card--video work__card--v"><iframe src="https://player.vimeo.com/video/1176622548?h=db1c34091d&badge=0&autopause=0&player_id=0&app_id=58479&background=1" frameborder="0" allow="autoplay" loading="lazy"></iframe></div>
-      <div class="work__card work__card--design work__card--ld"><img src="https://images.unsplash.com/photo-1542744094-3a31f272c490?w=500&h=375&fit=crop" alt="Presentation" loading="lazy" /><span class="work__label">Presentation</span></div>
+      <!-- Rows 1-2 -->
+      <div class="wc wc--v" style="grid-column:1/span 1;grid-row:1/span 2"><iframe src="https://player.vimeo.com/video/1176622548?h=db1c34091d&badge=0&autopause=0&player_id=0&app_id=58479&background=1" frameborder="0" allow="autoplay" loading="lazy"></iframe></div>
+      <div class="wc wc--img" style="grid-column:2/span 2;grid-row:1/span 2"><img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=500&h=500&fit=crop" alt="Social media" loading="lazy" /></div>
+      <div class="wc wc--h" style="grid-column:4/span 2;grid-row:1/span 1"><iframe src="https://player.vimeo.com/video/1084258404?h=bf1bb4d67b&badge=0&autopause=0&player_id=0&app_id=58479&background=1" frameborder="0" allow="autoplay" loading="lazy"></iframe></div>
+      <div class="wc wc--h" style="grid-column:6/span 2;grid-row:1/span 1"><iframe src="https://player.vimeo.com/video/1084258404?h=bf1bb4d67b&badge=0&autopause=0&player_id=0&app_id=58479&background=1" frameborder="0" allow="autoplay" loading="lazy"></iframe></div>
+      <div class="wc wc--h" style="grid-column:4/span 2;grid-row:2/span 1"><iframe src="https://player.vimeo.com/video/1084258404?h=bf1bb4d67b&badge=0&autopause=0&player_id=0&app_id=58479&background=1" frameborder="0" allow="autoplay" loading="lazy"></iframe></div>
+      <div class="wc wc--v" style="grid-column:6/span 1;grid-row:2/span 2"><iframe src="https://player.vimeo.com/video/1176622548?h=db1c34091d&badge=0&autopause=0&player_id=0&app_id=58479&background=1" frameborder="0" allow="autoplay" loading="lazy"></iframe></div>
+      <div class="wc wc--img wc--sm" style="grid-column:7/span 1;grid-row:2/span 1"><img src="https://images.unsplash.com/photo-1586075010923-2dd4570fb338?w=300&h=300&fit=crop" alt="Packaging" loading="lazy" /></div>
+
+      <!-- Rows 3-4 -->
+      <div class="wc wc--h" style="grid-column:1/span 2;grid-row:3/span 1"><iframe src="https://player.vimeo.com/video/1084258404?h=bf1bb4d67b&badge=0&autopause=0&player_id=0&app_id=58479&background=1" frameborder="0" allow="autoplay" loading="lazy"></iframe></div>
+      <div class="wc wc--img" style="grid-column:3/span 2;grid-row:3/span 2"><img src="https://images.unsplash.com/photo-1634942537034-2531766767d1?w=500&h=500&fit=crop" alt="Brand identity" loading="lazy" /></div>
+      <div class="wc wc--img wc--sm" style="grid-column:5/span 1;grid-row:3/span 1"><img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?w=300&h=300&fit=crop" alt="Ad creative" loading="lazy" /></div>
+      <div class="wc wc--img wc--sm" style="grid-column:7/span 1;grid-row:3/span 1"><img src="https://images.unsplash.com/photo-1572044162444-ad60f128bdea?w=300&h=300&fit=crop" alt="Logo" loading="lazy" /></div>
+      <div class="wc wc--h" style="grid-column:1/span 2;grid-row:4/span 1"><iframe src="https://player.vimeo.com/video/1084258404?h=bf1bb4d67b&badge=0&autopause=0&player_id=0&app_id=58479&background=1" frameborder="0" allow="autoplay" loading="lazy"></iframe></div>
+      <div class="wc wc--v" style="grid-column:5/span 1;grid-row:4/span 2"><iframe src="https://player.vimeo.com/video/1176622548?h=db1c34091d&badge=0&autopause=0&player_id=0&app_id=58479&background=1" frameborder="0" allow="autoplay" loading="lazy"></iframe></div>
+      <div class="wc wc--h" style="grid-column:6/span 2;grid-row:4/span 1"><iframe src="https://player.vimeo.com/video/1084258404?h=bf1bb4d67b&badge=0&autopause=0&player_id=0&app_id=58479&background=1" frameborder="0" allow="autoplay" loading="lazy"></iframe></div>
+
+      <!-- Rows 5-6 -->
+      <div class="wc wc--img wc--sm" style="grid-column:1/span 1;grid-row:5/span 1"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=300&h=300&fit=crop" alt="Dashboard" loading="lazy" /></div>
+      <div class="wc wc--v" style="grid-column:2/span 1;grid-row:5/span 2"><iframe src="https://player.vimeo.com/video/1176622548?h=db1c34091d&badge=0&autopause=0&player_id=0&app_id=58479&background=1" frameborder="0" allow="autoplay" loading="lazy"></iframe></div>
+      <div class="wc wc--img" style="grid-column:3/span 2;grid-row:5/span 2"><img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=500&h=500&fit=crop" alt="Illustration" loading="lazy" /></div>
+      <div class="wc wc--h" style="grid-column:6/span 2;grid-row:5/span 1"><iframe src="https://player.vimeo.com/video/1084258404?h=bf1bb4d67b&badge=0&autopause=0&player_id=0&app_id=58479&background=1" frameborder="0" allow="autoplay" loading="lazy"></iframe></div>
+      <div class="wc wc--img wc--sm" style="grid-column:1/span 1;grid-row:6/span 1"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=300&h=300&fit=crop" alt="Infographic" loading="lazy" /></div>
+      <div class="wc wc--h" style="grid-column:5/span 2;grid-row:6/span 1"><iframe src="https://player.vimeo.com/video/1084258404?h=bf1bb4d67b&badge=0&autopause=0&player_id=0&app_id=58479&background=1" frameborder="0" allow="autoplay" loading="lazy"></iframe></div>
+      <div class="wc wc--img wc--sm" style="grid-column:7/span 1;grid-row:6/span 1"><img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=300&h=300&fit=crop" alt="Web design" loading="lazy" /></div>
+
+      <!-- Rows 7-8 -->
+      <div class="wc wc--h" style="grid-column:1/span 2;grid-row:7/span 1"><iframe src="https://player.vimeo.com/video/1084258404?h=bf1bb4d67b&badge=0&autopause=0&player_id=0&app_id=58479&background=1" frameborder="0" allow="autoplay" loading="lazy"></iframe></div>
+      <div class="wc wc--v" style="grid-column:3/span 1;grid-row:7/span 2"><iframe src="https://player.vimeo.com/video/1176622548?h=db1c34091d&badge=0&autopause=0&player_id=0&app_id=58479&background=1" frameborder="0" allow="autoplay" loading="lazy"></iframe></div>
+      <div class="wc wc--v" style="grid-column:4/span 1;grid-row:7/span 2"><iframe src="https://player.vimeo.com/video/1176622548?h=db1c34091d&badge=0&autopause=0&player_id=0&app_id=58479&background=1" frameborder="0" allow="autoplay" loading="lazy"></iframe></div>
+      <div class="wc wc--h" style="grid-column:5/span 2;grid-row:7/span 1"><iframe src="https://player.vimeo.com/video/1084258404?h=bf1bb4d67b&badge=0&autopause=0&player_id=0&app_id=58479&background=1" frameborder="0" allow="autoplay" loading="lazy"></iframe></div>
+      <div class="wc wc--v" style="grid-column:7/span 1;grid-row:7/span 2"><iframe src="https://player.vimeo.com/video/1176622548?h=db1c34091d&badge=0&autopause=0&player_id=0&app_id=58479&background=1" frameborder="0" allow="autoplay" loading="lazy"></iframe></div>
+      <div class="wc wc--h" style="grid-column:1/span 2;grid-row:8/span 1"><iframe src="https://player.vimeo.com/video/1084258404?h=bf1bb4d67b&badge=0&autopause=0&player_id=0&app_id=58479&background=1" frameborder="0" allow="autoplay" loading="lazy"></iframe></div>
+      <div class="wc wc--h" style="grid-column:5/span 2;grid-row:8/span 1"><iframe src="https://player.vimeo.com/video/1084258404?h=bf1bb4d67b&badge=0&autopause=0&player_id=0&app_id=58479&background=1" frameborder="0" allow="autoplay" loading="lazy"></iframe></div>
     </div>
 
     <div class="work__fade"></div>
   </section>
-
-  <!-- Masonry.js layout -->
-  <script is:inline src="/masonry.min.js"></script>
-  <script is:inline>
-    window.addEventListener('load', function() {
-      var grid = document.querySelector('.work__grid');
-      if (!grid || typeof Masonry === 'undefined') return;
-      new Masonry(grid, {
-        itemSelector: '.work__card',
-        columnWidth: '.work__card--v',
-        gutter: '.work__gutter-sizer',
-        percentPosition: true,
-        transitionDuration: 0
-      });
-    });
-  </script>
 </BaseLayout>
 
 <script src="https://player.vimeo.com/api/player.js"></script>
@@ -425,35 +424,60 @@ const row2 = [
     margin: 0 auto;
   }
 
-  /* Masonry.js — mixed widths, zero gaps */
+  /* 7×8 Tetris grid — explicit placement, zero gaps */
   .work__grid {
     width: 100%;
     padding: 0 var(--s-3);
-    position: relative;
-  }
-
-  .work__card {
-    border-radius: var(--r-xs);
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    gap: 0;
+    aspect-ratio: 7 / 8;
+    max-width: 1200px;
+    margin: 0 auto;
+    border-radius: var(--r-sm);
     overflow: hidden;
-    position: relative;
-    cursor: pointer;
-    margin-bottom: 12px;
-    transition: box-shadow 0.4s ease;
-  }
-  .work__card:hover {
-    box-shadow: 0 16px 40px rgba(0,0,0,0.5);
-    z-index: 3;
   }
 
-  .work__gutter-sizer { width: 1%; }
-  /* Horizontal video: 49.5% width, 16:9 */
-  .work__card--h  { width: 49.5%; aspect-ratio: 16 / 9; }
-  /* Vertical video: 24% width, 9:14 */
-  .work__card--v  { width: 24%; aspect-ratio: 9 / 14; }
-  /* Square: 24% width */
-  .work__card--sq { width: 24%; aspect-ratio: 1 / 1; }
-  /* Landscape design: 24% width, 4:3 */
-  .work__card--ld { width: 24%; aspect-ratio: 4 / 3; }
+  .wc {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  .wc:hover { z-index: 3; }
+
+  /* Inner card with 3px inset for subtle separation + rounded corners */
+  .wc::before {
+    content: '';
+    position: absolute;
+    inset: 1.5px;
+    border-radius: 14px;
+    z-index: 0;
+  }
+
+  /* Video cards */
+  .wc--h iframe, .wc--v iframe {
+    position: absolute;
+    inset: 1.5px;
+    width: calc(100% - 3px);
+    height: calc(100% - 3px);
+    border: none;
+    border-radius: 14px;
+    display: block;
+    z-index: 1;
+  }
+
+  /* Image cards */
+  .wc--img img, .wc--sm img {
+    position: absolute;
+    inset: 1.5px;
+    width: calc(100% - 3px);
+    height: calc(100% - 3px);
+    object-fit: cover;
+    border-radius: 14px;
+    z-index: 1;
+  }
 
   /* Video — full bleed */
   .work__card--video { background: #000; }
@@ -497,16 +521,6 @@ const row2 = [
   }
 
   @media (max-width: 768px) {
-    .work__card--h  { width: calc(100% - 0px); }
-    .work__card--v  { width: calc(50% - 4px); }
-    .work__card--sq { width: calc(50% - 4px); }
-    .work__card--ld { width: calc(50% - 4px); }
-    .work__card { margin-bottom: 8px; }
-  }
-  @media (max-width: 480px) {
-    .work__card--h,
-    .work__card--v,
-    .work__card--sq,
-    .work__card--ld { width: 100%; }
+    .work__grid { max-width: 100%; aspect-ratio: auto; }
   }
 </style>
