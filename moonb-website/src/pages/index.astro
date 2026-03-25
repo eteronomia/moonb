@@ -105,43 +105,82 @@ const row2 = [
     </div>
   </section>
 
-  <!-- Recent Work Section -->
+  <!-- Recent Work: Framer-style parallax columns -->
   <section class="work" id="recent-work">
     <div class="work__header">
       <h2 class="work__h2">Design and Video That Performs</h2>
       <p class="work__sub">From concept to execution, we deliver high impact design and video content for brands at every stage, from startups and scaleups to enterprise teams.</p>
     </div>
 
-    <div class="work__grid">
-      <!-- Row 1: H-video, V-video, Design-H, H-video -->
-      <div class="work__item work__item--h" data-anim="1"><div class="work__video-wrap work__video-wrap--h"><iframe src="https://player.vimeo.com/video/1084258404?h=bf1bb4d67b&badge=0&autopause=0&player_id=0&app_id=58479&background=1" frameborder="0" allow="autoplay" loading="lazy" title="Moonb horizontal showreel 1"></iframe></div></div>
-      <div class="work__item work__item--v" data-anim="2"><div class="work__video-wrap work__video-wrap--v"><iframe src="https://player.vimeo.com/video/1176622548?h=db1c34091d&badge=0&autopause=0&player_id=0&app_id=58479&background=1" frameborder="0" allow="autoplay" loading="lazy" title="Moonb vertical video 1"></iframe></div></div>
-      <div class="work__item work__item--h" data-anim="3"><div class="work__design work__design--h"><span class="work__design-label">Brand Identity</span></div></div>
-      <div class="work__item work__item--v" data-anim="4"><div class="work__video-wrap work__video-wrap--v"><iframe src="https://player.vimeo.com/video/1176622548?h=db1c34091d&badge=0&autopause=0&player_id=0&app_id=58479&background=1" frameborder="0" allow="autoplay" loading="lazy" title="Moonb vertical video 2"></iframe></div></div>
+    <div class="work__columns">
+      <!-- Column 1: scrolls UP (default) -->
+      <div class="work__col" data-speed="-0.15">
+        <div class="work__card work__card--video work__card--landscape"><iframe src="https://player.vimeo.com/video/1084258404?h=bf1bb4d67b&badge=0&autopause=0&player_id=0&app_id=58479&background=1" frameborder="0" allow="autoplay" loading="lazy" title="Moonb showreel 1"></iframe></div>
+        <div class="work__card work__card--video work__card--portrait"><iframe src="https://player.vimeo.com/video/1176622548?h=db1c34091d&badge=0&autopause=0&player_id=0&app_id=58479&background=1" frameborder="0" allow="autoplay" loading="lazy" title="Moonb vertical 1"></iframe></div>
+        <div class="work__card work__card--design work__card--landscape"><span class="work__label">Brand Identity</span></div>
+        <div class="work__card work__card--video work__card--portrait"><iframe src="https://player.vimeo.com/video/1176622548?h=db1c34091d&badge=0&autopause=0&player_id=0&app_id=58479&background=1" frameborder="0" allow="autoplay" loading="lazy" title="Moonb vertical 2"></iframe></div>
+      </div>
 
-      <!-- Row 2: V-video, Design-V, H-video, H-video -->
-      <div class="work__item work__item--v" data-anim="5"><div class="work__video-wrap work__video-wrap--v"><iframe src="https://player.vimeo.com/video/1176622548?h=db1c34091d&badge=0&autopause=0&player_id=0&app_id=58479&background=1" frameborder="0" allow="autoplay" loading="lazy" title="Moonb vertical video 3"></iframe></div></div>
-      <div class="work__item work__item--h" data-anim="6"><div class="work__video-wrap work__video-wrap--h"><iframe src="https://player.vimeo.com/video/1084258404?h=bf1bb4d67b&badge=0&autopause=0&player_id=0&app_id=58479&background=1" frameborder="0" allow="autoplay" loading="lazy" title="Moonb horizontal showreel 2"></iframe></div></div>
-      <div class="work__item work__item--v" data-anim="7"><div class="work__design work__design--v"><span class="work__design-label">Packaging</span></div></div>
-      <div class="work__item work__item--h" data-anim="8"><div class="work__video-wrap work__video-wrap--h"><iframe src="https://player.vimeo.com/video/1084258404?h=bf1bb4d67b&badge=0&autopause=0&player_id=0&app_id=58479&background=1" frameborder="0" allow="autoplay" loading="lazy" title="Moonb horizontal showreel 3"></iframe></div></div>
+      <!-- Column 2: scrolls DOWN -->
+      <div class="work__col" data-speed="0.1">
+        <div class="work__card work__card--video work__card--portrait"><iframe src="https://player.vimeo.com/video/1176622548?h=db1c34091d&badge=0&autopause=0&player_id=0&app_id=58479&background=1" frameborder="0" allow="autoplay" loading="lazy" title="Moonb vertical 3"></iframe></div>
+        <div class="work__card work__card--video work__card--landscape"><iframe src="https://player.vimeo.com/video/1084258404?h=bf1bb4d67b&badge=0&autopause=0&player_id=0&app_id=58479&background=1" frameborder="0" allow="autoplay" loading="lazy" title="Moonb showreel 2"></iframe></div>
+        <div class="work__card work__card--design work__card--portrait"><span class="work__label">Packaging</span></div>
+        <div class="work__card work__card--video work__card--landscape"><iframe src="https://player.vimeo.com/video/1084258404?h=bf1bb4d67b&badge=0&autopause=0&player_id=0&app_id=58479&background=1" frameborder="0" allow="autoplay" loading="lazy" title="Moonb showreel 3"></iframe></div>
+      </div>
 
-      <!-- Row 3: Design-H, H-video, V-video, Design-V -->
-      <div class="work__item work__item--h" data-anim="9"><div class="work__design work__design--h"><span class="work__design-label">Social Media</span></div></div>
-      <div class="work__item work__item--v" data-anim="10"><div class="work__video-wrap work__video-wrap--v"><iframe src="https://player.vimeo.com/video/1176622548?h=db1c34091d&badge=0&autopause=0&player_id=0&app_id=58479&background=1" frameborder="0" allow="autoplay" loading="lazy" title="Moonb vertical video 4"></iframe></div></div>
-      <div class="work__item work__item--h" data-anim="11"><div class="work__video-wrap work__video-wrap--h"><iframe src="https://player.vimeo.com/video/1084258404?h=bf1bb4d67b&badge=0&autopause=0&player_id=0&app_id=58479&background=1" frameborder="0" allow="autoplay" loading="lazy" title="Moonb horizontal showreel 4"></iframe></div></div>
-      <div class="work__item work__item--v" data-anim="12"><div class="work__video-wrap work__video-wrap--v"><iframe src="https://player.vimeo.com/video/1176622548?h=db1c34091d&badge=0&autopause=0&player_id=0&app_id=58479&background=1" frameborder="0" allow="autoplay" loading="lazy" title="Moonb vertical video 5"></iframe></div></div>
+      <!-- Column 3: scrolls UP -->
+      <div class="work__col" data-speed="-0.2">
+        <div class="work__card work__card--design work__card--landscape"><span class="work__label">Social Media</span></div>
+        <div class="work__card work__card--video work__card--landscape"><iframe src="https://player.vimeo.com/video/1084258404?h=bf1bb4d67b&badge=0&autopause=0&player_id=0&app_id=58479&background=1" frameborder="0" allow="autoplay" loading="lazy" title="Moonb showreel 4"></iframe></div>
+        <div class="work__card work__card--video work__card--portrait"><iframe src="https://player.vimeo.com/video/1176622548?h=db1c34091d&badge=0&autopause=0&player_id=0&app_id=58479&background=1" frameborder="0" allow="autoplay" loading="lazy" title="Moonb vertical 4"></iframe></div>
+        <div class="work__card work__card--design work__card--portrait"><span class="work__label">Illustration</span></div>
+      </div>
 
-      <!-- Row 4: H-video, Design-H, V-video, H-video -->
-      <div class="work__item work__item--h" data-anim="13"><div class="work__video-wrap work__video-wrap--h"><iframe src="https://player.vimeo.com/video/1084258404?h=bf1bb4d67b&badge=0&autopause=0&player_id=0&app_id=58479&background=1" frameborder="0" allow="autoplay" loading="lazy" title="Moonb horizontal showreel 5"></iframe></div></div>
-      <div class="work__item work__item--v" data-anim="14"><div class="work__design work__design--v"><span class="work__design-label">Illustration</span></div></div>
-      <div class="work__item work__item--h" data-anim="15"><div class="work__video-wrap work__video-wrap--h"><iframe src="https://player.vimeo.com/video/1084258404?h=bf1bb4d67b&badge=0&autopause=0&player_id=0&app_id=58479&background=1" frameborder="0" allow="autoplay" loading="lazy" title="Moonb horizontal showreel 6"></iframe></div></div>
-      <div class="work__item work__item--v" data-anim="16"><div class="work__video-wrap work__video-wrap--v"><iframe src="https://player.vimeo.com/video/1176622548?h=db1c34091d&badge=0&autopause=0&player_id=0&app_id=58479&background=1" frameborder="0" allow="autoplay" loading="lazy" title="Moonb vertical video 6"></iframe></div></div>
+      <!-- Column 4: scrolls DOWN -->
+      <div class="work__col" data-speed="0.12">
+        <div class="work__card work__card--video work__card--landscape"><iframe src="https://player.vimeo.com/video/1084258404?h=bf1bb4d67b&badge=0&autopause=0&player_id=0&app_id=58479&background=1" frameborder="0" allow="autoplay" loading="lazy" title="Moonb showreel 5"></iframe></div>
+        <div class="work__card work__card--video work__card--portrait"><iframe src="https://player.vimeo.com/video/1176622548?h=db1c34091d&badge=0&autopause=0&player_id=0&app_id=58479&background=1" frameborder="0" allow="autoplay" loading="lazy" title="Moonb vertical 5"></iframe></div>
+        <div class="work__card work__card--video work__card--landscape"><iframe src="https://player.vimeo.com/video/1084258404?h=bf1bb4d67b&badge=0&autopause=0&player_id=0&app_id=58479&background=1" frameborder="0" allow="autoplay" loading="lazy" title="Moonb showreel 6"></iframe></div>
+        <div class="work__card work__card--design work__card--landscape"><span class="work__label">Infographic</span></div>
+        <div class="work__card work__card--video work__card--portrait"><iframe src="https://player.vimeo.com/video/1176622548?h=db1c34091d&badge=0&autopause=0&player_id=0&app_id=58479&background=1" frameborder="0" allow="autoplay" loading="lazy" title="Moonb vertical 6"></iframe></div>
+      </div>
 
-      <!-- Remaining designs -->
-      <div class="work__item work__item--h" data-anim="17"><div class="work__design work__design--h"><span class="work__design-label">Infographic</span></div></div>
-      <div class="work__item work__item--v" data-anim="18"><div class="work__design work__design--v"><span class="work__design-label">Presentation</span></div></div>
+      <!-- Column 5: scrolls UP -->
+      <div class="work__col" data-speed="-0.08">
+        <div class="work__card work__card--video work__card--portrait"><iframe src="https://player.vimeo.com/video/1176622548?h=db1c34091d&badge=0&autopause=0&player_id=0&app_id=58479&background=1" frameborder="0" allow="autoplay" loading="lazy" title="Moonb vertical bonus"></iframe></div>
+        <div class="work__card work__card--design work__card--landscape"><span class="work__label">Presentation</span></div>
+        <div class="work__card work__card--video work__card--landscape"><iframe src="https://player.vimeo.com/video/1084258404?h=bf1bb4d67b&badge=0&autopause=0&player_id=0&app_id=58479&background=1" frameborder="0" allow="autoplay" loading="lazy" title="Moonb showreel bonus"></iframe></div>
+      </div>
     </div>
   </section>
+
+  <!-- Parallax scroll script -->
+  <script is:inline>
+    document.addEventListener('DOMContentLoaded', () => {
+      const cols = document.querySelectorAll('.work__col');
+      if (!cols.length) return;
+      const section = document.querySelector('.work');
+      let ticking = false;
+
+      function onScroll() {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(() => {
+          const rect = section.getBoundingClientRect();
+          const scrollProgress = -rect.top;
+          cols.forEach(col => {
+            const speed = parseFloat(col.dataset.speed) || 0;
+            col.style.transform = `translateY(${scrollProgress * speed}px)`;
+          });
+          ticking = false;
+        });
+      }
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    });
+  </script>
 </BaseLayout>
 
 <script src="https://player.vimeo.com/api/player.js"></script>
@@ -377,27 +416,23 @@ const row2 = [
   }
 
   /* ============================
-     RECENT WORK SECTION
+     RECENT WORK — Framer-style parallax columns
      ============================ */
   .work {
     background: var(--black);
-    padding: var(--s-24) 0 var(--s-20);
+    padding: var(--s-24) 0 var(--s-16);
     color: var(--cream);
     position: relative;
     overflow: hidden;
   }
 
-  /* Black crumpled paper texture — folds, creases, surface depth */
+  /* Black crumpled paper texture */
   .work::before {
     content: '';
     position: absolute;
     inset: 0;
     background-image:
-      /* Layer 1: Large crumpled folds — the dominant creases */
       url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600'%3E%3Cfilter id='folds'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.015' numOctaves='4' seed='6' stitchTiles='stitch' result='noise'/%3E%3CfeDiffuseLighting in='noise' lighting-color='%23333' surfaceScale='3' result='lit'%3E%3CfeDistantLight azimuth='220' elevation='40'/%3E%3C/feDiffuseLighting%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='linear' slope='0.2' intercept='0'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23folds)'/%3E%3C/svg%3E"),
-      /* Layer 2: Medium creases — sharper detail */
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='crease'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.04' numOctaves='5' seed='14' stitchTiles='stitch' result='n'/%3E%3CfeDiffuseLighting in='n' lighting-color='%23444' surfaceScale='2.2'%3E%3CfeDistantLight azimuth='160' elevation='45'/%3E%3C/feDiffuseLighting%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='linear' slope='0.12' intercept='0'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23crease)'/%3E%3C/svg%3E"),
-      /* Layer 3: Fine fiber grain */
       url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='grain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='4' seed='9' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='linear' slope='0.06' intercept='0'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23grain)'/%3E%3C/svg%3E");
     pointer-events: none;
     z-index: 0;
@@ -429,128 +464,81 @@ const row2 = [
     margin: 0 auto;
   }
 
-  /* Uniform grid — all blocks same size */
-  .work__grid {
-    max-width: 1300px;
+  /* 5-column parallax layout — columns scroll at different speeds */
+  .work__columns {
+    max-width: 1400px;
     margin: 0 auto;
-    padding: 0 var(--s-6);
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    padding: 0 var(--s-4);
+    display: flex;
     gap: 12px;
+    align-items: flex-start;
   }
 
-  .work__item {
+  .work__col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    will-change: transform;
+  }
+
+  /* Cards: rounded, overflow hidden, hover lift */
+  .work__card {
     border-radius: var(--r-xs);
     overflow: hidden;
     position: relative;
-    aspect-ratio: 4 / 3;
-    opacity: 0;
-    transform: translateY(40px);
-    animation: workItemIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  }
-
-  /* Stagger animations */
-  .work__item[data-anim="1"] { animation-delay: 0.05s; }
-  .work__item[data-anim="2"] { animation-delay: 0.1s; }
-  .work__item[data-anim="3"] { animation-delay: 0.15s; }
-  .work__item[data-anim="4"] { animation-delay: 0.2s; }
-  .work__item[data-anim="5"] { animation-delay: 0.25s; }
-  .work__item[data-anim="6"] { animation-delay: 0.3s; }
-  .work__item[data-anim="7"] { animation-delay: 0.35s; }
-  .work__item[data-anim="8"] { animation-delay: 0.4s; }
-  .work__item[data-anim="9"] { animation-delay: 0.45s; }
-  .work__item[data-anim="10"] { animation-delay: 0.5s; }
-  .work__item[data-anim="11"] { animation-delay: 0.55s; }
-  .work__item[data-anim="12"] { animation-delay: 0.6s; }
-  .work__item[data-anim="13"] { animation-delay: 0.65s; }
-  .work__item[data-anim="14"] { animation-delay: 0.7s; }
-  .work__item[data-anim="15"] { animation-delay: 0.75s; }
-  .work__item[data-anim="16"] { animation-delay: 0.8s; }
-  .work__item[data-anim="17"] { animation-delay: 0.85s; }
-  .work__item[data-anim="18"] { animation-delay: 0.9s; }
-
-  @keyframes workItemIn {
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  /* (hover defined below with float animations) */
-
-  /* Video containers — fill entire item, crop to fit */
-  .work__video-wrap {
-    position: absolute;
-    inset: 0;
-    overflow: hidden;
-    background: #252525;
-  }
-  .work__video-wrap iframe {
-    position: absolute;
-    top: 50%; left: 50%;
-    min-width: 100%; min-height: 100%;
-    width: auto; height: auto;
-    transform: translate(-50%, -50%);
-    border: none;
-  }
-  /* Vertical videos need to be wider to fill the horizontal container */
-  .work__video-wrap--v iframe {
-    min-width: 180%;
-  }
-
-  /* Design placeholders — fill entire item */
-  .work__design {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: flex-end;
-    justify-content: flex-start;
-    padding: var(--s-5);
-    background: linear-gradient(135deg, #2A2A2A 0%, #1A1A1A 50%, #252530 100%);
-  }
-  .work__design-label {
-    position: absolute;
-    bottom: var(--s-4);
-    left: var(--s-4);
-    font-family: var(--font-h);
-    font-size: 13px;
-    font-weight: 500;
-    color: rgba(242,237,228,0.35);
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-  }
-
-  /* Hover lift + glow */
-  .work__item:hover {
-    transform: translateY(-6px) scale(1.02) !important;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 20px rgba(240,215,255,0.08);
+    cursor: pointer;
     transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+  }
+  .work__card:hover {
+    transform: translateY(-4px) scale(1.015);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.5), 0 0 16px rgba(240,215,255,0.06);
     z-index: 3;
   }
 
-  /* Subtle continuous float animation on alternating items */
-  .work__item:nth-child(odd) {
-    animation: workItemIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards,
-               floatUp 6s ease-in-out infinite 1.5s;
+  /* Landscape: 16:9 */
+  .work__card--landscape { aspect-ratio: 16 / 10; }
+  /* Portrait: taller */
+  .work__card--portrait { aspect-ratio: 3 / 4; }
+
+  /* Video fills card */
+  .work__card--video {
+    background: #222;
   }
-  .work__item:nth-child(even) {
-    animation: workItemIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards,
-               floatDown 7s ease-in-out infinite 2s;
+  .work__card--video iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    border: none;
+    object-fit: cover;
   }
 
-  @keyframes floatUp {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-6px); }
+  /* Design placeholder */
+  .work__card--design {
+    background: linear-gradient(135deg, #2A2A2A 0%, #1F1F24 50%, #252530 100%);
+    display: flex;
+    align-items: flex-end;
+    padding: var(--s-4);
   }
-  @keyframes floatDown {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(6px); }
+
+  .work__label {
+    font-family: var(--font-h);
+    font-size: 12px;
+    font-weight: 500;
+    color: rgba(242,237,228,0.3);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
   }
 
   @media (max-width: 1024px) {
-    .work__grid { grid-template-columns: repeat(3, 1fr); }
+    .work__columns { gap: 8px; }
+    .work__col:nth-child(5) { display: none; }
   }
   @media (max-width: 768px) {
-    .work__grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+    .work__col:nth-child(4) { display: none; }
+    .work__col { gap: 8px; }
   }
   @media (max-width: 480px) {
-    .work__grid { grid-template-columns: 1fr; }
+    .work__col:nth-child(3) { display: none; }
   }
 </style>
