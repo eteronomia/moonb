@@ -516,26 +516,22 @@ const row2 = [
     z-index: 3;
   }
 
-  /* Landscape: bigger, 30% taller than 16:9 */
-  .work__card--landscape { aspect-ratio: 16 / 12; }
-  /* Portrait: smaller, between 9:16 and 3:4 */
-  .work__card--portrait { aspect-ratio: 3 / 4; }
+  /* Landscape: exact 16:9 to match horizontal video */
+  .work__card--landscape { aspect-ratio: 16 / 9; }
+  /* Portrait: exact 9:16 to match vertical video */
+  .work__card--portrait { aspect-ratio: 9 / 16; }
 
-  /* Video fills card edge-to-edge, no padding/bars */
+  /* Video fills card edge-to-edge — no padding, no bars */
   .work__card--video {
-    background: #111;
+    background: #000;
   }
   .work__card--video iframe {
     position: absolute;
-    top: -1px; left: -1px;
-    width: calc(100% + 2px);
-    height: calc(100% + 2px);
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
     border: none;
-  }
-  /* Vertical videos: scale iframe slightly to crop Vimeo's internal padding */
-  .work__card--video.work__card--portrait iframe {
-    top: -2%; left: -2%;
-    width: 104%; height: 104%;
+    display: block;
   }
 
   /* Design cards with placeholder images */
@@ -545,8 +541,8 @@ const row2 = [
     align-items: flex-end;
     padding: var(--s-4);
   }
-  .work__card--design.work__card--landscape { aspect-ratio: 16 / 12; }
-  .work__card--design.work__card--portrait { aspect-ratio: 3 / 4; }
+  .work__card--design.work__card--landscape { aspect-ratio: 16 / 9; }
+  .work__card--design.work__card--portrait { aspect-ratio: 9 / 16; }
 
   /* Framer-style fade-out at bottom */
   .work__fade {
