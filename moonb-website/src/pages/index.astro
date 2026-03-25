@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Testimonials3D from '../components/Testimonials3D.tsx';
 
 // Row 1: scrolls LEFT
 const row1 = [
@@ -279,35 +280,8 @@ const row2 = [
       </div>
     </div>
 
-    <!-- Testimonials -->
-    <div class="better__testimonials">
-      <div class="better__testimonial-track" id="testimonial-track">
-        <div class="better__testimonial">
-          <div class="better__testimonial-author"><strong>Rene Ugarte</strong><span>Senior Producer</span></div>
-          <p>"They were capable of adapting to fast delivery deadlines."</p>
-        </div>
-        <div class="better__testimonial">
-          <div class="better__testimonial-author"><strong>Marius Godo</strong><span>Content Specialist</span></div>
-          <p>"Their creative flair and dedication to getting the animation and storytelling style right are impressive."</p>
-        </div>
-        <div class="better__testimonial">
-          <div class="better__testimonial-author"><strong>Diane Bizzle</strong><span>Art Director</span></div>
-          <p>"The ability to quickly understand and adapt to the company branding was impressive."</p>
-        </div>
-        <div class="better__testimonial">
-          <div class="better__testimonial-author"><strong>Jacey Crawford</strong><span>Content Manager</span></div>
-          <p>"Moonb delivered very high-quality work."</p>
-        </div>
-        <div class="better__testimonial">
-          <div class="better__testimonial-author"><strong>Josh Kirshman</strong><span>Director of Marketing</span></div>
-          <p>"This was the best experience we have had with a large project like this."</p>
-        </div>
-        <div class="better__testimonial">
-          <div class="better__testimonial-author"><strong>James Pais</strong><span>Creative Service Director</span></div>
-          <p>"My team really enjoyed working with Moonb and found the experience pretty seamless."</p>
-        </div>
-      </div>
-    </div>
+    <!-- 3D Testimonials -->
+    <Testimonials3D client:visible />
   </section>
 
   <script src="https://player.vimeo.com/api/player.js" is:inline></script>
@@ -324,12 +298,7 @@ const row2 = [
         cards.forEach(c => obs.observe(c));
       }
 
-      // Testimonials: duplicate for infinite scroll
-      const track = document.getElementById('testimonial-track');
-      if (track) {
-        const items = track.innerHTML;
-        track.innerHTML = items + items;
-      }
+      // 3D testimonials handled by React island
     });
   </script>
 
@@ -410,6 +379,89 @@ const row2 = [
   @keyframes highlightSweep {
     from { transform: scaleX(0); transform-origin: left; }
     to { transform: scaleX(1); transform-origin: left; }
+  }
+
+  /* 3D Testimonials Marquee (global for React island) */
+  .t3d-wrap {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    height: 480px;
+    margin: var(--s-10) auto 0;
+    overflow: hidden;
+    perspective: 300px;
+  }
+  .t3d-stage {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    height: 100%;
+    transform: translateX(-80px) translateZ(-100px) rotateX(20deg) rotateY(-10deg) rotateZ(20deg);
+  }
+  .t3d-col {
+    flex-shrink: 0;
+    width: 220px;
+    overflow: hidden;
+    height: 100%;
+  }
+  .t3d-col__track {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    animation: marqueeDown 35s linear infinite;
+  }
+  .t3d-col--reverse .t3d-col__track {
+    animation-direction: reverse;
+  }
+  .t3d-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 20px;
+    border: 1px solid rgba(0,0,0,0.06);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+    flex-shrink: 0;
+  }
+  .t3d-card__top {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+  .t3d-card__avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+  .t3d-card__name {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.2;
+  }
+  .t3d-card__role {
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .t3d-card__body {
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--text);
+    font-style: italic;
+  }
+  .t3d-fade {
+    position: absolute;
+    pointer-events: none;
+    z-index: 2;
+  }
+  .t3d-fade--top { inset: 0 0 auto 0; height: 25%; background: linear-gradient(to bottom, var(--cream), transparent); }
+  .t3d-fade--bottom { inset: auto 0 0 0; height: 25%; background: linear-gradient(to top, var(--cream), transparent); }
+  .t3d-fade--left { inset: 0 auto 0 0; width: 20%; background: linear-gradient(to right, var(--cream), transparent); }
+  .t3d-fade--right { inset: 0 0 0 auto; width: 20%; background: linear-gradient(to left, var(--cream), transparent); }
+  @keyframes marqueeDown {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(calc(-33.33% - 8px)); }
   }
 </style>
 
@@ -1005,46 +1057,7 @@ const row2 = [
     font-size: 13px;
   }
 
-  /* Testimonials — auto-scrolling marquee */
-  .better__testimonials {
-    max-width: 100%;
-    overflow: hidden;
-    padding: var(--s-6) 0;
-  }
-  .better__testimonial-track {
-    display: flex;
-    gap: var(--s-5);
-    animation: testimonialScroll 30s linear infinite;
-    width: max-content;
-  }
-  .better__testimonial {
-    flex-shrink: 0;
-    width: 320px;
-    background: #fff;
-    border-radius: var(--r-sm);
-    padding: var(--s-6);
-    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
-    border: 1px solid rgba(0,0,0,0.04);
-  }
-  .better__testimonial-author {
-    display: flex;
-    align-items: center;
-    gap: var(--s-2);
-    margin-bottom: var(--s-3);
-    font-size: 13px;
-  }
-  .better__testimonial-author strong { color: var(--text); }
-  .better__testimonial-author span { color: var(--muted); }
-  .better__testimonial p {
-    font-size: 14px;
-    line-height: 1.55;
-    color: var(--text);
-    font-style: italic;
-  }
-  @keyframes testimonialScroll {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-  }
+  /* 3D testimonials styles in global block above */
 
   @media (max-width: 860px) {
     .better__cards { grid-template-columns: repeat(2, 1fr); }
