@@ -163,6 +163,14 @@ const row2 = [
 
     <div class="work__fade"></div>
   </section>
+
+  <!-- New cream section with paper texture -->
+  <section class="next-section paper-bg">
+    <div class="next-section__inner">
+      <h2 class="next-section__h2">A Better Way To Get Creative Done</h2>
+      <p class="next-section__sub">Skip the hiring headaches, agency markups, and freelancer roulette. Get a dedicated creative team that feels like your own.</p>
+    </div>
+  </section>
 </BaseLayout>
 
 <script src="https://player.vimeo.com/api/player.js"></script>
@@ -511,5 +519,38 @@ const row2 = [
       margin-left: -50vw;
       aspect-ratio: 9 / 8;
     }
+  }
+
+  /* --- New cream section with paper texture --- */
+  .next-section {
+    background: var(--cream);
+    padding: var(--s-20) var(--s-6);
+    position: relative;
+    border-radius: var(--r) var(--r) 0 0;
+    margin-top: -40px;
+    z-index: 6;
+  }
+
+  .next-section__inner {
+    max-width: var(--max);
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .next-section__h2 {
+    font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    color: var(--text);
+    margin-bottom: var(--s-5);
+  }
+
+  .next-section__sub {
+    font-size: 17px;
+    line-height: 1.65;
+    color: var(--muted);
+    max-width: 560px;
+    margin: 0 auto;
   }
 </style>
