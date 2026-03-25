@@ -12,7 +12,7 @@ const row1 = [
   { name: 'State Street Corporation logo', logo: '/assets/logos/state-street.svg' },
   { name: 'ThriftBooks logo', logo: '/assets/logos/thriftbooks.svg' },
   { name: 'CyberArk logo', logo: '/assets/logos/cyberark.svg' },
-  { name: 'BAM Capital Group logo', logo: '/assets/logos/bamcapgroup.svg' },
+  { name: 'BAM Capital Group logo', logo: '/assets/logos/bamcapgroup.svg', cls: 'hero__marquee-logo--lg' },
   { name: 'Jaguar Gene Therapy logo', logo: '/assets/logos/jaguar.svg' },
   { name: 'UC Berkeley logo', logo: '/assets/logos/berkeley.svg' },
 ];
@@ -25,7 +25,6 @@ const row2 = [
   { name: 'V-nova logo', logo: '/assets/logos/v-nova.svg' },
   { name: 'Unobravo logo', logo: '/assets/logos/unobravo.svg' },
   { name: 'PharmaForceIQ logo', logo: '/assets/logos/pharmaforce.svg' },
-  { name: 'Gene Therapy Inc logo', logo: '/assets/logos/genetherapy.svg' },
   { name: 'Northern Rail logo', logo: '/assets/logos/northern-rail.svg' },
   { name: 'Brainfuse logo', logo: '/assets/logos/brainfuse.svg' },
   { name: 'LHAC logo', logo: '/assets/logos/lhac.svg' },
@@ -462,6 +461,7 @@ const row2 = [
     transition: opacity 0.3s;
     object-fit: contain;
   }
+  .hero__marquee-logo--lg img { height: 42px !important; }
 
   .hero__marquee-logo--boost { height: 52px; }
   .hero__marquee-logo--boost img { height: 52px !important; }
