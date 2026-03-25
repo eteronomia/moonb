@@ -102,10 +102,11 @@ p { line-height:1.65; color:var(--muted); }
 */
 .paper-bg {
   position: relative;
+  overflow: hidden;
 }
 .paper-bg::before {
   content: '';
-  position: fixed;
+  position: absolute;
   inset: 0;
   background-image:
     /* Layer 1: 3D bumpy paper surface — the hero layer */
