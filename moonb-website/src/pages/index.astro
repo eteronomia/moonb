@@ -167,6 +167,25 @@ const row2 = [
         <div class="work__card work__card--video work__card--landscape"><iframe src="https://player.vimeo.com/video/1084258404?h=bf1bb4d67b&badge=0&autopause=0&player_id=0&app_id=58479&background=1&title=0&byline=0&portrait=0" frameborder="0" allow="autoplay" loading="lazy" title="Moonb showreel 7b"></iframe></div>
         <div class="work__card work__card--design work__card--landscape"><img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?w=500&h=280&fit=crop" alt="Banner design" loading="lazy" /><span class="work__label">Banner</span></div>
       </div>
+      <!-- Column 6: scrolls DOWN -->
+      <div class="work__col" data-speed="0.14">
+        <div class="work__card work__card--video work__card--landscape"><iframe src="https://player.vimeo.com/video/1084258404?h=bf1bb4d67b&badge=0&autopause=0&player_id=0&app_id=58479&background=1&title=0&byline=0&portrait=0" frameborder="0" allow="autoplay" loading="lazy" title="Moonb showreel 8"></iframe></div>
+        <div class="work__card work__card--design work__card--portrait"><img src="https://images.unsplash.com/photo-1572044162444-ad60f128bdea?w=400&h=700&fit=crop" alt="Logo design" loading="lazy" /><span class="work__label">Logo Design</span></div>
+        <div class="work__card work__card--video work__card--portrait"><iframe src="https://player.vimeo.com/video/1176622548?h=db1c34091d&badge=0&autopause=0&player_id=0&app_id=58479&background=1&title=0&byline=0&portrait=0" frameborder="0" allow="autoplay" loading="lazy" title="Moonb vertical 7"></iframe></div>
+        <div class="work__card work__card--video work__card--landscape"><iframe src="https://player.vimeo.com/video/1084258404?h=bf1bb4d67b&badge=0&autopause=0&player_id=0&app_id=58479&background=1&title=0&byline=0&portrait=0" frameborder="0" allow="autoplay" loading="lazy" title="Moonb showreel 9"></iframe></div>
+        <div class="work__card work__card--design work__card--landscape"><img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=500&h=280&fit=crop" alt="Web design" loading="lazy" /><span class="work__label">Web Design</span></div>
+        <div class="work__card work__card--video work__card--portrait"><iframe src="https://player.vimeo.com/video/1176622548?h=db1c34091d&badge=0&autopause=0&player_id=0&app_id=58479&background=1&title=0&byline=0&portrait=0" frameborder="0" allow="autoplay" loading="lazy" title="Moonb vertical 8"></iframe></div>
+      </div>
+
+      <!-- Column 7: scrolls UP -->
+      <div class="work__col" data-speed="-0.11">
+        <div class="work__card work__card--design work__card--portrait"><img src="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=400&h=700&fit=crop" alt="Motion graphics" loading="lazy" /><span class="work__label">Motion</span></div>
+        <div class="work__card work__card--video work__card--landscape"><iframe src="https://player.vimeo.com/video/1084258404?h=bf1bb4d67b&badge=0&autopause=0&player_id=0&app_id=58479&background=1&title=0&byline=0&portrait=0" frameborder="0" allow="autoplay" loading="lazy" title="Moonb showreel 10"></iframe></div>
+        <div class="work__card work__card--video work__card--portrait"><iframe src="https://player.vimeo.com/video/1176622548?h=db1c34091d&badge=0&autopause=0&player_id=0&app_id=58479&background=1&title=0&byline=0&portrait=0" frameborder="0" allow="autoplay" loading="lazy" title="Moonb vertical 9"></iframe></div>
+        <div class="work__card work__card--design work__card--landscape"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&h=280&fit=crop" alt="Report design" loading="lazy" /><span class="work__label">Report</span></div>
+        <div class="work__card work__card--video work__card--landscape"><iframe src="https://player.vimeo.com/video/1084258404?h=bf1bb4d67b&badge=0&autopause=0&player_id=0&app_id=58479&background=1&title=0&byline=0&portrait=0" frameborder="0" allow="autoplay" loading="lazy" title="Moonb showreel 11"></iframe></div>
+        <div class="work__card work__card--design work__card--portrait"><img src="https://images.unsplash.com/photo-1535016120720-40c646be5580?w=400&h=700&fit=crop" alt="eBook design" loading="lazy" /><span class="work__label">eBook</span></div>
+      </div>
     </div>
 
     <!-- Fade-out gradient at bottom (like Framer) -->
@@ -471,12 +490,12 @@ const row2 = [
     margin: 0 auto;
   }
 
-  /* 5-column parallax layout — full width like Framer */
+  /* 7-column parallax layout — full width like Framer, narrower columns keep portraits manageable */
   .work__columns {
     width: 100%;
-    padding: 0 8px;
+    padding: 0 6px;
     display: flex;
-    gap: 10px;
+    gap: 8px;
     align-items: flex-start;
   }
 
@@ -502,29 +521,19 @@ const row2 = [
     z-index: 3;
   }
 
-  /* Landscape: exact 16:9 to match horizontal video */
+  /* Landscape: exact 16:9 — full video visible */
   .work__card--landscape { aspect-ratio: 16 / 9; }
-  /* Portrait: cropped shorter — video fills and overflows */
-  .work__card--portrait { aspect-ratio: 4 / 5; }
+  /* Portrait: exact 9:16 — full video visible, no cropping */
+  .work__card--portrait { aspect-ratio: 9 / 16; }
 
-  /* Video fills card edge-to-edge — no padding, no bars */
+  /* Video fills card — iframe matches card exactly, full video visible */
   .work__card--video {
     background: #000;
   }
-  /* Landscape: iframe matches card exactly */
-  .work__card--video.work__card--landscape iframe {
+  .work__card--video iframe {
     position: absolute;
     top: 0; left: 0;
     width: 100%; height: 100%;
-    border: none; display: block;
-  }
-  /* Portrait: video is 9:16, card is 4:5 — scale to fill width, crop height */
-  .work__card--video.work__card--portrait iframe {
-    position: absolute;
-    top: 50%; left: 0;
-    width: 100%;
-    height: 160%;
-    transform: translateY(-50%);
     border: none; display: block;
   }
 
@@ -536,7 +545,7 @@ const row2 = [
     padding: var(--s-4);
   }
   .work__card--design.work__card--landscape { aspect-ratio: 16 / 9; }
-  .work__card--design.work__card--portrait { aspect-ratio: 4 / 5; }
+  .work__card--design.work__card--portrait { aspect-ratio: 9 / 16; }
 
   /* Framer-style fade-out at bottom */
   .work__fade {
@@ -569,13 +578,15 @@ const row2 = [
     text-shadow: 0 1px 4px rgba(0,0,0,0.5);
   }
 
-  @media (max-width: 1024px) {
-    .work__columns { gap: 8px; }
+  @media (max-width: 1200px) {
+    .work__col:nth-child(6), .work__col:nth-child(7) { display: none; }
+  }
+  @media (max-width: 900px) {
     .work__col:nth-child(5) { display: none; }
   }
-  @media (max-width: 768px) {
+  @media (max-width: 700px) {
     .work__col:nth-child(4) { display: none; }
-    .work__col { gap: 8px; }
+    .work__col { gap: 6px; }
   }
   @media (max-width: 480px) {
     .work__col:nth-child(3) { display: none; }
