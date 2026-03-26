@@ -11,6 +11,12 @@
   --black:    #1A1A1A;
   --teal:     #14523F;
   --lav:      #F0D7FF;
+  --yellow:   #FFD600;
+  --yellow-dark: #E6C200;
+  --blue:     #A2C1FF;
+  --blue-dark: #85ADFF;
+  --purple:   #6E5AFD;
+  --purple-dark: #5A45E0;
   --text:     #30312C;
   --muted:    #6B6560;
   --white:    #FFFFFF;
@@ -151,6 +157,12 @@ p { line-height:1.65; color:var(--muted); }
 .btn--green:hover { background:var(--green-light); transform:translateY(-1px); }
 .btn--green-outline { background:transparent; color:var(--green); border:1.5px solid var(--green); }
 .btn--green-outline:hover { background:var(--green-soft); transform:translateY(-1px); }
+.btn--yellow { background:var(--yellow); color:var(--text); border-color:var(--yellow); }
+.btn--yellow:hover { background:var(--yellow-dark); transform:translateY(-1px); }
+.btn--blue { background:var(--blue); color:var(--text); border-color:var(--blue); }
+.btn--blue:hover { background:var(--blue-dark); transform:translateY(-1px); }
+.btn--purple { background:var(--purple); color:#fff; border-color:var(--purple); }
+.btn--purple:hover { background:var(--purple-dark); transform:translateY(-1px); }
 
 /* ---------- Highlighter ---------- */
 .highlight {
